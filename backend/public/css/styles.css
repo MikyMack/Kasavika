@@ -18545,8 +18545,16 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
     grid-template: repeat(2, auto)/66% 1fr;
     column-gap: 3rem;
   }
+    .tf-page-cart-wrap1 {
+    display: grid;
+    grid-template: repeat(1, auto)/100% 1fr;
+    column-gap: 3rem;
+  }
   .tf-page-cart-wrap.layout-2 {
     grid-template: repeat(2, auto)/60% 1fr;
+  }
+    .tf-page-cart-wrap1.layout-2 {
+    grid-template: repeat(1, auto)/60% 1fr;
   }
   .tf-cart-item .cart-info .cart-title {
     font-size: 16px;
@@ -21244,8 +21252,8 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
   height: 40px!important;
 }
 .footer-logo a img{
-  width: 150px!important;
-  height: 50px!important;
+  width: 120px!important;
+  height: 60px!important;
   object-fit: cover;
 }
 .modal-prdct{
