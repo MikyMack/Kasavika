@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <title>Ecommerce</title>
+
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- font -->
+    <link rel="stylesheet" href="fonts/fonts.css">
+    <!-- Icons -->
+    <link rel="stylesheet" href="fonts/font-icons.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+
+    <!-- Favicon and Touch Icons  -->
+    <link rel="shortcut icon" href="images/logo/fur-logo.png">
+    <link rel="apple-touch-icon-precomposed" href="images/logo/fur-logo.png">
+
+</head>
+
+<body class="preload-wrapper">
+
+
+
+    <!-- preload -->
+    <div class="preload preload-container">
+        <div class="preload-logo">
+            <div class="spinner"></div>
+        </div>
+    </div>
+    <!-- /preload -->
+    <div id="wrapper">
+
+        <!-- Header -->
+        <header id="header" class="header-default">
+            <div class="px_15 lg-px_40">
+              <div class="row wrapper-header align-items-center">
+                <div class="col-md-4 col-3 tf-lg-hidden">
+                  <a
+                    href="#mobileMenu"
+                    data-bs-toggle="offcanvas"
+                    aria-controls="offcanvasLeft"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="16"
+                      viewBox="0 0 24 16"
+                      fill="none"
+                    >
+                      <path
+                        d="M2.00056 2.28571H16.8577C17.1608 2.28571 17.4515 2.16531 17.6658 1.95098C17.8802 1.73665 18.0006 1.44596 18.0006 1.14286C18.0006 0.839753 17.8802 0.549063 17.6658 0.334735C17.4515 0.120408 17.1608 0 16.8577 0H2.00056C1.69745 0 1.40676 0.120408 1.19244 0.334735C0.978109 0.549063 0.857702 0.839753 0.857702 1.14286C0.857702 1.44596 0.978109 1.73665 1.19244 1.95098C1.40676 2.16531 1.69745 2.28571 2.00056 2.28571ZM0.857702 8C0.857702 7.6969 0.978109 7.40621 1.19244 7.19188C1.40676 6.97755 1.69745 6.85714 2.00056 6.85714H22.572C22.8751 6.85714 23.1658 6.97755 23.3801 7.19188C23.5944 7.40621 23.7148 7.6969 23.7148 8C23.7148 8.30311 23.5944 8.59379 23.3801 8.80812C23.1658 9.02245 22.8751 9.14286 22.572 9.14286H2.00056C1.69745 9.14286 1.40676 9.02245 1.19244 8.80812C0.978109 8.59379 0.857702 8.30311 0.857702 8ZM0.857702 14.8571C0.857702 14.554 0.978109 14.2633 1.19244 14.049C1.40676 13.8347 1.69745 13.7143 2.00056 13.7143H12.2863C12.5894 13.7143 12.8801 13.8347 13.0944 14.049C13.3087 14.2633 13.4291 14.554 13.4291 14.8571C13.4291 15.1602 13.3087 15.4509 13.0944 15.6653C12.8801 15.8796 12.5894 16 12.2863 16H2.00056C1.69745 16 1.40676 15.8796 1.19244 15.6653C0.978109 15.4509 0.857702 15.1602 0.857702 14.8571Z"
+                        fill="currentColor"
+                      ></path>
+                    </svg>
+                  </a>
+                </div>
+                <div class="col-xl-3 col-md-4 col-6">
+                  <a href="index.html" class="logo-header">
+                    <img src="images/logo/fur-logo.png" alt="logo" class="logo" />
+                  </a>
+                </div>
+                <div class="col-xl-6 tf-md-hidden">
+                  <nav class="box-navigation text-center">
+                    <ul
+                      class="box-nav-ul d-flex align-items-center justify-content-center gap-30"
+                    >
+                      <li class="menu-item">
+                        <a href="index.html" class="item-link"
+                          >Home<i class="icon"></i
+                        ></a>
+                      </li>
+                      <li class="menu-item">
+                        <a href="shop.html" class="item-link"
+                          >Shop<i class="icon icon-arrow-down"></i
+                        ></a>
+                        <div class="sub-menu">
+                          <ul class="menu-list">
+                            <li>
+                              <a
+                                href="shop.html"
+                                class="menu-link-text link text_black-2"
+                                >Living</a
+                              >
+                            </li>
+                            <li>
+                              <a
+                                href="shop.html"
+                                class="menu-link-text link text_black-2"
+                                >Lighting</a
+                              >
+                            </li>
+                            <li>
+                              <a
+                                href="shop.html"
+                                class="menu-link-text link text_black-2"
+                                >Bedroom</a
+                              >
+                            </li>
+                            <li>
+                              <a
+                                href="shop.html"
+                                class="menu-link-text link text_black-2"
+                                >Sofa</a
+                              >
+                            </li>
+                            <li>
+                              <a
+                                href="shop.html"
+                                class="menu-link-text link text_black-2"
+                                >Dining</a
+                              >
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+    
+                      <li class="menu-item position-relative">
+                        <a href="about-us.html" class="item-link"
+                          >About Us<i class="icon"></i
+                        ></a>
+                      </li>
+                      <li class="menu-item">
+                        <a href="my-account-orders.html" class="item-link">Orders</a>
+                      </li>
+                      <li class="menu-item position-relative">
+                        <a href="blogs.html" class="item-link">Blogs<i class="icon"></i></a>
+                      </li>
+                      <li class="menu-item">
+                        <a href="contact.html" class="item-link">Contact Us</a>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+                <div class="col-xl-3 col-md-4 col-3">
+                  <ul
+                    class="nav-icon d-flex justify-content-end align-items-center gap-20"
+                  >
+                
+                    <li class="nav-account">
+                      <a href="#login" data-bs-toggle="modal" class="nav-icon-item"
+                        ><i class="icon icon-account"></i
+                      ></a>
+                    </li>
+                    <!-- <li class="nav-wishlist">
+                      <a href="wishlist.html" class="nav-icon-item"
+                        ><i class="icon icon-heart"></i
+                        ><span class="count-box">0</span></a
+                      >
+                    </li> -->
+                    <li class="nav-cart">
+                      <a
+                        href="cart.html"
+                  
+                        class="nav-icon-item"
+                        ><i class="icon icon-bag"></i
+                        ><span class="count-box">0</span></a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </header>
+        <!-- /Header -->
+
+        <!-- page-404 -->
+        <section class="page-404-wrap">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="image">
+                            <img src="images/item/404.svg" alt="">
+                        </div>
+                        <div class="title">
+                            Oops...That link is broken.
+                        </div>
+                        <p>Sorry for the inconvenience. Go to our homepage to check out our latest collections.</p>
+                        <a href="shop.html"
+                            class="tf-btn btn-sm radius-3 btn-fill btn-icon animate-hover-btn">Shop now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /page-404 -->
+
+        <!-- Footer -->
+        <footer id="footer" class="footer md-pb-70 has-border-full">
+            <div class="footer-wrap">
+              <div class="footer-body">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-xl-3 col-md-6 col-12">
+                      <div class="footer-infor">
+                        <div class="footer-logo">
+                          <a href="index-2.html">
+                            <img src="images/logo/fur-logo.png" alt="" />
+                          </a>
+                        </div>
+                        <ul>
+                          <li>
+                            <p>
+                              Address: 1234  sample Street, sample 567, <br />
+                              New York, NY 10001
+                            </p>
+                          </li>
+                          <li>
+                            <p>Email: <a href="#">info@sampleemail.com</a></p>
+                          </li>
+                          <li>
+                            <p>Phone: <a href="#">(123) 456-7890</a></p>
+                          </li>
+                        </ul>
+                        <a href="contact-1.html" class="tf-btn btn-line"
+                          >Get direction<i class="icon icon-arrow1-top-left"></i
+                        ></a>
+                        <ul class="tf-social-icon d-flex gap-10">
+                          <li>
+                            <a
+                              href="#"
+                              class="box-icon w_34 round social-facebook social-line"
+                              ><i class="icon fs-14 icon-fb"></i
+                            ></a>
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="box-icon w_34 round social-twiter social-line"
+                              ><i class="icon fs-12 icon-Icon-x"></i
+                            ></a>
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="box-icon w_34 round social-instagram social-line"
+                              ><i class="icon fs-14 icon-instagram"></i
+                            ></a>
+                          </li>
+                        
+                     
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6 col-12 footer-col-block">
+                      <div class="footer-heading footer-heading-desktop">
+                        <h6>Customer Services</h6>
+                      </div>
+                      <div class="footer-heading footer-heading-moblie">
+                        <h6>Customer Services</h6>
+                      </div>
+                      <ul class="footer-menu-list tf-collapse-content">
+                        <li>
+                          <a href="privacy-policy.html" class="footer-menu_item"
+                            >Privacy Policy</a
+                          >
+                        </li>
+                        <li>
+                          <a href="delivery-return.html" class="footer-menu_item">
+                            Returns + Exchanges
+                          </a>
+                        </li>
+                        <li>
+                          <a href="shipping-delivery.html" class="footer-menu_item"
+                            >Shipping</a
+                          >
+                        </li>
+                        <li>
+                          <a href="terms-conditions.html" class="footer-menu_item"
+                            >Terms &amp; Conditions</a
+                          >
+                        </li>
+                        <li>
+                          <a href="faq.html" class="footer-menu_item">FAQ’s</a>
+                        </li>
+                        <li>
+                          <a href="login.html" class="footer-menu_item"
+                            >Account</a
+                          >
+                        </li>
+                        <li>
+                          <a href="cart.html" class="footer-menu_item"
+                            > Cart</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="col-xl-3 col-md-6 col-12 footer-col-block">
+                      <div class="footer-heading footer-heading-desktop">
+                        <h6>Infomations</h6>
+                      </div>
+                      <div class="footer-heading footer-heading-moblie">
+                        <h6>Infomations</h6>
+                      </div>
+                      <ul class="footer-menu-list tf-collapse-content">
+                        <li>
+                            <a href="index.html" class="footer-menu_item"
+                              >Home</a
+                            >
+                          </li>
+                        <li>
+                          <a href="about-us.html" class="footer-menu_item"
+                            >About Us</a
+                          >
+                        </li>
+                        <li>
+                          <a href="shop.html" class="footer-menu_item"
+                            >Shop</a
+                          >
+                        </li>
+                        <li>
+                            <a href="blogs.html" class="footer-menu_item"
+                              >Blogs</a
+                            >
+                          </li>
+                        <li>
+                          <a href="contact.html" class="footer-menu_item"
+                            >Contact Us</a
+                          >
+                        </li>
+                     
+                      </ul>
+                    </div>
+                    <div class="col-xl-3 col-md-6 col-12">
+                      <div class="footer-newsletter footer-col-block">
+                        <div class="footer-heading footer-heading-desktop">
+                          <h6>Sign Up for Email</h6>
+                        </div>
+                        <div class="footer-heading footer-heading-moblie">
+                          <h6>Sign Up for Email</h6>
+                        </div>
+                        <div class="tf-collapse-content">
+                          <div class="footer-menu_item">
+                            Sign up to get first dibs on new arrivals, sales,
+                            exclusive content, events and more!
+                          </div>
+                          <form
+                            class="form-newsletter"
+                            id="subscribe-form"
+                            action="#"
+                            method="post"
+                            accept-charset="utf-8"
+                            data-mailchimp="true"
+                          >
+                            <div id="subscribe-content">
+                              <fieldset class="email">
+                                <input
+                                  type="email"
+                                  name="email-form"
+                                  id="subscribe-email"
+                                  placeholder="Enter your email...."
+                                  tabindex="0"
+                                  aria-required="true"
+                                />
+                              </fieldset>
+                              <div class="button-submit">
+                                <button
+                                  id="subscribe-button"
+                                  class="tf-btn btn-sm radius-3 btn-fill btn-icon animate-hover-btn"
+                                  type="button"
+                                >
+                                  Subscribe<i class="icon icon-arrow1-top-left"></i>
+                                </button>
+                              </div>
+                            </div>
+                            <div id="subscribe-msg"></div>
+                          </form>
+                      
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="footer-bottom">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-12">
+                      <div
+                        class="footer-bottom-wrap d-flex gap-20 flex-wrap justify-content-center align-items-center"
+                      >
+                        <div class="footer-menu_item">
+                          © 2025 Trivlogic Private Limited . All Rights Reserved
+                        </div>
+                       
+                      </div>
+                    </div>  
+                  </div>
+                </div>
+              </div>
+            </div>
+          </footer>
+        <!-- /Footer -->
+
+    </div>
+
+    <!-- gotop -->
+    <div class="progress-wrap">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"
+                style="transition: stroke-dashoffset 10ms linear 0s; stroke-dasharray: 307.919, 307.919; stroke-dashoffset: 286.138;">
+            </path>
+        </svg>
+    </div>
+    <!-- /gotop -->
+
+    <!-- toolbar-bottom -->
+    <div class="tf-toolbar-bottom type-1150">
+        <div class="toolbar-item">
+            <a href="index.html" data-bs-toggle="offcanvas" aria-controls="offcanvasLeft">
+                <div class="toolbar-icon">
+                    <i class="icon-home"></i>
+                </div>
+                <div class="toolbar-label">Home</div>
+            </a>
+        </div>
+        <div class="toolbar-item">
+            <a href="shop.html" data-bs-toggle="offcanvas" aria-controls="offcanvasLeft">
+                <div class="toolbar-icon">
+                    <i class="icon-shop"></i>
+                </div>
+                <div class="toolbar-label">Shop</div>
+            </a>
+        </div>
+  
+   
+        <div class="toolbar-item">
+            <a href="#login" data-bs-toggle="modal">
+                <div class="toolbar-icon">
+                    <i class="icon-account"></i>
+                </div>
+                <div class="toolbar-label">Account</div>
+            </a>
+        </div>
+    
+        <div class="toolbar-item">
+            <a href="cart.html" data-bs-toggle="modal">
+                <div class="toolbar-icon">
+                    <i class="icon-bag"></i>
+                    <div class="toolbar-count">1</div>
+                </div>
+                <div class="toolbar-label">Cart</div>
+            </a>
+        </div>
+    </div>
+    <!-- /toolbar-bottom -->
+
+
+
+    <!-- mobile menu -->
+    <div class="offcanvas offcanvas-start canvas-mb" id="mobileMenu">
+        <span
+          class="icon-close icon-close-popup"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></span>
+        <div class="mb-canvas-content">
+          <div class="mb-body">
+            <ul class="nav-ul-mb" id="wrapper-menu-navigation">
+              <li class="nav-mb-item">
+                <a
+                  href="index.html"
+                  class="collapsed mb-menu-link current"
+                  data-bs-toggle="collapse"
+                  aria-expanded="true"
+                  aria-controls="dropdown-menu-one"
+                >
+                  <span>Home</span>
+                </a>
+              </li>
+              <li class="nav-mb-item">
+                <a
+                  href="#dropdown-menu-two"
+                  class="collapsed mb-menu-link current"
+                  data-bs-toggle="collapse"
+                  aria-expanded="true"
+                  aria-controls="dropdown-menu-two"
+                >
+                  <span>Shop</span>
+                  <span class="btn-open-sub"></span>
+                </a>
+                <div id="dropdown-menu-two" class="collapse">
+                  <ul class="sub-nav-menu" id="sub-menu-navigation">
+                    <li>
+                      <a
+                        href="shop.html"
+                        class="sub-nav-link collapsed"
+                        data-bs-toggle="collapse"
+                        aria-expanded="true"
+                        aria-controls="sub-shop-one"
+                      >
+                        <span>Living</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="shop.html"
+                        class="sub-nav-link collapsed"
+                        data-bs-toggle="collapse"
+                        aria-expanded="true"
+                        aria-controls="sub-shop-one"
+                      >
+                        <span>Lighting</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="shop.html"
+                        class="sub-nav-link collapsed"
+                        data-bs-toggle="collapse"
+                        aria-expanded="true"
+                        aria-controls="sub-shop-one"
+                      >
+                        <span>Bedroom</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="shop.html"
+                        class="sub-nav-link collapsed"
+                        data-bs-toggle="collapse"
+                        aria-expanded="true"
+                        aria-controls="sub-shop-one"
+                      >
+                        <span>Sofa</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="shop.html"
+                        class="sub-nav-link collapsed"
+                        data-bs-toggle="collapse"
+                        aria-expanded="true"
+                        aria-controls="sub-shop-one"
+                      >
+                        <span>Dining</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-mb-item">
+                <a
+                  href="my-account-orders.html"
+                  class="collapsed mb-menu-link current"
+                  data-bs-toggle="collapse"
+                  aria-expanded="true"
+                  aria-controls="dropdown-menu-five"
+                >
+                  <span>Orders</span>
+              
+                </a>
+          
+              </li>
+              <li class="nav-mb-item">
+                <a
+                  href="about-us.html"
+                  class="collapsed mb-menu-link current"
+                  data-bs-toggle="collapse"
+                  aria-expanded="true"
+                  aria-controls="dropdown-menu-four"
+                >
+                  <span>About Us</span>
+                  
+                </a>
+        
+              </li>
+              <li class="nav-mb-item">
+                <a
+                  href="blogs.html"
+                  class="collapsed mb-menu-link current"
+                  data-bs-toggle="collapse"
+                  aria-expanded="true"
+                  aria-controls="dropdown-menu-five"
+                >
+                  <span>Blogs</span>
+              
+                </a>
+          
+              </li>
+              <li class="nav-mb-item">
+                  <a
+                    href="contact.html"
+                    class="collapsed mb-menu-link current"
+                    data-bs-toggle="collapse"
+                    aria-expanded="true"
+                    aria-controls="dropdown-menu-five"
+                  >
+                    <span>Contact Us</span>
+                
+                  </a>
+            
+                </li>
+                <li class="nav-mb-item">
+                  <a
+                    href="cart.html"
+                    class="collapsed mb-menu-link current"
+                    data-bs-toggle="collapse"
+                    aria-expanded="true"
+                    aria-controls="dropdown-menu-five"
+                  >
+                    <span>cart</span>
+                
+                  </a>
+            
+                </li>
+           
+            </ul>
+            <div class="mb-other-content">
+      
+              <div class="mb-notice">
+                <a href="contact-1.html" class="text-need">Need help ?</a>
+              </div>
+              <ul class="mb-info">
+                <li>
+                  Address: 1234 Fashion Street, Suite 567, <br />
+                  New York, NY 10001
+                </li>
+                <li>Email: <b>info@fashionshop.com</b></li>
+              
+              </ul>
+            </div>
+          </div>
+          <div class="mb-bottom">
+            <a href="login.html" class="site-nav-icon"
+              ><i class="icon icon-account"></i>Login</a
+            >
+           
+          </div>
+        </div>
+      </div>
+    <!-- /mobile menu -->
+
+
+
+
+
+    <!-- modal login -->
+    <div class="modal modalCentered fade form-sign-in modal-part-content" id="login">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="header">
+                    <div class="demo-title">Log in</div>
+                    <span class="icon-close icon-close-popup" data-bs-dismiss="modal"></span>
+                </div>
+                <div class="tf-login-form">
+                    <form class="" action="https://themesflat.co/html/ecomus/my-account.html" accept-charset="utf-8">
+                        <div class="tf-field style-1">
+                            <input class="tf-field-input tf-input" placeholder=" " type="email" name="">
+                            <label class="tf-field-label" for="">Email *</label>
+                        </div>
+                        <div class="tf-field style-1">
+                            <input class="tf-field-input tf-input" placeholder=" " type="password" name="">
+                            <label class="tf-field-label" for="">Password *</label>
+                        </div>
+                        <div>
+                            <a href="#forgotPassword" data-bs-toggle="modal" class="btn-link link">Forgot your
+                                password?</a>
+                        </div>
+                        <div class="bottom">
+                            <div class="w-100">
+                                <button type="submit"
+                                    class="tf-btn btn-fill animate-hover-btn radius-3 w-100 justify-content-center"><span>Log
+                                        in</span></button>
+                            </div>
+                            <div class="w-100">
+                                <a href="#register" data-bs-toggle="modal" class="btn-link fw-6 w-100 link">
+                                    New customer? Create your account
+                                    <i class="icon icon-arrow1-top-left"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal modalCentered fade form-sign-in modal-part-content" id="forgotPassword">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="header">
+                    <div class="demo-title">Reset your password</div>
+                    <span class="icon-close icon-close-popup" data-bs-dismiss="modal"></span>
+                </div>
+                <div class="tf-login-form">
+                    <form class="">
+                        <div>
+                            <p>Sign up for early Sale access plus tailored new arrivals, trends and promotions. To opt
+                                out, click unsubscribe in our emails</p>
+                        </div>
+                        <div class="tf-field style-1">
+                            <input class="tf-field-input tf-input" placeholder=" " type="email" name="">
+                            <label class="tf-field-label" for="">Email *</label>
+                        </div>
+                        <div>
+                            <a href="#login" data-bs-toggle="modal" class="btn-link link">Cancel</a>
+                        </div>
+                        <div class="bottom">
+                            <div class="w-100">
+                                <button type="submit"
+                                    class="tf-btn btn-fill animate-hover-btn radius-3 w-100 justify-content-center"><span>Reset
+                                        password</span></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal modalCentered fade form-sign-in modal-part-content" id="register">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="header">
+                    <div class="demo-title">Register</div>
+                    <span class="icon-close icon-close-popup" data-bs-dismiss="modal"></span>
+                </div>
+                <div class="tf-login-form">
+                    <form class="">
+                        <div class="tf-field style-1">
+                            <input class="tf-field-input tf-input" placeholder=" " type="text" name="">
+                            <label class="tf-field-label" for="">First name</label>
+                        </div>
+                        <div class="tf-field style-1">
+                            <input class="tf-field-input tf-input" placeholder=" " type="text" name="">
+                            <label class="tf-field-label" for="">Last name</label>
+                        </div>
+                        <div class="tf-field style-1">
+                            <input class="tf-field-input tf-input" placeholder=" " type="email" name="">
+                            <label class="tf-field-label" for="">Email *</label>
+                        </div>
+                        <div class="tf-field style-1">
+                            <input class="tf-field-input tf-input" placeholder=" " type="password" name="">
+                            <label class="tf-field-label" for="">Password *</label>
+                        </div>
+                        <div class="bottom">
+                            <div class="w-100">
+                                <a href="register.html"
+                                    class="tf-btn btn-fill animate-hover-btn radius-3 w-100 justify-content-center"><span>Register</span></a>
+                            </div>
+                            <div class="w-100">
+                                <a href="#login" data-bs-toggle="modal" class="btn-link fw-6 w-100 link">
+                                    Already have an account? Log in here
+                                    <i class="icon icon-arrow1-top-left"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /modal login -->
+
+
+
+
+
+
+
+
+
+
+    <!-- Javascript -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/swiper-bundle.min.js"></script>
+    <script type="text/javascript" src="js/carousel.js"></script>
+    <script type="text/javascript" src="js/bootstrap-select.min.js"></script>
+    <script type="text/javascript" src="js/lazysize.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap-select.min.js"></script>
+    <script type="text/javascript" src="js/count-down.js"></script>
+    <script type="text/javascript" src="js/wow.min.js"></script>
+    <script type="text/javascript" src="js/multiple-modal.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+</body>
+
+</html>

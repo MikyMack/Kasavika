@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<head>
+
+
+
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+
+   <title>ORDERS | STAY RARE</title>
+
+     <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="author" content="flexkit">
+
+  <link rel="shortcut icon" href="images/stayrare/fav.png" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.gstatic.com/">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Allura&amp;display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/css/plugins/swiper.min.css" type="text/css">
+  <link rel="stylesheet" href="/css/plugins/jquery.fancybox.css" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+    <!-- WebFont.js -->
+    <script>
+        WebFontConfig = {
+            google: { families: ['Poppins:400,500,600,700'] }
+        };
+        (function (d) {
+            var wf = d.createElement('script'), s = d.scripts[0];
+            wf.src = '/js/webfont.js';
+            wf.async = true;
+            s.parentNode.insertBefore(wf, s);
+        })(document);
+    </script>
+
+    
+    <style>
+        :root {
+            --primary: #2563eb;
+            --success: #16a34a;
+            --warning: #d97706;
+            --danger: #dc2626;
+            --gray: #6b7280;
+            --light-gray: #f3f4f6;
+        }
+        
+     
+        
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .page-title {
+            font-size: 28px;
+            font-weight: 600;
+            color: #111827;
+        }
+        
+        .order-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        
+        .order-header {
+            padding: 16px 20px;
+            background: #111827;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .order-meta {
+            font-size: 14px;
+        }
+        
+        .order-meta small {
+            color: white;
+            display: block;
+            margin-bottom: 4px;
+        }
+        .order-meta p {
+            color: rgb(187, 187, 187);
+            display: block;
+            margin-bottom: 4px;
+        }
+        
+        .order-status {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .status-pending { background-color: #fef3c7; color: #92400e; }
+        .status-confirmed { background-color: #dbeafe; color: #1e40af; }
+        .status-processing { background-color: #e0f2fe; color: #0369a1; }
+        .status-shipped { background-color: #ede9fe; color: #5b21b6; }
+        .status-delivered { background-color: #dcfce7; color: #166534; }
+        .status-cancelled { background-color: #fee2e2; color: #991b1b; }
+        .status-returned { background-color: #f5f5f4; color: #57534e; }
+        
+        .order-body {
+            padding: 20px;
+        }
+        
+        .order-item {
+            display: flex;
+            padding: 16px 0;
+            border-bottom: 1px solid #e5e7eb;
+            gap: 20px;
+        }
+        
+        .order-item:last-child {
+            border-bottom: none;
+        }
+        
+        .item-image {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 4px;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .item-details {
+            flex: 1;
+        }
+        
+        .item-name {
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        
+        .item-meta {
+            font-size: 14px;
+            color: var(--gray);
+            margin-bottom: 6px;
+        }
+        
+        .item-price {
+            font-weight: 600;
+        }
+        
+        .order-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            justify-content: flex-end;
+        }
+        
+        .btn {
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            border: 1px solid transparent;
+            transition: all 0.2s;
+        }
+        
+        .btn-outline {
+            background: white;
+            border-color: #d1d5db;
+            color: #374151;
+        }
+        
+        .btn-outline:hover {
+            background: #f3f4f6;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #1d4ed8;
+        }
+        
+        .btn-danger {
+            background: var(--danger);
+            color: white;
+        }
+        
+        .btn-danger:hover {
+            background: #b91c1c;
+        }
+        
+        .btn-warning {
+            background: var(--warning);
+            color: white;
+        }
+        
+        .btn-warning:hover {
+            background: #b45309;
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 10000;
+            overflow-y: auto;
+        }
+        
+        .modal-content {
+            background: white;
+            margin: 40px auto;
+            max-width: 800px;
+            width: 90%;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            animation: modalFadeIn 0.3s;
+        }
+        
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .modal-header {
+            padding: 16px 20px;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .modal-title {
+            font-size: 20px;
+            font-weight: 600;
+        }
+        
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #6b7280;
+        }
+        
+        .modal-body {
+            padding: 20px;
+        }
+        
+        .modal-section {
+            margin-bottom: 20px;
+        }
+        
+        .modal-section h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #111827;
+        }
+        
+        .tracking-progress {
+            margin-top: 20px;
+        }
+        
+        .progress-bar-container {
+            height: 6px;
+            background: #e5e7eb;
+            border-radius: 3px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: var(--primary);
+            width: 0%;
+            transition: width 0.3s;
+        }
+        
+        .tracking-steps {
+            position: relative;
+            padding-left: 30px;
+            list-style: none;
+        }
+        
+        .tracking-steps:before {
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #e5e7eb;
+        }
+        
+        .tracking-step {
+            position: relative;
+            padding-bottom: 20px;
+        }
+        
+        .tracking-step:last-child {
+            padding-bottom: 0;
+        }
+        
+        .tracking-step:before {
+            content: '';
+            position: absolute;
+            left: -30px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #e5e7eb;
+            border: 4px solid white;
+        }
+        
+        .tracking-step.active:before {
+            background: var(--primary);
+        }
+        
+        .tracking-step.completed:before {
+            background: var(--success);
+        }
+        
+        .tracking-step .step-title {
+            font-weight: 500;
+        }
+        
+        .tracking-step .step-date {
+            font-size: 13px;
+            color: var(--gray);
+        }
+        
+        .tracking-step .step-remark {
+            font-size: 14px;
+            color: var(--gray);
+            margin-top: 4px;
+        }
+        
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            gap: 8px;
+        }
+        
+        .page-item {
+            list-style: none;
+        }
+        
+        .page-link {
+            display: block;
+            padding: 8px 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .page-link:hover {
+            background: #f3f4f6;
+        }
+        
+        .page-item.active .page-link {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        .page-item.disabled .page-link {
+            color: #9ca3af;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="page-wrapper">
+  <div class="header-mobile header_sticky">
+    <div class="container d-flex align-items-center h-100">
+      <a class="mobile-nav-activator d-block position-relative"  href="#">
+        <img style="height: 30px; width: 30px;" class="menu-icn nav-icon" src="/images/menu.png" alt="">
+        <div class="btn-close-lg position-absolute top-0 start-0 w-100 cls-btn"></div>
+      </a>
+
+      <div class="logo">
+        <a href="/">
+          <img src="images/stayrare/logo.png" alt="stayrare" class="logo__image d-block">
+        </a>
+      </div><!-- /.logo -->
+
+      <a href="/cart" class="header-tools__item header-tools__cart " >
+           <div class="icon">
+            <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                <line x1="3" y1="6" x2="21" y2="6"/>
+                <path d="M16 10a4 4 0 0 1-8 0"/>
+            </svg>
+    
+        </div>
+      </a>
+    </div><!-- /.container -->
+
+    <nav class="header-mobile__navigation navigation d-flex flex-column w-100 position-absolute top-100 bg-body overflow-auto">
+ 
+
+      <div class="container">
+        <div class="overflow-hidden">
+          <ul class="navigation__list list-unstyled position-relative">
+            <li class="navigation__item">
+              <a href="/" class="navigation__link js-nav-right d-flex align-items-center">Home</a>
+       
+            </li>
+            <li class="navigation__item">
+              <a style="display: flex; justify-content: space-between!important;" href="#" class="navigation__link js-nav-right d-flex align-items-center justify-between">Store <span><i class="ri-arrow-right-s-line"></i></span></a>
+              <div class="sub-menu position-absolute top-0 start-100 w-100 d-none">
+                <a href="#" class="navigation__link js-nav-left d-flex align-items-center border-bottom mb-3"><i class="ri-arrow-left-s-line"></i>Store</a>
+              <div class="sub-menu__wrapper">
+                  <% if (typeof categories !== 'undefined' && categories.length) { %>
+                    <% categories.forEach(function(category) { %>
+                      <a href="/store?category=<%= category._id %>" class="navigation__link js-nav-right d-flex align-items-center">
+                        <%= category.name %>
+                        <% if (category.activeSubCategories && category.activeSubCategories.length) { %>
+                          <svg class="ms-auto" width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+                            <use href="#icon_next_sm" />
+                          </svg>
+                        <% } %>
+                      </a>
+                      <% if (category.activeSubCategories && category.activeSubCategories.length) { %>
+                        <div class="sub-menu__wrapper position-absolute top-0 start-100 w-100 d-none">
+                          <a href="/store?category=<%= category._id %>" class="navigation__link js-nav-left d-flex align-items-center border-bottom mb-2">
+                            <svg class="me-2" width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
+                              <use href="#icon_prev_sm" />
+                            </svg>
+                            <%= category.name %>
+                          </a>
+                          <ul class="sub-menu__list list-unstyled">
+                            <% category.activeSubCategories.forEach(function(subcat) { %>
+                              <li class="sub-menu__item">
+                                <a href="/store?category=<%= category._id %>&subcategory=<%= subcat._id %>" class="menu-link menu-link_us-s">
+                                  <%= subcat.name %>
+                                </a>
+                              </li>
+                            <% }); %>
+                          </ul>
+                        </div>
+                      <% } %>
+                    <% }); %>
+                  <% } else { %>
+                    <span class="menu-link menu-link_us-s text-muted">No categories</span>
+                  <% } %>
+                </div>
+              </div>
+            </li>
+            <li class="navigation__item">
+              <a href="/about" class="navigation__link">About</a>
+            </li>
+            <li class="navigation__item">
+              <a href="/account" class="navigation__link">Account</a>
+            </li>
+            <li class="navigation__item">
+              <a href="/orders" class="navigation__link">Orders</a>
+            </li>
+            <li class="navigation__item">
+              <a href="/cart" class="navigation__link">Cart</a>
+            </li>
+            <li class="navigation__item">
+              <a href="/wishlist" class="navigation__link">Wishlist</a>
+            </li>
+                </li>
+                     <li class="navigation__item">
+              <a href="/blogs" class="navigation__link">blogs</a>
+            </li>
+
+       
+
+
+
+   
+
+            <li class="navigation__item">
+              <a href="/contact" class="navigation__link">Contact</a>
+            </li>
+      
+          </ul><!-- /.navigation__list -->
+        </div><!-- /.overflow-hidden -->
+      </div><!-- /.container -->
+
+      <div class="border-top mobile-sidebar-social mt-auto pb-2">
+        <a href="">
+          <a href="<%= user ? '/account' : '/auth/login' %>">
+            <div class="customer-links container  mt-4 mb-2 pb-1">
+              <svg class="d-inline-block align-middle" width="20" height="20" viewBox="0 0 20 20" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <use href="#icon_user" />
+              </svg>
+              <span class="d-inline-block ms-2 text-uppercase align-middle fw-medium">My Account</span>
+            </div>
+          </a>
+
+
+
+
+
+          <ul class="container social-links d-flex justify-content-around list-unstyled d-flex flex-wrap mb-0">
+               <li>
+              <a href="https://www.facebook.com/profile.php?id=61578094636322 " class="footer__social-link d-block">
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0,0,256,256">
+<g fill="black" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(10.66667,10.66667)"><path d="M17.525,9h-3.525v-2c0,-1.032 0.084,-1.682 1.563,-1.682h1.868v-3.18c-0.909,-0.094 -1.823,-0.14 -2.738,-0.138c-2.713,0 -4.693,1.657 -4.693,4.699v2.301h-3v4l3,-0.001v9.001h4v-9.003l3.066,-0.001z"></path></g></g>
+</svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.twitter.com/" class="footer__social-link d-block">
+                <svg class="svg-icon svg-icon_x" width="14" height="13" viewBox="0 0 1200 1227" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+  <path d="M 880 0 L 585 455 L 290 0 H 0 L 425 623 L 0 1227 H 290 L 585 772 L 880 1227 H 1170 L 745 623 L 1170 0 Z"/>
+</svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/" class="footer__social-link d-block">
+               <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0,0,256,256">
+<g fill="black" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(10.66667,10.66667)"><path d="M8,3c-2.757,0 -5,2.243 -5,5v8c0,2.757 2.243,5 5,5h8c2.757,0 5,-2.243 5,-5v-8c0,-2.757 -2.243,-5 -5,-5zM8,5h8c1.654,0 3,1.346 3,3v8c0,1.654 -1.346,3 -3,3h-8c-1.654,0 -3,-1.346 -3,-3v-8c0,-1.654 1.346,-3 3,-3zM17,6c-0.55228,0 -1,0.44772 -1,1c0,0.55228 0.44772,1 1,1c0.55228,0 1,-0.44772 1,-1c0,-0.55228 -0.44772,-1 -1,-1zM12,7c-2.757,0 -5,2.243 -5,5c0,2.757 2.243,5 5,5c2.757,0 5,-2.243 5,-5c0,-2.757 -2.243,-5 -5,-5zM12,9c1.654,0 3,1.346 3,3c0,1.654 -1.346,3 -3,3c-1.654,0 -3,-1.346 -3,-3c0,-1.654 1.346,-3 3,-3z"></path></g></g>
+</svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.youtube.com/" class="footer__social-link d-block">
+                <svg class="svg-icon svg-icon_youtube" width="16" height="11" viewBox="0 0 16 11" xmlns="http://www.w3.org/2000/svg"><path d="M15.0117 1.8584C14.8477 1.20215 14.3281 0.682617 13.6992 0.518555C12.5234 0.19043 7.875 0.19043 7.875 0.19043C7.875 0.19043 3.19922 0.19043 2.02344 0.518555C1.39453 0.682617 0.875 1.20215 0.710938 1.8584C0.382812 3.00684 0.382812 5.46777 0.382812 5.46777C0.382812 5.46777 0.382812 7.90137 0.710938 9.07715C0.875 9.7334 1.39453 10.2256 2.02344 10.3896C3.19922 10.6904 7.875 10.6904 7.875 10.6904C7.875 10.6904 12.5234 10.6904 13.6992 10.3896C14.3281 10.2256 14.8477 9.7334 15.0117 9.07715C15.3398 7.90137 15.3398 5.46777 15.3398 5.46777C15.3398 5.46777 15.3398 3.00684 15.0117 1.8584ZM6.34375 7.68262V3.25293L10.2266 5.46777L6.34375 7.68262Z"/></svg>
+              </a>
+            </li>
+          </ul>
+      </div>
+    </nav><!-- /.navigation -->
+  </div><!-- /.header-mobile -->
+        <!-- Start of Header -->
+  <header id="header" class="header header-fullwidth header-transparent-bg">
+
+    <div class="header-desk header-desk_type_2">
+      <nav class="navigation d-flex">
+
+
+        <ul class="navigation__list list-unstyled d-flex">
+          <li class="navigation__item">
+            <a href="/" class="navigation__link">Home</a>
+      
+          </li>
+                  <li class="navigation__item">
+            <a href="/store" class="navigation__link">Store</a>
+      <ul class="default-menu list-unstyled">
+              <% if (typeof categories !== 'undefined' && categories.length) { %>
+                <% categories.forEach(function(category) { %>
+                  <li class="sub-menu__item position-relative">
+                    <a href="/store?category=<%= category._id %>" class="menu-link menu-link_us-s">
+                      <%= category.name %>
+                    </a>
+                    <% if (category.activeSubCategories && category.activeSubCategories.length) { %>
+                      <ul class="sub-menu list-unstyled position-absolute start-100 top-0 ms-2">
+                        <% category.activeSubCategories.forEach(function(subcat) { %>
+                          <li>
+                            <a href="/store?category=<%= category._id %>&subcategory=<%= subcat._id %>" class="menu-link menu-link_us-s">
+                              <%= subcat.name %>
+                            </a>
+                          </li>
+                        <% }); %>
+                      </ul>
+                    <% } %>
+                  </li>
+                <% }); %>
+              <% } else { %>
+                <li class="sub-menu__item"><span class="menu-link menu-link_us-s text-muted">No categories</span></li>
+              <% } %>
+            </ul><!-- /.box-menu -->
+          </li>
+           <li class="navigation__item">
+            <a href="/about" class="navigation__link">About</a>
+          </li>
+     
+ 
+     
+               <li class="navigation__item">
+            <a href="/blogs" class="navigation__link">Blog</a>
+    
+          </li>
+          <li class="navigation__item">
+            <a href="/contact" class="navigation__link">Contact</a>
+          </li>
+        </ul><!-- /.navigation__list -->
+      </nav><!-- /.navigation -->
+
+      <div class="logo">
+        <a href="/">
+          <img style="top: 50%;" src="images/stayrare/logo.png" alt="Stayrare" class="logo__image d-block">
+        </a>
+      </div><!-- /.logo -->
+
+      <div class="header-tools d-flex align-items-center">
+     
+
+      <div class="header-tools__item hover-container">
+          <a class="" href="<%= user ? '/account' : '/auth/login' %>" data-aside="customerForms">
+              <div class="icon">
+            <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+            </svg>
+   
+        </div>
+          </a>
+        </div>
+
+        <a class="header-tools__item" href="/wishlist">
+             <div class="icon">
+            <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+         
+        </div>
+        </a>
+
+        <a href="/cart" class="header-tools__item header-tools__cart " >
+     <div class="icon">
+            <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                <line x1="3" y1="6" x2="21" y2="6"/>
+                <path d="M16 10a4 4 0 0 1-8 0"/>
+            </svg>
+       
+        </div>
+          
+        </a>
+      </div><!-- /.header__tools -->
+    </div><!-- /.header-desk header-desk_type_2 -->
+  </header>
+        <!-- End of Header -->
+        <!-- Start of Main -->
+        <div class="container">
+            <div class="page-header">
+                <h1 class="page-title" style="color: white;">My Orders</h1>
+            </div>
+
+            <div class="order-tabs" style="margin-bottom: 24px; display: flex; gap: 12px; flex-wrap: wrap;">
+                <% 
+                    const tab = typeof selectedTab !== 'undefined' ? selectedTab : (typeof queryTab !== 'undefined' ? queryTab : 'current');
+                    function tabClass(name) { 
+                        return tab === name 
+                            ? 'btn btn-primary order-tab-btn-active' 
+                            : 'btn btn-outline-primary order-tab-btn'; 
+                    }
+                %>
+                <a href="/orders?tab=current" class="<%= tabClass('current') %>">Current Orders</a>
+                <a href="/orders?tab=delivered" class="<%= tabClass('delivered') %>">Delivered Orders</a>
+                <a href="/orders?tab=cancelled" class="<%= tabClass('cancelled') %>">Cancelled Orders</a>
+            </div>
+
+            <% if (orders.length === 0) { %>
+                <div class="empty-state">
+                    <div style="display: flex; justify-content: center; align-items: center; margin: 0 auto 20px; max-width: 320px;">           
+                        <dotlottie-player src="https://lottie.host/7935dd8b-1312-462b-bf34-e2780ce03ff0/fZc43ONcnq.lottie" background="transparent" speed="1" style="width: 300px; height: 300px" loop autoplay></dotlottie-player>
+                    </div>
+                    <% if (tab === 'current') { %>
+                        <h2 style="text-align: center; margin-bottom: 10px;">You have no current orders</h2>
+                        <p style="text-align: center; color: #6b7280; margin-bottom: 20px;">When you place an order, it will appear here.</p>
+                    <% } else if (tab === 'delivered') { %>
+                        <h2 style="text-align: center; margin-bottom: 10px;">No delivered orders yet</h2>
+                        <p style="text-align: center; color: #6b7280; margin-bottom: 20px;">Delivered orders will show up here.</p>
+                    <% } else if (tab === 'cancelled') { %>
+                        <h2 style="text-align: center; margin-bottom: 10px;">No cancelled orders</h2>
+                        <p style="text-align: center; color: #6b7280; margin-bottom: 20px;">Cancelled orders will show up here.</p>
+                    <% } %>
+                    <div style="text-align: center;padding-bottom: 40px;">
+                        <a href="/store" class="btn" style="background-color: #111827;color: white;">Continue Shopping</a>
+                    </div>
+                </div>
+            <% } else { %>
+                <div class="orders-list">
+                    <% orders.forEach(order => { %>
+                    <div class="order-card">
+                        <div class="order-header">
+                            <div class="order-meta">
+                                <small>ORDER PLACED</small>
+                                <p><%= order.orderDate %></p>
+                            </div>
+                            <div class="order-meta">
+                                <small>TOTAL</small>
+                                <p>₹<%= order.totalAmount.toLocaleString('en-IN') %></p>
+                            </div>
+                            <div class="order-meta">
+                                <small>ORDER #<%= order.orderId || order._id.toString().slice(-6).toUpperCase() %></small>
+                                <p>
+                                    <span class="order-status status-<%= order.orderStatus.toLowerCase() %>">
+                                        <%= order.orderStatus %>
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="order-body">
+                            <% order.items.forEach(item => { %>
+                            <div class="order-item">
+                                <img src="<%= item.product?.images?.[0] || '/images/placeholder-product.jpg' %>" 
+                                     alt="<%= item.name %>" class="item-image">
+                                <div class="item-details">
+                                    <h3 class="item-name"><%= item.name %></h3>
+                                    <div class="item-meta">
+                                        <% if (item.selectedColor) { %>Color: <%= item.selectedColor %><% } %>
+                                        <% if (item.selectedSize) { %> | Size: <%= item.selectedSize %><% } %>
+                                        | Qty: <%= item.quantity %>
+                                    </div>
+                                    <div class="item-price">₹<%= item.price.toLocaleString('en-IN') %></div>
+                                </div>
+                                <button class="btn view-details" style="padding: 2px 5px; cursor: pointer;" data-order-id="<%= order._id %>">
+                                    View Details
+                                </button>
+                            </div>
+                            <% }); %>
+                            
+                            <div class="order-actions">
+                                <% if (tab === 'current' && order.canCancel) { %>
+                                    <button class="btn btn-danger cancel-order" data-order-id="<%= order._id %>">
+                                      Cancel Order
+                                    </button>
+                                  <% } %>
+                                  <% if (tab === 'delivered' && order.canReturn) { %>
+                                    <button class="btn btn-warning return-order" data-order-id="<%= order._id %>">
+                                      Return/Replace Item
+                                    </button>
+                                    
+                                    <!-- Replacement Modal -->
+                                    <div class="modal fade" id="replacementModal" tabindex="-1" aria-hidden="true">
+                                      <div class="modal-dialog">
+                                        <div class="modal-content">
+                                          <div class="modal-header">
+                                            <h5 class="modal-title">Request Replacement</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                          </div>
+                                          <div class="modal-body">
+                                            <form id="replacementForm">
+                                              <input type="hidden" name="orderId" value="<%= order._id %>">
+                                              <div class="mb-3">
+                                                <label class="form-label">Select Item</label>
+                                                <select name="itemId" class="form-select" required>
+                                                  <% order.items.forEach(item => { %>
+                                                    <option value="<%= item._id %>"><%= item.name %></option>
+                                                  <% }); %>
+                                                </select>
+                                              </div>
+                                              <div class="mb-3">
+                                                <label class="form-label">Reason for Replacement</label>
+                                                <select name="reason" class="form-select" required>
+                                                  <option value="">Select a reason</option>
+                                                  <option value="Damaged">Damaged Product</option>
+                                                  <option value="WrongItem">Wrong Item Received</option>
+                                                  <option value="Defective">Defective Product</option>
+                                                  <option value="Other">Other</option>
+                                                </select>
+                                              </div>
+                                              <div class="mb-3" id="otherReasonContainer" style="display:none;">
+                                                <label class="form-label">Please specify</label>
+                                                <textarea name="otherReason" class="form-control"></textarea>
+                                              </div>
+                                            </form>
+                                          </div>
+                                          <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary" id="submitReplacement">Submit Request</button>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  <% } %>
+                                  
+                                  <script>
+                                  document.addEventListener('DOMContentLoaded', function() {
+                                    // Replacement request
+                                    document.querySelectorAll('.return-order').forEach(button => {
+                                      button.addEventListener('click', function() {
+                                        const modal = new bootstrap.Modal(document.getElementById('replacementModal'));
+                                        modal.show();
+                                      });
+                                    });
+                                  
+                                    // Show/hide other reason field
+                                    document.querySelector('select[name="reason"]').addEventListener('change', function() {
+                                      document.getElementById('otherReasonContainer').style.display = 
+                                        this.value === 'Other' ? 'block' : 'none';
+                                    });
+                                  
+                                    // Submit replacement request
+                                    document.getElementById('submitReplacement').addEventListener('click', async function() {
+                                      const form = document.getElementById('replacementForm');
+                                      const formData = new FormData(form);
+                                      const data = Object.fromEntries(formData.entries());
+                                      
+                                      if (data.reason === 'Other' && !data.otherReason) {
+                                        alert('Please specify the reason for replacement');
+                                        return;
+                                      }
+                                  
+                                      this.disabled = true;
+                                      this.innerHTML = '<span class="spinner-border spinner-border-sm"></span> Processing...';
+                                  
+                                      try {
+                                        const response = await fetch('/orders/replace', {
+                                          method: 'POST',
+                                          headers: {
+                                            'Content-Type': 'application/json'
+                                          },
+                                          body: JSON.stringify(data)
+                                        });
+                                  
+                                        const result = await response.json();
+                                        
+                                        if (result.success) {
+                                          alert('Replacement request submitted successfully!');
+                                          window.location.reload();
+                                        } else {
+                                          throw new Error(result.message || 'Failed to submit replacement request');
+                                        }
+                                      } catch (error) {
+                                        alert(error.message);
+                                        this.disabled = false;
+                                        this.innerHTML = 'Submit Request';
+                                      }
+                                    });
+                                  });
+                                  </script>
+                                <a href="/store" class="btn" style="background-color: #111827;color: white;">
+                                    Buy Again
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <% }); %>
+                </div>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                      // Order cancellation
+                      document.querySelectorAll('.cancel-order').forEach(button => {
+                        button.addEventListener('click', async function() {
+                          if (!confirm('Are you sure you want to cancel this order?')) return;
+                          
+                          const orderId = this.dataset.orderId;
+                          const spinner = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing...';
+                          this.innerHTML = spinner;
+                          this.disabled = true;
+                          
+                          try {
+                            const response = await fetch(`/orders/${orderId}/cancel`, {
+                              method: 'POST',
+                              headers: {
+                                'Content-Type': 'application/json'
+                              }
+                            });
+                            
+                            const result = await response.json();
+                            
+                            if (result.success) {
+                              alert('Order cancelled successfully. Refund will be processed shortly.');
+                              window.location.reload();
+                            } else {
+                              throw new Error(result.message || 'Failed to cancel order');
+                            }
+                          } catch (error) {
+                            alert(error.message);
+                            this.innerHTML = 'Cancel Order';
+                            this.disabled = false;
+                          }
+                        });
+                      });
+                    });
+                    </script>
+                <!-- Pagination -->
+                <% if (totalPages > 1) { %>
+                <ul class="pagination">
+                    <% if (hasPrevPage) { %>
+                        <li class="page-item">
+                            <a class="page-link" href="/orders?page=<%= currentPage - 1 %>&tab=<%= tab %>">Previous</a>
+                        </li>
+                    <% } else { %>
+                        <li class="page-item disabled">
+                            <span class="page-link">Previous</span>
+                        </li>
+                    <% } %>
+                    
+                    <% for (let i = 1; i <= totalPages; i++) { %>
+                        <li class="page-item <%= i === currentPage ? 'active' : '' %>">
+                            <a class="page-link" href="/orders?page=<%= i %>&tab=<%= tab %>"><%= i %></a>
+                        </li>
+                    <% } %>
+                    
+                    <% if (hasNextPage) { %>
+                        <li class="page-item">
+                            <a class="page-link" href="/orders?page=<%= currentPage + 1 %>&tab=<%= tab %>">Next</a>
+                        </li>
+                    <% } else { %>
+                        <li class="page-item disabled">
+                            <span class="page-link">Next</span>
+                        </li>
+                    <% } %>
+                </ul>
+                <% } %>
+            <% } %>
+        </div>
+    
+        <!-- Order Details Modal -->
+        <div id="orderDetailsModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Order Details #<span id="modalOrderId"></span></h2>
+                    <button class="modal-close">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col">
+                            <div class="modal-section">
+                                <h3>Shipping Address</h3>
+                                <div id="shippingAddress"></div>
+                            </div>
+                            
+                            <div class="modal-section">
+                                <h3>Payment Method</h3>
+                                <p id="paymentMethod"></p>
+                            </div>
+                            
+                            <div class="modal-section">
+                                <h3>Order Summary</h3>
+                                <div id="orderSummary"></div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="modal-section">
+                                <h3>Tracking Information</h3>
+                                <div id="trackingInfo">
+                                    <div class="tracking-progress">
+                                        <div class="progress-bar-container">
+                                            <div id="trackingProgress" class="progress-bar"></div>
+                                        </div>
+                                        <ul id="trackingSteps" class="tracking-steps"></ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="modal-section">
+                                <h3>Coupon Applied</h3>
+                                <p id="couponInfo">No coupon applied</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <script>
+            // Modal functionality
+            const modal = document.getElementById('orderDetailsModal');
+            const modalClose = modal.querySelector('.modal-close');
+            
+            // Close modal when clicking X or outside
+            modalClose.addEventListener('click', () => modal.style.display = 'none');
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) modal.style.display = 'none';
+            });
+            
+            // View order details
+            document.querySelectorAll('.view-details').forEach(button => {
+                button.addEventListener('click', async function() {
+                    const orderId = this.getAttribute('data-order-id');
+                    
+                    try {
+                        const response = await fetch(`/orders/${orderId}`);
+                        if (!response.ok) throw new Error('Failed to fetch order details');
+                        
+                        const order = await response.json();
+                        displayOrderDetails(order);
+                    } catch (error) {
+                        console.error('Error:', error);
+                        alert('Failed to load order details');
+                    }
+                });
+            });
+            
+            // Display order details in modal
+            function displayOrderDetails(order) {
+                document.getElementById('modalOrderId').textContent = order.orderId || order._id.slice(-6).toUpperCase();
+                
+                // Shipping Address
+                const shippingAddress = `
+                    <p><strong>${order.shippingAddress.name}</strong></p>
+                    <p>${order.shippingAddress.addressLine1}</p>
+                    ${order.shippingAddress.addressLine2 ? `<p>${order.shippingAddress.addressLine2}</p>` : ''}
+                    <p>${order.shippingAddress.city}, ${order.shippingAddress.state} ${order.shippingAddress.pincode}</p>
+                    <p>Phone: ${order.shippingAddress.phone}</p>
+                `;
+                document.getElementById('shippingAddress').innerHTML = shippingAddress;
+                
+                // Payment Method (show payment method clearly)
+                let paymentMethodText = '';
+                if (order.paymentInfo) {
+                    let method = order.paymentInfo.method
+                        ? order.paymentInfo.method
+                        : (order.paymentInfo.razorpayPaymentId ? "Razorpay" : (order.paymentInfo.method || "Unknown"));
+
+                    // Capitalize
+                    let methodDisplay = {
+                        'Razorpay': 'Razorpay',
+                        'COD': 'Cash on Delivery'
+                    }[method] || method;
+
+                    // Combine method and status details
+                    paymentMethodText = `${methodDisplay}`;
+                    if (order.paymentInfo.status) {
+                        paymentMethodText += ` — Status: ${order.paymentInfo.status}`;
+                    }
+                    if (order.paymentInfo.razorpayPaymentId) {
+                        paymentMethodText += `<br><span style="font-size:90%;">Payment ID: ${order.paymentInfo.razorpayPaymentId}</span>`;
+                    }
+                } else {
+                    paymentMethodText = 'Unknown';
+                }
+                document.getElementById('paymentMethod').innerHTML = paymentMethodText;
+                
+                // Order Summary
+                let orderSummaryHTML = '';
+                order.items.forEach(item => {
+                    orderSummaryHTML += `
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                            <span>${item.name} (x${item.quantity})</span>
+                            <span>₹${(item.price * item.quantity).toLocaleString('en-IN')}</span>
+                        </div>
+                    `;
+                });
+                
+                if (order.couponUsed) {
+                    orderSummaryHTML += `
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px; color: var(--success);">
+                            <span>Coupon Discount (${order.couponUsed.code})</span>
+                            <span>-₹${order.couponUsed.discountAmount.toLocaleString('en-IN')}</span>
+                        </div>
+                    `;
+                }
+                
+                orderSummaryHTML += `
+                    <hr style="margin: 12px 0;">
+                    <div style="display: flex; justify-content: space-between; font-weight: 600;">
+                        <span>Total Amount</span>
+                        <span>₹${order.totalAmount.toLocaleString('en-IN')}</span>
+                    </div>
+                `;
+                
+                document.getElementById('orderSummary').innerHTML = orderSummaryHTML;
+                
+                // Tracking Info
+                const trackingSteps = document.getElementById('trackingSteps');
+                trackingSteps.innerHTML = '';
+                
+                const statusOrder = ['Pending', 'Processing', 'Shipped', 'Out for Delivery', 'Delivered'];
+                let currentStep = statusOrder.indexOf(order.orderStatus);
+                if (currentStep === -1) currentStep = 0;
+                
+                // Use deliveryInfo.trackingHistory if available, otherwise create basic steps
+                const trackingHistory = order.deliveryInfo?.trackingHistory || 
+                    statusOrder.slice(0, currentStep + 1).map(status => ({
+                        status,
+                        date: new Date(),
+                        remark: ''
+                    }));
+                
+                trackingHistory.forEach((step, index) => {
+                    const stepEl = document.createElement('li');
+                    stepEl.className = 'tracking-step';
+                    
+                    if (index < currentStep) stepEl.classList.add('completed');
+                    else if (index === currentStep) stepEl.classList.add('active');
+                    
+                    stepEl.innerHTML = `
+                        <div class="step-title">${step.status}</div>
+                        <div class="step-date">${new Date(step.date).toLocaleString('en-IN')}</div>
+                        ${step.remark ? `<div class="step-remark">${step.remark}</div>` : ''}
+                    `;
+                    
+                    trackingSteps.appendChild(stepEl);
+                });
+                
+                // Update progress bar
+                const progress = (currentStep / (statusOrder.length - 1)) * 100;
+                document.getElementById('trackingProgress').style.width = `${progress}%`;
+                
+                // Coupon info
+                if (order.couponUsed) {
+                    document.getElementById('couponInfo').textContent = 
+                        `${order.couponUsed.code} (₹${order.couponUsed.discountAmount.toLocaleString('en-IN')} off)`;
+                }
+                
+                // Show modal
+                modal.style.display = 'block';
+            }
+            
+            // Cancel order functionality
+            document.querySelectorAll('.cancel-order').forEach(button => {
+                button.addEventListener('click', async function() {
+                    const orderId = this.getAttribute('data-order-id');
+                    if (confirm('Are you sure you want to cancel this order?')) {
+                        try {
+                            const response = await fetch(`/orders/${orderId}/cancel`, {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                }
+                            });
+                            
+                            if (!response.ok) throw new Error('Failed to cancel order');
+                            
+                            const result = await response.json();
+                            if (result.success) {
+                                alert('Order cancelled successfully');
+                                location.reload();
+                            } else {
+                                alert(result.message || 'Failed to cancel order');
+                            }
+                        } catch (error) {
+                            console.error('Error:', error);
+                            alert('An error occurred while cancelling the order');
+                        }
+                    }
+                });
+            });
+        </script>
+        <!-- End of Main -->
+
+        <!-- Start of Footer -->
+        <footer class="footer footer_type_2 dark">
+
+
+          <div class="footer-middle container">
+            <div class="row row-cols-lg-5 row-cols-2">
+              <div class="footer-column footer-store-info col-12 mb-4 mb-lg-0 d-flex flex-column align-items-center justify-content-center" style="min-height: 100%;">
+                <div class="mb-3">
+                  <img class="footer-logo" src="images/stayrare/footer-logo.png" alt="">
+                </div>
+                <p class="m-0 mb-2 text-center">
+                  <a style="color: white;" href="mailto:stayrareofficial@gmail.com">✉️ <strong
+                      class="fw-medium">stayrareofficial@gmail.com</strong></a>
+                </p>
+                <p class="mb-0 text-center">
+                  <a style="color: white;" href="tel:+916238669487">
+                    <svg width="16" height="16" viewBox="0 0 24 24"
+                      fill="white" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.05-.24c1.12.37 2.33.57 3.54.57a1 1 0 011 1v3.5a1 1 0 01-1 1C10.07 21 3 13.93 3 5.5a1 1 0 011-1H7.5a1 1 0 011 1c0 1.21.2 2.42.57 3.54a1 1 0 01-.24 1.05l-2.2 2.2z" />
+                    </svg>
+                    <strong class="fw-medium">+91 62 38669 487</strong>
+                  </a>
+                </p>
+              </div><!-- /.footer-column -->
+      
+              <div class="footer-column footer-menu mb-4 mb-lg-0">
+                <h6 class="sub-menu__title text-uppercase">Company</h6>
+                <ul class="sub-menu__list list-unstyled">
+                  <li class="sub-menu__item"><a href="/" class="menu-link menu-link_us-s">Home</a></li>
+                  <li class="sub-menu__item"><a href="/about" class="menu-link menu-link_us-s">About Us</a></li>
+                  <li class="sub-menu__item"><a href="/wishlist" class="menu-link menu-link_us-s">Wishlist</a></li>
+                  <li class="sub-menu__item"><a href="/blogs" class="menu-link menu-link_us-s">Blogs</a></li>
+                  <li class="sub-menu__item"><a href="/contact" class="menu-link menu-link_us-s">Contact Us</a></li>
+                </ul>
+              </div><!-- /.footer-column -->
+      
+              <div class="footer-column footer-menu mb-4 mb-lg-0">
+                <h6 class="sub-menu__title text-uppercase">Shop</h6>
+                <ul class="sub-menu__list list-unstyled">
+                  <li class="sub-menu__item"><a href="/store" class="menu-link menu-link_us-s">New Arrivals</a></li>
+                  <li class="sub-menu__item"><a href="/store" class="menu-link menu-link_us-s">Best Deals</a></li>
+                  <li class="sub-menu__item"><a href="/store" class="menu-link menu-link_us-s">Best Seller</a></li>
+                  <li class="sub-menu__item"><a href="/store" class="menu-link menu-link_us-s">Top Rated</a></li>
+                  <li class="sub-menu__item"><a href="/store" class="menu-link menu-link_us-s">Shop All</a></li>
+                </ul>
+              </div><!-- /.footer-column -->
+      
+              <div class="footer-column footer-menu mb-4 mb-lg-0">
+                <h6 class="sub-menu__title text-uppercase">Help</h6>
+                <ul class="sub-menu__list list-unstyled">
+                  <li class="sub-menu__item"><a href="/return_policy" class="menu-link menu-link_us-s">Return & Refund
+                      Policy</a></li>
+                  <li class="sub-menu__item"><a href="/account" class="menu-link menu-link_us-s">My Account</a></li>
+                  <li class="sub-menu__item"><a href="/terms_and_conditions" class="menu-link menu-link_us-s">Terms &
+                      Conditions</a></li>
+                  <li class="sub-menu__item"><a href="/privacy_policy" class="menu-link menu-link_us-s">Legal & Privacy</a>
+                  </li>
+                  <li class="sub-menu__item"><a href="/shipping_policy" class="menu-link menu-link_us-s">Shipping Policy</a>
+                  </li>
+      
+                </ul>
+              </div><!-- /.footer-column -->
+              <div class="footer-column footer-newsletter col-12 mb-4 mb-lg-0">
+                <h5 class="sub-menu__title text-uppercase">Subscribe</h5>
+                <p>Don’t miss a drop get product alerts, restock updates, and more delivered directly to you!</p>
+                <form action="#"
+                  class="footer-newsletter__form position-relative bg-body">
+                  <input class="form-control border-white" type="email" name="email" placeholder="Your email address">
+                  <input class="btn-link fw-medium bg-white position-absolute top-0 end-0 h-100" type="submit" value="JOIN">
+                </form>
+                <ul class="social-links list-unstyled d-flex flex-wrap mb-0 mt-3">
+                  <li>
+                    <a href="https://www.facebook.com/profile.php?id=61578094636322 " class="footer__social-link d-block">
+                      <svg class="svg-icon svg-icon_facebook" width="9" height="15" viewBox="0 0 9 15"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <use href="#icon_facebook" />
+                      </svg>
+                    </a>
+                  </li>
+               
+                  <li>
+                    <a href="https://www.instagram.com/stayrare.in?igsh=MXZ6ZzlpcjVod3Nscw=="
+                      class="footer__social-link d-block">
+                      <svg class="svg-icon svg-icon_instagram" width="14" height="13" viewBox="0 0 14 13"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <use href="#icon_instagram" />
+                      </svg>
+                    </a>
+                  </li>
+               
+                </ul>
+      
+      
+              </div><!-- /.footer-column -->
+            </div><!-- /.row-cols-5 -->
+          </div><!-- /.footer-middle container -->
+      
+          <div class="footer-bottom">
+            <div class="container d-md-flex align-items-center">
+              <span class="footer-copyright me-auto">Copyright © 2025 StayRare. All Rights Reserved. 
+              </span>
+      
+            </div><!-- /.container d-flex align-items-center -->
+          </div><!-- /.footer-bottom container -->
+        </footer>
+
+  <!-- Mobile Fixed Footer -->
+  <footer class="footer-mobile container w-100 px-5 d-md-none bg-body">
+    <div class="row text-center">
+      <div class="col-3">
+        <a href="/" class="footer-mobile__link d-flex flex-column align-items-center">
+          <img style="width: 25px; height: 25px;" src="/images/home-icon.png" alt="stayrare">
+          <span>Home</span>
+        </a>
+      </div><!-- /.col-3 -->
+
+      <div class="col-3">
+        <a href="/store" class="footer-mobile__link d-flex flex-column align-items-center">
+          <img style="width: 25px; height: 25px;" src="/images/shop-icon.png" alt="stayrare">
+          <span>Shop</span>
+        </a>
+      </div><!-- /.col-3 -->
+
+      <div class="col-3">
+        <a href="/wishlist" class="footer-mobile__link d-flex flex-column align-items-center">
+          <div class="position-relative">
+                    <svg class="d-block" width="20" height="20" viewBox="0 0 20 20" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <use href="#icon_heart" />
+          </svg>
+          </div>
+          <span>Wishlist</span>
+        </a>
+      </div><!-- /.col-3 -->
+            <div class="col-3">
+        <a href="<%= user ? '/account' : '/auth/login' %>" class="footer-mobile__link d-flex flex-column align-items-center">
+          <div class="position-relative">
+                            <svg width="20" height="20": class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+            </svg>
+          </div>
+          <span>Account</span>
+        </a>
+      </div><!-- /.col-3 -->
+    </div><!-- /.row -->
+  </footer>
+        <!-- End of Footer -->
+    </div>
+    <!-- End of Page Wrapper -->
+
+ 
+  <div id="scrollTop" class="visually-hidden end-0"></div>
+
+  <!-- Page Overlay -->
+  <div class="page-overlay"></div><!-- /.page-overlay -->
+
+  <!-- External JavaScripts -->
+  <script src="js/plugins/jquery.min.js"></script>
+  <script src="js/plugins/bootstrap.bundle.min.js"></script>
+  <script src="js/plugins/bootstrap-slider.min.js"></script>
+  
+  <script src="js/plugins/swiper.min.js"></script>
+  <script src="js/plugins/countdown.js"></script>
+  <script src="js/plugins/jquery.fancybox.js"></script>
+
+  <!-- Footer Scripts -->
+  <script src="js/theme.js"></script>
+    <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+    <!-- Plugin JS File -->
+   <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="/js/main.min.js"></script>
+          <script src="/js/script.js"></script>
+              <script>
+        // Fallback: If SVG doesn't render, this script will replace them with Unicode symbols
+        document.addEventListener('DOMContentLoaded', function() {
+            const icons = document.querySelectorAll('.icon-svg');
+            let allSvgsLoaded = true;
+            
+            icons.forEach(function(icon) {
+                if (icon.getBBox && icon.getBBox().width === 0) {
+                    allSvgsLoaded = false;
+                }
+            });
+            
+            if (!allSvgsLoaded) {
+                // Replace with Unicode fallbacks
+                const iconContainer = document.querySelector('.icon-container');
+                iconContainer.innerHTML = `
+                    <div class="icon">
+                        <div style="font-size: 24px; line-height: 32px; text-align: center;">👤</div>
+                        <div class="badge">5</div>
+                    </div>
+                    <div class="icon">
+                        <div style="font-size: 24px; line-height: 32px; text-align: center;">❤️</div>
+                        <div class="badge">2</div>
+                    </div>
+                    <div class="icon">
+                        <div style="font-size: 24px; line-height: 32px; text-align: center;">🛍️</div>
+                        <div class="badge">3</div>
+                    </div>
+                `;
+            }
+        });
+    </script>
+</body>
+
+
+
+</html>
