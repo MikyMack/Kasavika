@@ -12,19 +12,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <!-- font -->
-    <link rel="stylesheet" href="fonts/fonts.css">
+    <link rel="stylesheet" href="/fonts/fonts.css">
     <!-- Icons -->
-    <link rel="stylesheet" href="fonts/font-icons.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/swiper-bundle.min.css">
-    <link rel="stylesheet" href="css/animate.css">
-    <link rel="stylesheet" href="css/animate.css">
-    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+    <link rel="stylesheet" href="/fonts/font-icons.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/css/animate.css">
+    <link rel="stylesheet" href="/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css" />
 
     <!-- Favicon and Touch Icons  -->
     <link rel="shortcut icon" href="images/kasavika/logo.png">
     <link rel="apple-touch-icon-precomposed" href="images/kasavika/logo.png">
 
+    <link rel="shortcut icon" href="/images/logo/fur-logo.png">
+    <link rel="apple-touch-icon-precomposed" href="/images/logo/fur-logo.png">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 </head>
 
 <body class="preload-wrapper">
@@ -64,6 +67,7 @@
               <div class="col-xl-3 col-md-4 col-6">
                 <a href="index.html" class="logo-header">
                   <img src="images/kasavika/logo.png" alt="logo" class="logo" />
+                  <img src="/images/logo/fur-logo.png" alt="logo" class="logo" />
                 </a>
               </div>
               <div class="col-xl-6 tf-md-hidden">
@@ -171,75 +175,734 @@
         <!-- /header -->
 
         <!-- page-title -->
-        <div class="tf-page-title style-2">
-            <div class="container-full">
-                <div class="heading text-center">Log in</div>
-            </div>
-        </div>
-        <!-- /page-title -->
-
-        <section class="flat-spacing-10">
-            <div class="container">
-                <div class="tf-grid-layout lg-col-2 tf-login-wrap">
-                    <div class="tf-login-form">
-                        <div id="recover">
-                            <h5 class="mb_24">Reset your password</h5>
-                            <p class="mb_30">We will send you an email to reset your password</p>
-                            <div>
-                                <form class="" id="login-form" action="#" method="post" accept-charset="utf-8"
-                                    data-mailchimp="true">
-                                    <div class="tf-field style-1 mb_15">
-                                        <input class="tf-field-input tf-input" placeholder="" type="email"
-                                            id="property3" name="email">
-                                        <label class="tf-field-label fw-4 text_black-2" for="property3">Email *</label>
+        <section class="login-register container">
+            <div class="page-content">
+                <div class="container">
+                    <div class="login-popup position-relative">
+                        <div class="tab tab-nav-boxed tab-nav-center tab-nav-underline">
+                            <ul class="nav nav-tabs mb-5 text-uppercase" id="login_register" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link nav-link_underscore active" id="login-tab" data-bs-toggle="tab"
+                                        href="#sign-in" role="tab" aria-controls="sign-in" aria-selected="true">Sign In</a>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link nav-link_underscore" id="register-tab" data-bs-toggle="tab"
+                                        href="#sign-up" role="tab" aria-controls="sign-up"
+                                        aria-selected="false">Sign Up</a>
+                                </li>
+                            </ul>
+                            <p class="text-center" style="font-size:1.08rem; font-weight:500;">
+                                <span >Sign in instantly</span> with your Google account
+                            </p>
+                            <div class="social-icons social-icon-border-color d-flex justify-content-center mb-3">
+                                <a href="#" class="social-icon social-google"
+                                    onclick="handleGoogleLogin(event)"
+                                    style="font-size: 2rem; color: #fff; background: linear-gradient(135deg, #dfdfdf 0%, #ffffff 100%); box-shadow: 0 2px 8px rgba(66,133,244,0.15); border-radius: 50%; transition: transform 0.15s; display: flex; align-items: center; justify-content: center; width: 48px; height: 48px;"
+                                    title="Sign in with Google"
+                                    onmouseover="this.style.transform='scale(1.12)';"
+                                    onmouseout="this.style.transform='scale(1)';"
+                                >
+                                    <svg width="28" height="28" viewBox="0 0 48 48" style="display:block;" xmlns="http://www.w3.org/2000/svg">
+                                        <g>
+                                            <path fill="#4285F4" d="M44.5 20H24v8.5h11.7C34.1 33.1 29.6 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c2.7 0 5.2.9 7.2 2.5l6.4-6.4C33.7 5.1 29.1 3 24 3 12.4 3 3 12.4 3 24s9.4 21 21 21c10.5 0 20-7.6 20-21 0-1.3-.1-2.7-.3-4z"/>
+                                            <path fill="#34A853" d="M6.3 14.7l7 5.1C15.5 16.1 19.4 13 24 13c2.7 0 5.2.9 7.2 2.5l6.4-6.4C33.7 5.1 29.1 3 24 3c-7.2 0-13.4 4.1-16.7 10.1z"/>
+                                            <path fill="#FBBC05" d="M24 45c5.5 0 10.1-1.8 13.5-4.9l-6.2-5.1C29.6 36 26.1 37 24 37c-5.5 0-10.1-3.7-11.8-8.7l-7 5.4C7.9 41.1 15.4 45 24 45z"/>
+                                            <path fill="#EA4335" d="M44.5 20H24v8.5h11.7c-1.1 3.1-4.1 6.5-11.7 6.5-5.5 0-10.1-3.7-11.8-8.7l-7 5.4C7.9 41.1 15.4 45 24 45c10.5 0 20-7.6 20-21 0-1.3-.1-2.7-.3-4z"/>
+                                        </g>
+                                    </svg>
+                                </a>
+                            </div>
+                            <div class="text-center" style="font-size:0.97rem; color:#888;">
+                                <span>Fast, secure &amp; no password needed!</span>
+                            </div>
+                            <div class="text-center mb-2" style="font-weight: 500; font-size: 1.08rem;">
+                                <span style="color:#c0392b;">OR</span>
+                            </div>
+                            <div class="tab-content pt-2" id="login_register_tab_content">
+                                <!-- Login Tab -->
+                                <div class="tab-pane fade show active" id="sign-in" role="tabpanel" aria-labelledby="login-tab">
+                                    <div class="login-form">
+                                        <form id="loginForm" onsubmit="return handleLogin(event)">
+                                            <div class="form-floating mb-3">
+                                                <input name="emailOrMobile" type="text" class="form-control form-control_gray"
+                                                    id="loginEmailOrMobile" placeholder="Email address or Mobile number *" required autocomplete="username">
+                                                <label for="loginEmailOrMobile">Email address or Mobile number *</label>
+                                            </div>
+                                            <div class="pb-3"></div>
+                                            <div class="form-floating mb-3">
+                                                <input name="password" type="password" class="form-control form-control_gray"
+                                                    id="loginPassword" placeholder="Password *" required autocomplete="current-password">
+                                                <label for="loginPassword">Password *</label>
+                                            </div>
+                                            <div class="d-flex align-items-center mb-3 pb-2">
+                                                <div class="form-check mb-0">
+                                                    <input name="remember" class="form-check-input form-check-input_fill"
+                                                        type="checkbox" value="" id="flexCheckDefault1">
+                                                    <label class="form-check-label text-secondary" for="flexCheckDefault1">Remember
+                                                        me</label>
+                                                </div>
+                                                <a href="#" class="btn-text ms-auto" onclick="showForgotPasswordModal(event)">Lost password?</a>
+                                            </div>
+                                            <button class="btn btn-primary w-100 text-uppercase" type="submit">Sign In</button>
+                                            <div class="customer-option mt-4 text-center">
+                                                <span class="text-secondary">No account yet?</span>
+                                                <a href="#sign-up" class="btn-text js-show-register" data-bs-toggle="tab" data-bs-target="#sign-up" role="tab" aria-controls="sign-up" aria-selected="false">Create Account</a>
+                                            </div>
+                                        </form>
                                     </div>
-                                    <div class="mb_20">
-                                        <a href="#login" class="tf-btn btn-line">Cancel</a>
+                                </div>
+                                <!-- Register Tab -->
+                                <div class="tab-pane fade" id="sign-up" role="tabpanel" aria-labelledby="register-tab">
+                                    <div class="register-form">
+                                        <form id="registrationForm" onsubmit="return handleRegistration(event)">
+                                            <div class="form-floating mb-3">
+                                                <input name="name" type="text" class="form-control form-control_gray"
+                                                    id="name" placeholder="Name *" required>
+                                                <label for="name">Name *</label>
+                                            </div>
+                                            <div class="pb-3"></div>
+                                            <div class="form-floating mb-3">
+                                                <input name="email" type="email" class="form-control form-control_gray"
+                                                    id="registerEmail" placeholder="Email address *" required>
+                                                <label for="registerEmail">Email address *</label>
+                                            </div>
+                                            <div class="pb-3"></div>
+                                            <div class="form-floating mb-3">
+                                                <select class="form-control form-control_gray" id="countryCode" name="countryCode" required>
+                                                    <option value="">Country code *</option>
+                                                    <option value="+91">+91 (India)</option>
+                                                    <option value="+1">+1 (USA)</option>
+                                                    <option value="+44">+44 (UK)</option>
+                                                    <option value="+971">+971 (UAE)</option>
+                                                    <option value="+61">+61 (Australia)</option>
+                                                    <option value="+880">+880 (Bangladesh)</option>
+                                                    <option value="+92">+92 (Pakistan)</option>
+                                                    <option value="+974">+974 (Qatar)</option>
+                                                    <option value="+966">+966 (Saudi Arabia)</option>
+                                                    <option value="+20">+20 (Egypt)</option>
+                                                    <option value="+212">+212 (Morocco)</option>
+                                                    <option value="+213">+213 (Algeria)</option>
+                                                    <option value="+254">+254 (Kenya)</option>
+                                                    <option value="+27">+27 (South Africa)</option>
+                                                    <option value="+234">+234 (Nigeria)</option>
+                                                    <option value="+60">+60 (Malaysia)</option>
+                                                    <option value="+63">+63 (Philippines)</option>
+                                                    <option value="+62">+62 (Indonesia)</option>
+                                                    <option value="+81">+81 (Japan)</option>
+                                                    <option value="+86">+86 (China)</option>
+                                                    <option value="+7">+7 (Russia)</option>
+                                                    <option value="+49">+49 (Germany)</option>
+                                                    <option value="+33">+33 (France)</option>
+                                                    <option value="+39">+39 (Italy)</option>
+                                                    <option value="+34">+34 (Spain)</option>
+                                                    <option value="+55">+55 (Brazil)</option>
+                                                    <option value="+52">+52 (Mexico)</option>
+                                                    <option value="+351">+351 (Portugal)</option>
+                                                    <option value="+64">+64 (New Zealand)</option>
+                                                    <option value="+82">+82 (South Korea)</option>
+                                                    <option value="+90">+90 (Turkey)</option>
+                                                    <option value="+48">+48 (Poland)</option>
+                                                    <option value="+31">+31 (Netherlands)</option>
+                                                    <option value="+46">+46 (Sweden)</option>
+                                                    <option value="+41">+41 (Switzerland)</option>
+                                                    <option value="+358">+358 (Finland)</option>
+                                                    <option value="+47">+47 (Norway)</option>
+                                                    <option value="+45">+45 (Denmark)</option>
+                                                    <option value="+43">+43 (Austria)</option>
+                                                    <option value="+420">+420 (Czech Republic)</option>
+                                                    <option value="+36">+36 (Hungary)</option>
+                                                    <option value="+40">+40 (Romania)</option>
+                                                    <option value="+380">+380 (Ukraine)</option>
+                                                    <option value="+386">+386 (Slovenia)</option>
+                                                    <option value="+421">+421 (Slovakia)</option>
+                                                    <option value="+32">+32 (Belgium)</option>
+                                                    <option value="+353">+353 (Ireland)</option>
+                                                    <option value="+372">+372 (Estonia)</option>
+                                                    <option value="+371">+371 (Latvia)</option>
+                                                    <option value="+370">+370 (Lithuania)</option>
+                                                    <option value="+30">+30 (Greece)</option>
+                                                    <option value="+7">+7 (Kazakhstan)</option>
+                                                    <option value="+998">+998 (Uzbekistan)</option>
+                                                    <option value="+994">+994 (Azerbaijan)</option>
+                                                    <option value="+996">+996 (Kyrgyzstan)</option>
+                                                    <option value="+993">+993 (Turkmenistan)</option>
+                                                    <option value="+374">+374 (Armenia)</option>
+                                                    <option value="+995">+995 (Georgia)</option>
+                                                    <option value="+375">+375 (Belarus)</option>
+                                                    <option value="+373">+373 (Moldova)</option>
+                                                </select>
+                                            </div>
+                                            <div class="pb-3"></div>
+                                            <div class="form-floating mb-3">
+                                                <input name="mobile" type="tel" class="form-control form-control_gray"
+                                                    id="registerMobile" pattern="[0-9]{10,11}" maxlength="11" minlength="10" required
+                                                    placeholder="Enter 10 or 11 digit number">
+                                                <label for="registerMobile">Mobile Number *</label>
+                                                <small class="form-text text-muted">Enter your mobile number (10 or 11 digits, without country code)</small>
+                                            </div>
+                                            <div class="pb-3"></div>
+                                            <div class="form-floating mb-3">
+                                                <input name="password" type="password" class="form-control form-control_gray"
+                                                    id="registerPassword" placeholder="Password *" required>
+                                                <label for="registerPassword">Password *</label>
+                                            </div>
+                                            <p>Your personal data will be used to support your experience throughout this
+                                                website, to manage access to your account, and for other purposes described
+                                                in our <a href="#" class="text-primary">privacy policy</a>.</p>
+                                            <div class="form-checkbox d-flex align-items-center justify-content-between mb-5">
+                                                <input type="checkbox" class="custom-checkbox" id="remember" name="remember" required>
+                                                <label for="remember" class="font-size-md">I agree to the <a href="#"
+                                                        class="text-primary font-size-md">privacy policy</a></label>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary w-100 text-uppercase">Sign Up</button>
+                                        </form>
                                     </div>
-                                    <div class="">
-                                        <button type="submit"
-                                            class="tf-btn w-100 radius-3 btn-fill animate-hover-btn justify-content-center">Reset
-                                            password</button>
-                                    </div>
-                                </form>
+                                </div>
                             </div>
                         </div>
-                        <div id="login">
-                            <h5 class="mb_36">Log in</h5>
-                            <div>
-                                <form class="" id="login-form" action="https://themesflat.co/html/ecomus/my-account.html" accept-charset="utf-8">
-                                    <div class="tf-field style-1 mb_15">
-                                        <input class="tf-field-input tf-input" placeholder="" type="email"
-                                            id="property3" name="email">
-                                        <label class="tf-field-label fw-4 text_black-2" for="property3">Email *</label>
-                                    </div>
-                                    <div class="tf-field style-1 mb_30">
-                                        <input class="tf-field-input tf-input" placeholder="" type="password"
-                                            id="property4" name="password">
-                                        <label class="tf-field-label fw-4 text_black-2" for="property4">Password
-                                            *</label>
-                                    </div>
-                                    <div class="mb_20">
-                                        <a href="#recover" class="tf-btn btn-line">Forgot your password?</a>
-                                    </div>
-                                    <div class="">
-                                        <button type="submit"
-                                            class="tf-btn w-100 radius-3 btn-fill animate-hover-btn justify-content-center">Log
-                                            in</button>
-                                    </div>
-                                </form>
+                        <!-- Forgot Password Modal (true modal, overlays the login form) -->
+                        <div id="forgotPasswordModal"
+                            style="display:none; position:fixed; z-index:1050; left:0; top:0; width:100vw; height:100vh; background:rgba(0,0,0,0.35);">
+                            <div
+                                style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); max-width:400px; width:100%; background:#fff; border-radius:8px; box-shadow:0 2px 16px rgba(0,0,0,0.15); padding:32px;">
+                                <button type="button" onclick="closeForgotPasswordModal()"
+                                    style="position:absolute; right:12px; top:12px; background:none; border:none; font-size:22px; color:#888; z-index:2;">&times;</button>
+                                <div id="forgotPasswordStepEmail">
+                                    <h4 class="mb-3">Forgot Password</h4>
+                                    <form id="forgotEmailForm" onsubmit="return sendForgotPasswordOtp(event)">
+                                        <div class="form-group">
+                                            <label>Enter your email address *</label>
+                                            <input type="email" class="form-control" id="forgotEmail" required>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center mt-3">
+                                            <button type="button" class="btn btn-link"
+                                                onclick="closeForgotPasswordModal()">Cancel</button>
+                                            <button type="submit" class="btn btn-primary">Send OTP</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div id="forgotPasswordStepOtp" style="display:none;">
+                                    <h4 class="mb-3">Enter OTP</h4>
+                                    <p class="text-muted mb-2" style="font-size: 0.98rem;">
+                                        Please check your registered email for the OTP and enter it below.
+                                    </p>
+                                    <form id="forgotOtpForm" onsubmit="return verifyForgotPasswordOtp(event)">
+                                        <div class="form-group">
+                                            <label>Enter the OTP sent to your email *</label>
+                                            <input type="text" class="form-control" id="forgotOtp" required>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center mb-3">
+                                            <button type="button" class="btn btn-link"
+                                                onclick="resendForgotPasswordOtp()">Resend OTP</button>
+                                            <span id="forgotCountdown" class="text-muted"></span>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <button type="button" class="btn btn-link"
+                                                onclick="closeForgotPasswordModal()">Cancel</button>
+                                            <button type="submit" class="btn btn-primary">Verify OTP</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div id="forgotPasswordStepReset" style="display:none;">
+                                    <h4 class="mb-3">Reset Password</h4>
+                                    <form id="forgotResetForm" onsubmit="return resetForgotPassword(event)">
+                                        <div class="form-group">
+                                            <label>New Password *</label>
+                                            <input type="password" class="form-control" id="forgotNewPassword" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Confirm New Password *</label>
+                                            <input type="password" class="form-control" id="forgotConfirmPassword"
+                                                required>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center mt-3">
+                                            <button type="button" class="btn btn-link"
+                                                onclick="closeForgotPasswordModal()">Cancel</button>
+                                            <button type="submit" class="btn btn-primary">Reset Password</button>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="tf-login-content">
-                        <h5 class="mb_36">I'm new here</h5>
-                        <p class="mb_20">Sign up for early Sale access plus tailored new arrivals, trends and
-                            promotions. To opt out, click unsubscribe in our emails.</p>
-                        <a href="register.html" class="tf-btn btn-line">Register<i
-                                class="icon icon-arrow1-top-left"></i></a>
+                        <!-- End Forgot Password Modal -->
                     </div>
                 </div>
             </div>
+            <script>
+                // Helper function to show toast messages using Toastify
+                function showToast(message, type) {
+                    Toastify({
+                        text: message,
+                        duration: 3000,
+                        gravity: "top",
+                        position: "right",
+                        backgroundColor: type === "success" ? "#4CAF50" : "#ff0000",
+                    }).showToast();
+                }
+                // Show toast for Google login result or error on page load
+                window.addEventListener('DOMContentLoaded', () => {
+                    // Fix: Ensure correct tab is shown if hash is present or if "Create Account" is clicked
+                    function showTabFromHash() {
+                        var hash = window.location.hash;
+                        if (hash === "#sign-up") {
+                            var tabTrigger = document.querySelector('[data-bs-toggle="tab"][href="#sign-up"]');
+                            if (tabTrigger) {
+                                // Use Bootstrap's Tab API if available, else fallback to manual class switching
+                                if (window.bootstrap && bootstrap.Tab) {
+                                    var tab = new bootstrap.Tab(tabTrigger);
+                                    tab.show();
+                                } else {
+                                    // Fallback: manually switch tab
+                                    document.querySelectorAll('.nav-link').forEach(function(link) {
+                                        link.classList.remove('active');
+                                    });
+                                    tabTrigger.classList.add('active');
+                                    document.querySelectorAll('.tab-pane').forEach(function(pane) {
+                                        pane.classList.remove('show', 'active');
+                                    });
+                                    var pane = document.querySelector('#sign-up');
+                                    if (pane) {
+                                        pane.classList.add('show', 'active');
+                                    }
+                                }
+                            }
+                        } else if (hash === "#sign-in") {
+                            var tabTrigger = document.querySelector('[data-bs-toggle="tab"][href="#sign-in"]');
+                            if (tabTrigger) {
+                                if (window.bootstrap && bootstrap.Tab) {
+                                    var tab = new bootstrap.Tab(tabTrigger);
+                                    tab.show();
+                                } else {
+                                    document.querySelectorAll('.nav-link').forEach(function(link) {
+                                        link.classList.remove('active');
+                                    });
+                                    tabTrigger.classList.add('active');
+                                    document.querySelectorAll('.tab-pane').forEach(function(pane) {
+                                        pane.classList.remove('show', 'active');
+                                    });
+                                    var pane = document.querySelector('#sign-in');
+                                    if (pane) {
+                                        pane.classList.add('show', 'active');
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    showTabFromHash();
+                    window.addEventListener('hashchange', showTabFromHash);
+                    // Also handle .js-show-register click to show register tab
+                    document.querySelectorAll('.js-show-register').forEach(function(el) {
+                        el.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            var tabTrigger = document.querySelector('[data-bs-toggle="tab"][href="#sign-up"]');
+                            if (tabTrigger) {
+                                if (window.bootstrap && bootstrap.Tab) {
+                                    var tab = new bootstrap.Tab(tabTrigger);
+                                    tab.show();
+                                } else {
+                                    // Fallback: manually switch tab
+                                    document.querySelectorAll('.nav-link').forEach(function(link) {
+                                        link.classList.remove('active');
+                                    });
+                                    tabTrigger.classList.add('active');
+                                    document.querySelectorAll('.tab-pane').forEach(function(pane) {
+                                        pane.classList.remove('show', 'active');
+                                    });
+                                    var pane = document.querySelector('#sign-up');
+                                    if (pane) {
+                                        pane.classList.add('show', 'active');
+                                    }
+                                }
+                            }
+                            window.location.hash = "#sign-up";
+                        });
+                    });
+                    const params = new URLSearchParams(window.location.search);
+                    // If the server returned a JSON error message in the query string, show it
+                    if (params.get('errorMsg')) {
+                        // Try to parse as JSON, fallback to plain string
+                        let msg = params.get('errorMsg');
+                        try {
+                            const parsed = JSON.parse(msg);
+                            if (parsed && parsed.message) {
+                                showToast(parsed.message, "error");
+                            } else {
+                                showToast(msg, "error");
+                            }
+                        } catch (e) {
+                            showToast(msg, "error");
+                        }
+                    }
+                    if (params.get('error') === 'google_failed') {
+                        showToast("Google login failed. Please try again.", "error");
+                    }
+                    // Show blocked user error for Google login (legacy, fallback)
+                    if (params.get('error') === 'blocked') {
+                        showToast("Your account has been blocked. Please contact support.", "error");
+                    }
+                    if (params.get('googleLogin') === 'true') {
+                        showToast("Logged in with Google!", "success");
+                    }
+                });
+                let registrationData = {};
+                let otpCountdown;
+                async function handleLogin(event) {
+                    event.preventDefault();
+                    const emailOrMobile = document.getElementById('loginEmailOrMobile').value.trim();
+                    const password = document.getElementById('loginPassword').value;
+                    // Get guestCart from localStorage
+                    const guestCart = JSON.parse(localStorage.getItem('cart')) || [];
+                    try {
+                        const response = await fetch('/auth/login', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                emailOrMobile,
+                                password,
+                                guestCart // Send guest cart to server
+                            })
+                        });
+                        // Always try to parse the response as JSON
+                        let result = {};
+                        try {
+                            result = await response.json();
+                        } catch (e) {
+                            // If not JSON, fallback to text
+                            result = { message: await response.text() };
+                        }
+                        if (!response.ok) {
+                            // Display error from server in Toastify
+                            showToast(result.message || 'Login failed', "error");
+                            return false;
+                        }
+                        // Clear guest cart on successful login
+                        localStorage.removeItem('cart');
+                        showToast("Login successful!", "success");
+                        // Always redirect to /cart on successful login
+                        window.location.href = '/cart';
+                    } catch (err) {
+                        showToast(err.message, "error");
+                    }
+                    return false;
+                }
+                function handleGoogleLogin(event) {
+                    event.preventDefault();
+                    const guestCart = JSON.parse(localStorage.getItem('cart')) || [];
+                    const encodedCart = encodeURIComponent(JSON.stringify(guestCart));
+                    fetch('/auth/store-guest-cart', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ guestCart })
+                    }).then(() => {
+                        window.location.href = `/auth/google?guestCart=${encodedCart}`;
+                    });
+                }
+                async function handleRegistration(event) {
+                    event.preventDefault();
+                    // Validate mobile number
+                    const mobile = document.getElementById('registerMobile').value.trim();
+                    const countryCode = document.getElementById('countryCode').value.trim();
+                    if (!countryCode) {
+                        showToast('Please select your country code.', "error");
+                        return false;
+                    }
+                    if (!/^\d{10,11}$/.test(mobile)) {
+                        showToast('Mobile number must be 10 or 11 digits.', "error");
+                        return false;
+                    }
+                    registrationData = {
+                        name: document.getElementById('name').value,
+                        email: document.getElementById('registerEmail').value,
+                        password: document.getElementById('registerPassword').value,
+                        mobile: countryCode + mobile // Combine country code and mobile
+                    };
+                    try {
+                        // First check if email is available
+                        const checkResponse = await fetch('/auth/check-email', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ email: registrationData.email })
+                        });
+                        const checkResult = await checkResponse.json();
+                        if (!checkResponse.ok || !checkResult.available) {
+                            showToast('Email already registered', "error");
+                            return false;
+                        }
+                        // Then send OTP
+                        const otpResponse = await fetch('/auth/send-otp', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ email: registrationData.email })
+                        });
+                        if (!otpResponse.ok) {
+                            const error = await otpResponse.json();
+                            showToast(error.message || 'Failed to send OTP', "error");
+                            return false;
+                        }
+                        // Replace form with OTP form
+                        const signUpTab = document.getElementById('sign-up');
+                        signUpTab.innerHTML = `
+      <div class="mb-3 text-center">
+        <h4 class="mb-2">Almost There!</h4>
+        <p class="text-muted" style="font-size:1.05rem;">
+          🚀 We've sent a One-Time Password (OTP) to your email.<br>        
+        </p>
+        <p class="text-muted" style="font-size:0.97rem;">
+          Enter the 6-digit code below to verify your email and complete your registration.
+        </p>
+      </div>
+      <form id="otpForm" onsubmit="return verifyOtp(event)">
+        <div class="form-group mb-3">
+          <label for="registerOtp">Enter OTP *</label>
+          <input type="text" class="form-control" name="otp" id="registerOtp" required maxlength="6" minlength="4" pattern="\\d{4,6}" placeholder="e.g. 123456">
+        </div>
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <button type="button" class="btn btn-link" onclick="resendOtp()">Didn't get it? Resend OTP</button>
+          <span id="countdown" class="text-muted"></span>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Verify & Complete Registration</button>
+      </form>
+    `;
+                        startCountdown();
+                    } catch (err) {
+                        showToast(err.message, "error");
+                    }
+                    return false;
+                }
+                async function verifyOtp(event) {
+                    event.preventDefault();
+                    const otp = document.getElementById('registerOtp').value;
+                    try {
+                        // Verify OTP
+                        const verifyResponse = await fetch('/auth/verify-otp', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                email: registrationData.email,
+                                otp: otp
+                            })
+                        });
+                        const verifyResult = await verifyResponse.json();
+                        if (!verifyResponse.ok || !verifyResult.success) {
+                            showToast(verifyResult.message || 'OTP verification failed', "error");
+                            return false;
+                        }
+                        // Complete registration
+                        const registerResponse = await fetch('/auth/register', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(registrationData)
+                        });
+                        const registerResult = await registerResponse.json();
+                        if (!registerResponse.ok || !registerResult.success) {
+                            showToast(registerResult.message || 'Registration failed', "error");
+                            return false;
+                        }
+                        showToast("Registration successful!", "success");
+                        window.location.href = '/auth/login';
+                    } catch (err) {
+                        showToast(err.message, "error");
+                    }
+                    return false;
+                }
+                async function resendOtp() {
+                    clearInterval(otpCountdown);
+                    try {
+                        const response = await fetch('/auth/send-otp', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({ email: registrationData.email })
+                        });
+                        if (response.ok) {
+                            showToast("OTP resent successfully", "success");
+                            startCountdown();
+                        } else {
+                            let errorMsg = 'Failed to resend OTP';
+                            try {
+                                const error = await response.json();
+                                errorMsg = error.message || errorMsg;
+                            } catch (e) {
+                                // fallback to text
+                                errorMsg = (await response.text()) || errorMsg;
+                            }
+                            showToast(errorMsg, "error");
+                        }
+                    } catch (err) {
+                        showToast("Failed to resend OTP", "error");
+                    }
+                }
+                function startCountdown() {
+                    let timeLeft = 60;
+                    const countdownElement = document.getElementById('countdown');
+                    countdownElement.textContent = `Resend in ${timeLeft}s`;
+                    otpCountdown = setInterval(() => {
+                        timeLeft--;
+                        countdownElement.textContent = `Resend in ${timeLeft}s`;
+                        if (timeLeft <= 0) {
+                            clearInterval(otpCountdown);
+                            countdownElement.textContent = '';
+                        }
+                    }, 1000);
+                }
+                // --- Forgot Password Logic (updated for new backend) ---
+                let forgotPassword = {
+                    email: "",
+                    token: "",
+                    verified: false
+                };
+                let forgotOtpCountdown;
+                function showForgotPasswordModal(event) {
+                    if (event) event.preventDefault();
+                    document.getElementById('forgotPasswordModal').style.display = 'block';
+                    document.getElementById('forgotPasswordStepEmail').style.display = '';
+                    document.getElementById('forgotPasswordStepOtp').style.display = 'none';
+                    document.getElementById('forgotPasswordStepReset').style.display = 'none';
+                    document.getElementById('forgotEmail').value = '';
+                    forgotPassword = { email: "", token: "", verified: false };
+                    clearInterval(forgotOtpCountdown);
+                    document.getElementById('forgotCountdown').textContent = '';
+                    // Prevent background scroll when modal is open
+                    document.body.style.overflow = 'hidden';
+                }
+                function closeForgotPasswordModal() {
+                    document.getElementById('forgotPasswordModal').style.display = 'none';
+                    clearInterval(forgotOtpCountdown);
+                    // Restore background scroll
+                    document.body.style.overflow = '';
+                }
+                async function sendForgotPasswordOtp(event) {
+                    event.preventDefault();
+                    const email = document.getElementById('forgotEmail').value.trim();
+                    if (!email) {
+                        showToast("Please enter your email address.", "error");
+                        return false;
+                    }
+                    try {
+                        const response = await fetch('/forgot-password', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ email })
+                        });
+                        const result = await response.json();
+                        if (!response.ok) {
+                            showToast(result.message || "Failed to send OTP", "error");
+                            return false;
+                        }
+                        forgotPassword.email = email;
+                        showToast("OTP sent to your email.", "success");
+                        document.getElementById('forgotPasswordStepEmail').style.display = 'none';
+                        document.getElementById('forgotPasswordStepOtp').style.display = '';
+                        document.getElementById('forgotPasswordStepReset').style.display = 'none';
+                        startForgotCountdown();
+                    } catch (err) {
+                        showToast("Failed to send OTP", "error");
+                    }
+                    return false;
+                }
+                async function verifyForgotPasswordOtp(event) {
+                    event.preventDefault();
+                    const otp = document.getElementById('forgotOtp').value.trim();
+                    try {
+                        const response = await fetch('/verify-forgot-password-otp', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                email: forgotPassword.email,
+                                otp
+                            })
+                        });
+                        const result = await response.json();
+                        if (!response.ok) {
+                            showToast(result.message || "OTP verification failed", "error");
+                            return false;
+                        }
+                        // Store the verified OTP for the reset step
+                        forgotPassword.otp = otp;
+                        // Show reset form
+                        document.getElementById('forgotPasswordStepOtp').style.display = 'none';
+                        document.getElementById('forgotPasswordStepReset').style.display = '';
+                    } catch (err) {
+                        showToast("OTP verification failed", "error");
+                    }
+                    return false;
+                } async function resetForgotPassword(event) {
+                    event.preventDefault();
+                    const newPassword = document.getElementById('forgotNewPassword').value;
+                    const confirmPassword = document.getElementById('forgotConfirmPassword').value;
+                    if (!newPassword || !confirmPassword) {
+                        showToast("Please fill all password fields", "error");
+                        return false;
+                    }
+                    if (newPassword !== confirmPassword) {
+                        showToast("Passwords don't match", "error");
+                        return false;
+                    }
+                    try {
+                        const response = await fetch('/reset-password', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                email: forgotPassword.email,
+                                otp: forgotPassword.otp, // Make sure this is set from the verification step
+                                newPassword
+                            })
+                        });
+                        const result = await response.json();
+                        if (!response.ok) {
+                            showToast(result.message || "Failed to reset password", "error");
+                            return false;
+                        }
+                        showToast("Password reset successfully! Please login.", "success");
+                        closeForgotPasswordModal();
+                    } catch (err) {
+                        console.error('Reset error:', err);
+                        showToast("Failed to reset password", "error");
+                    }
+                    return false;
+                }
+                async function resendForgotPasswordOtp() {
+                    clearInterval(forgotOtpCountdown);
+                    if (!forgotPassword.email) {
+                        showToast("No email found. Please start again.", "error");
+                        return;
+                    }
+                    try {
+                        const response = await fetch('/forgot-password', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ email: forgotPassword.email })
+                        });
+                        const result = await response.json();
+                        if (!response.ok) {
+                            showToast(result.message || "Failed to resend OTP", "error");
+                            return;
+                        }
+                        showToast("OTP resent to your email.", "success");
+                        startForgotCountdown();
+                    } catch (err) {
+                        showToast("Failed to resend OTP", "error");
+                    }
+                }
+                function startForgotCountdown() {
+                    let timeLeft = 60;
+                    const countdownElement = document.getElementById('forgotCountdown');
+                    countdownElement.textContent = `Resend in ${timeLeft}s`;
+                    forgotOtpCountdown = setInterval(() => {
+                        timeLeft--;
+                        countdownElement.textContent = `Resend in ${timeLeft}s`;
+                        if (timeLeft <= 0) {
+                            clearInterval(forgotOtpCountdown);
+                            countdownElement.textContent = '';
+                        }
+                    }, 1000);
+                }
+            </script>
         </section>
 
 
@@ -255,6 +918,68 @@
                       <a href="index-2.html">
                         <img src="images/kasavika/logo.png" alt="" />
                       </a>
+        <footer id="footer" class="footer md-pb-70 has-border-full">
+          <div class="footer-wrap">
+            <div class="footer-body">
+              <div class="container">
+                <div class="row">
+                  <div class="col-xl-3 col-md-6 col-12">
+                    <div class="footer-infor">
+                      <div class="footer-logo">
+                        <a href="index-2.html">
+                          <img src="/images/logo/fur-logo.png" alt="" />
+                        </a>
+                      </div>
+                      <ul>
+                        <li>
+                          <p>
+                            Address: 1234  sample Street, sample 567, <br />
+                            New York, NY 10001
+                          </p>
+                        </li>
+                        <li>
+                          <p>Email: <a href="#">info@sampleemail.com</a></p>
+                        </li>
+                        <li>
+                          <p>Phone: <a href="#">(123) 456-7890</a></p>
+                        </li>
+                      </ul>
+                      <a href="contact-1.html" class="tf-btn btn-line"
+                        >Get direction<i class="icon icon-arrow1-top-left"></i
+                      ></a>
+                      <ul class="tf-social-icon d-flex gap-10">
+                        <li>
+                          <a
+                            href="#"
+                            class="box-icon w_34 round social-facebook social-line"
+                            ><i class="icon fs-14 icon-fb"></i
+                          ></a>
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="box-icon w_34 round social-twiter social-line"
+                            ><i class="icon fs-12 icon-Icon-x"></i
+                          ></a>
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="box-icon w_34 round social-instagram social-line"
+                            ><i class="icon fs-14 icon-instagram"></i
+                          ></a>
+                        </li>
+                      
+                   
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="col-xl-3 col-md-6 col-12 footer-col-block">
+                    <div class="footer-heading footer-heading-desktop">
+                      <h6>Customer Services</h6>
+                    </div>
+                    <div class="footer-heading footer-heading-moblie">
+                      <h6>Customer Services</h6>
                     </div>
                   <p class="mb-1">Kasavika celebrates Indian tradition with sarees that blend timeless craftsmanship and modern elegance. </p>
                     <a href="contact-1.html" class="tf-btn btn-line"
@@ -670,7 +1395,7 @@
                     <span class="icon-close icon-close-popup" data-bs-dismiss="modal"></span>
                 </div>
                 <div class="tf-login-form">
-                    <form class="" action="https://themesflat.co/html/ecomus/my-account.html" accept-charset="utf-8">
+                    <form class="" action="" accept-charset="utf-8">
                         <div class="tf-field style-1">
                             <input class="tf-field-input tf-input" placeholder=" " type="email" name="">
                             <label class="tf-field-label" for="">Email *</label>
@@ -788,16 +1513,17 @@
 
 
     <!-- Javascript -->
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/jquery.min.js"></script>
-    <script type="text/javascript" src="js/swiper-bundle.min.js"></script>
-    <script type="text/javascript" src="js/carousel.js"></script>
-    <script type="text/javascript" src="js/bootstrap-select.min.js"></script>
-    <script type="text/javascript" src="js/lazysize.min.js"></script>
-    <script type="text/javascript" src="js/count-down.js"></script>
-    <script type="text/javascript" src="js/wow.min.js"></script>
-    <script type="text/javascript" src="js/multiple-modal.js"></script>
-    <script type="text/javascript" src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/swiper-bundle.min.js"></script>
+    <script type="text/javascript" src="/js/carousel.js"></script>
+    <script type="text/javascript" src="/js/bootstrap-select.min.js"></script>
+    <script type="text/javascript" src="/js/lazysize.min.js"></script>
+    <script type="text/javascript" src="/js/count-down.js"></script>
+    <script type="text/javascript" src="/js/wow.min.js"></script>
+    <script type="text/javascript" src="/js/multiple-modal.js"></script>
+    <script type="text/javascript" src="/js/main.js"></script>
 </body>
 
 
