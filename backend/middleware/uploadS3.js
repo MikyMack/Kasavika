@@ -47,7 +47,7 @@ const uploadToS3 = async (file, folder = 'misc') => {
   }
 };
 
-
+// export both multer upload middleware and S3 upload function
 module.exports = {
   multerUpload,
   uploadToS3
