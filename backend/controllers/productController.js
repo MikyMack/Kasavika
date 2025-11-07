@@ -1,7 +1,8 @@
 const Product = require('../models/Product');
 const fs = require('fs').promises;
 const mongoose = require('mongoose');
-const { uploadToS3 } = require('../middleware/uploadS3');
+const { uploadToCloudinary } = require('../middleware/uploadCloudinary');
+
 
 exports.getAllProducts = async (req, res) => {
   try {
@@ -152,7 +153,7 @@ exports.createProduct = async (req, res) => {
       // Process main images
       const mainImageFiles = req.files.filter(f => f.fieldname === 'mainImages' || f.fieldname.startsWith('mainImages['));
       images = await Promise.all(
-        mainImageFiles.map(file => uploadToS3(file, 'products'))
+        mainImageFiles.map(file => uploadToCloudinary(file, 'products'))
       );
       
       // Process color variant images (now multiple images per variant)
@@ -168,7 +169,7 @@ exports.createProduct = async (req, res) => {
           if (match && match[1] && match[2]) {
             const colorId = match[1];
             const imageIndex = match[2];
-            const imageUrl = await uploadToS3(file, 'products/color-variants');
+            const imageUrl = await uploadToCloudinary(file, 'products/color-variants');
             
             if (!colorVariantImagesMap[colorId]) {
               colorVariantImagesMap[colorId] = [];
@@ -190,7 +191,7 @@ exports.createProduct = async (req, res) => {
           const match = file.fieldname.match(/colorVariants\[([^\]]+)\]\[image\]/);
           if (match && match[1]) {
             const colorId = match[1];
-            const imageUrl = await uploadToS3(file, 'products/color-variants');
+            const imageUrl = await uploadToCloudinary(file, 'products/color-variants');
             
             if (!colorVariantImagesMap[colorId]) {
               colorVariantImagesMap[colorId] = [imageUrl];
@@ -374,7 +375,7 @@ exports.updateProduct = async (req, res) => {
 
       if (mainImageFiles.length > 0) {
         const uploadedImages = await Promise.all(
-          mainImageFiles.map(file => uploadToS3(file, 'products'))
+          mainImageFiles.map(file => uploadToCloudinary(file, 'products'))
         );
         images = [...images, ...uploadedImages];
       }
@@ -395,7 +396,7 @@ exports.updateProduct = async (req, res) => {
           if (match && match[1] && match[2]) {
             const colorId = match[1];
             const imageIndex = match[2];
-            const imageUrl = await uploadToS3(file, 'products/color-variants');
+            const imageUrl = await uploadToCloudinary(file, 'products/color-variants');
             
             if (!colorVariantImagesMap[colorId]) {
               colorVariantImagesMap[colorId] = [];
@@ -417,7 +418,7 @@ exports.updateProduct = async (req, res) => {
           const match = file.fieldname.match(/colorVariants\[([^\]]+)\]\[image\]/);
           if (match && match[1]) {
             const colorId = match[1];
-            const imageUrl = await uploadToS3(file, 'products/color-variants');
+            const imageUrl = await uploadToCloudinary(file, 'products/color-variants');
             
             if (!colorVariantImagesMap[colorId]) {
               colorVariantImagesMap[colorId] = [imageUrl];
