@@ -1,14 +1,6 @@
 const MainBanner = require('../models/BannerTwo');
-const { uploadToS3 } = require('../middleware/uploadS3');
-const { S3Client, DeleteObjectCommand } = require('@aws-sdk/client-s3');
+const { uploadToCloudinary, deleteFromCloudinary } = require('../middleware/uploadCloudinary');
 
-const s3 = new S3Client({
-  region: process.env.AWS_REGION,
-  credentials: {
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-  },
-});
 
 exports.create = async (req, res) => {
   try {
@@ -20,7 +12,7 @@ exports.create = async (req, res) => {
     let image = null;
     if (req.file) {
       try {
-        image = await uploadToS3(req.file, 'main-banners'); 
+        image = await uploadToCloudinary(req.file, 'main-banners'); 
       } catch (uploadErr) {
         console.error('S3 upload error:', uploadErr);
         return res.status(500).json({ success: false, message: 'Image upload failed' });
@@ -49,7 +41,7 @@ exports.update = async (req, res) => {
     if (!banner) return res.status(404).json({ message: 'Banner not found' });
 
     if (req.file) {
-      const newImageUrl = await uploadToS3(req.file, 'main-banners');
+      const newImageUrl = await uploadToCloudinary(req.file, 'main-banners');
       banner.image = newImageUrl; 
     }
     banner.title = req.body.title || banner.title;

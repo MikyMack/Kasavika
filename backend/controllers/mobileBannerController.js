@@ -1,14 +1,5 @@
 const MainBanner = require('../models/mobilebanner');
-const { uploadToS3 } = require('../middleware/uploadS3');
-const { S3Client, DeleteObjectCommand } = require('@aws-sdk/client-s3');
-
-const s3 = new S3Client({
-  region: process.env.AWS_REGION,
-  credentials: {
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-  },
-});
+const { uploadToCloudinary, deleteFromCloudinary } = require('../middleware/uploadCloudinary');
 
 exports.create = async (req, res) => {
   try {
@@ -23,7 +14,7 @@ exports.create = async (req, res) => {
     let image = null;
     if (req.file) {
       try {
-        image = await uploadToS3(req.file, 'main-banners'); 
+        image = await uploadToCloudinary(req.file, 'main-banners'); 
       } catch (uploadErr) {
         console.error('S3 upload error:', uploadErr);
         return res.status(500).json({ success: false, message: 'Image upload failed' });
@@ -51,7 +42,7 @@ exports.update = async (req, res) => {
     if (!banner) return res.status(404).json({ message: 'Banner not found' });
 
     if (req.file) {
-      const newImageUrl = await uploadToS3(req.file, 'main-banners');
+      const newImageUrl = await uploadToCloudinary(req.file, 'main-banners');
       banner.image = newImageUrl; 
     }
     banner.link = req.body.link || banner.link;
@@ -71,28 +62,20 @@ exports.delete = async (req, res) => {
     if (!banner) return res.status(404).json({ message: 'Banner not found' });
 
     if (banner.image) {
-      const imageUrl = banner.image;
-      const bucketName = process.env.S3_BUCKET;
-
-      const key = imageUrl.split(`.amazonaws.com/`)[1]; 
-
-      if (key) {
-        try {
-          await s3.send(new DeleteObjectCommand({
-            Bucket: bucketName,
-            Key: key,
-          }));
-        } catch (e) {
-          console.error('Error deleting image from S3:', e);
-        }
+      try {
+        await deleteFromCloudinary(banner.image);
+      } catch (e) {
+        console.error('Error deleting image from Cloudinary:', e);
       }
     }
 
-    res.json({ success: true, message: 'Banner deleted' });
+    res.json({ success: true, message: 'Banner deleted successfully' });
   } catch (err) {
+    console.error('DELETE BANNER ERROR:', err);
     res.status(500).json({ success: false, message: err.message });
   }
 };
+
 
 exports.toggleStatus = async (req, res) => {
   try {

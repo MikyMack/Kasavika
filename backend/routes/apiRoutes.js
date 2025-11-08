@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const { multerUpload } = require('../middleware/uploadS3');  
+// const { multerUpload } = require('../middleware/uploadS3');  
+const { multerUpload, uploadToCloudinary } = require('../middleware/uploadCloudinary');
 const categoryController = require('../controllers/categoryController');
 const productController = require('../controllers/productController');
 const blogController = require('../controllers/blogController');
@@ -16,12 +17,14 @@ const Category = require("../models/Category")
 router.post('/upload', multerUpload.single('image'), async (req, res) => {
   try {
     const folder = req.body.folder || 'uploads';
-    const url = await uploadToS3(req.file, folder);
-    res.json({ url });
+    const imageUrl = req.file.path; // Cloudinary automatically uploads and returns the URL
+    res.json({ url: imageUrl });
   } catch (err) {
+    console.error('Upload error:', err);
     res.status(500).json({ error: err.message });
   }
 });
+// 
 
 router.get('/categories', categoryController.getAllCategories);
 router.post('/categories', multerUpload.single('image'), categoryController.addCategory);
