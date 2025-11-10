@@ -95,6 +95,7 @@ router.get('/', async (req, res) => {
             wishlistCount = wishlist?.items?.length || 0;
         }
 
+
         res.render('user/home', {
             user: req.user || null,
             categories,

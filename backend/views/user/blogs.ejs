@@ -61,7 +61,7 @@
               </a>
             </div>
             <div class="col-xl-3 col-md-4 col-6">
-              <a href="index.html" class="logo-header">
+              <a href="/" class="logo-header">
                 <img src="images/kasavika/logo.png" alt="logo" class="logo" />
               </a>
             </div>
@@ -71,68 +71,40 @@
                   class="box-nav-ul d-flex align-items-center justify-content-center gap-30"
                 >
                   <li class="menu-item">
-                    <a href="index.html" class="item-link"
+                    <a href="/" class="item-link"
                       >Home<i class="icon"></i
                     ></a>
                   </li>
                   <li class="menu-item">
-                    <a href="shop.html" class="item-link"
+                    <a href="/shop" class="item-link"
                       >Shop<i class="icon icon-arrow-down"></i
                     ></a>
                     <div class="sub-menu">
-                      <ul class="menu-list">
-                        <li>
-                          <a
-                            href="shop.html"
-                            class="menu-link-text link text_black-2"
-                            >Living</a
-                          >
-                        </li>
-                        <li>
-                          <a
-                            href="shop.html"
-                            class="menu-link-text link text_black-2"
-                            >Lighting</a
-                          >
-                        </li>
-                        <li>
-                          <a
-                            href="shop.html"
-                            class="menu-link-text link text_black-2"
-                            >Bedroom</a
-                          >
-                        </li>
-                        <li>
-                          <a
-                            href="shop.html"
-                            class="menu-link-text link text_black-2"
-                            >Sofa</a
-                          >
-                        </li>
-                        <li>
-                          <a
-                            href="shop.html"
-                            class="menu-link-text link text_black-2"
-                            >Dining</a
-                          >
-                        </li>
+                        <ul class="menu-list">
+                         <% if (categories) { %>
+                            <% categories.forEach(c => { %>
+                              <li> <a href=""><%= c.name %></a></li>
+                            <% }) %>
+                          <% } else { %>
+                            <li>No categories</li>
+                          <% } %>
                       </ul>
                     </div>
                   </li>
 
                   <li class="menu-item position-relative">
-                    <a href="about-us.html" class="item-link"
+                    <a href="/about" class="item-link"
                       >About Us<i class="icon"></i
                     ></a>
                   </li>
                   <li class="menu-item">
-                    <a href="my-account-orders.html" class="item-link">Orders</a>
+                    <a href="/orders" class="item-link">Orders</a>
                   </li>
                   <li class="menu-item position-relative">
-                    <a href="blogs.html" class="item-link">Blogs<i class="icon"></i></a>
+                    <a href="/blogs" class="item-link">Blogs<i class="icon"></i></a>
                   </li>
                   <li class="menu-item">
-                    <a href="contact.html" class="item-link">Contact Us</a>
+                    <a href="/contact" class="item-link">Contact Us</a>
                   </li>
                 </ul>
               </nav>
@@ -148,14 +120,14 @@
                   ></a>
                 </li>
                <li class="nav-wishlist">
-                  <a href="wishlist.html" class="nav-icon-item"
+                  <a href="/wishlist" class="nav-icon-item"
                     ><i class="icon icon-heart"></i
                     ></a
                   >
                 </li>
                 <li class="nav-cart">
                   <a
-                    href="cart.html"
+                    href="/cart"
               
                     class="nav-icon-item"
                     ><i class="icon icon-bag"></i
@@ -176,7 +148,7 @@
                         <div class="heading text-center">Blogs</div>
                         <ul class="breadcrumbs d-flex align-items-center justify-content-center">
                             <li>
-                                <a href="index-2.html">Home</a>
+                                <a href="/">Home</a>
                             </li>
                             <li>
                                 <i class="icon-arrow-right"></i>
@@ -192,134 +164,41 @@
         <!-- /page-title -->
 
         <!-- blog-grid-main -->
-        <div class="blog-grid-main">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-4 col-md-6 col-12">
-                        <div class="blog-article-item">
-                            <div class="article-thumb">
-                                <a href="blog-detail.html">
-                                    <img class="lazyload blog-img" data-src="images/collections/furniture_cate4.jpg" src="images/collections/furniture_cate4.jpg"
-                                        alt="img-blog">
-                                </a>
-                            
-                            </div>
-                            <div class="article-content">
-                                <div class="article-title">
-                                    <a href="blog-detail.html" class="">The next generation of leather alternatives</a>
-                                </div>
-                                <div class="article-btn">
-                                    <a href="blog-detail.html" class="tf-btn btn-line fw-6">Read more<i
-                                            class="icon icon-arrow1-top-left"></i></a>
-                                </div>
-                            </div>
+       <div class="blog-grid-main">
+          <div class="container">
+            <div class="row">
+              <% if (blogs && blogs.length) { %>
+                <% blogs.forEach(blog => { %>
+                  <div class="col-xl-4 col-md-6 col-12 mb-4">
+                    <div class="blog-article-item">
+                      <div class="article-thumb">
+                        <a href="/blogs/<%= blog._id %>">
+                          <img class="lazyload blog-img" 
+                              data-src="<%= blog.imageUrl %>" 
+                              src="<%= blog.imageUrl %>" 
+                              alt="<%= blog.title %>">
+                        </a>
+                      </div>
+                      <div class="article-content">
+                        <div class="article-title">
+                          <a href="/blogs/<%= blog._id %>"><%= blog.title %></a>
                         </div>
-                    </div>
-                    <div class="col-xl-4 col-md-6 col-12">
-                        <div class="blog-article-item">
-                            <div class="article-thumb">
-                                <a href="blog-detail.html">
-                                    <img class="lazyload blog-img" data-src="images/collections/furniture_cate4.jpg" src="images/collections/furniture_cate4.jpg"
-                                        alt="img-blog">
-                                </a>
-                            
-                            </div>
-                            <div class="article-content">
-                                <div class="article-title">
-                                    <a href="blog-detail.html" class="">The next generation of leather alternatives</a>
-                                </div>
-                                <div class="article-btn">
-                                    <a href="blog-detail.html" class="tf-btn btn-line fw-6">Read more<i
-                                            class="icon icon-arrow1-top-left"></i></a>
-                                </div>
-                            </div>
+                        <div class="article-btn">
+                          <a href="/blogs/<%= blog._id %>" class="tf-btn btn-line fw-6">
+                            Read more <i class="icon icon-arrow1-top-left"></i>
+                          </a>
                         </div>
+                      </div>
                     </div>
-                    <div class="col-xl-4 col-md-6 col-12">
-                        <div class="blog-article-item">
-                            <div class="article-thumb">
-                                <a href="blog-detail.html">
-                                    <img class="lazyload blog-img" data-src="images/collections/furniture_cate4.jpg" src="images/collections/furniture_cate4.jpg"
-                                        alt="img-blog">
-                                </a>
-                            
-                            </div>
-                            <div class="article-content">
-                                <div class="article-title">
-                                    <a href="blog-detail.html" class="">The next generation of leather alternatives</a>
-                                </div>
-                                <div class="article-btn">
-                                    <a href="blog-detail.html" class="tf-btn btn-line fw-6">Read more<i
-                                            class="icon icon-arrow1-top-left"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-md-6 col-12">
-                        <div class="blog-article-item">
-                            <div class="article-thumb">
-                                <a href="blog-detail.html">
-                                    <img class="lazyload blog-img" data-src="images/collections/furniture_cate4.jpg" src="images/collections/furniture_cate4.jpg"
-                                        alt="img-blog">
-                                </a>
-                            
-                            </div>
-                            <div class="article-content">
-                                <div class="article-title">
-                                    <a href="blog-detail.html" class="">The next generation of leather alternatives</a>
-                                </div>
-                                <div class="article-btn">
-                                    <a href="blog-detail.html" class="tf-btn btn-line fw-6">Read more<i
-                                            class="icon icon-arrow1-top-left"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-md-6 col-12">
-                        <div class="blog-article-item">
-                            <div class="article-thumb">
-                                <a href="blog-detail.html">
-                                    <img class="lazyload blog-img" data-src="images/collections/furniture_cate4.jpg" src="images/collections/furniture_cate4.jpg"
-                                        alt="img-blog">
-                                </a>
-                            
-                            </div>
-                            <div class="article-content">
-                                <div class="article-title">
-                                    <a href="blog-detail.html" class="">The next generation of leather alternatives</a>
-                                </div>
-                                <div class="article-btn">
-                                    <a href="blog-detail.html" class="tf-btn btn-line fw-6">Read more<i
-                                            class="icon icon-arrow1-top-left"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-md-6 col-12">
-                        <div class="blog-article-item">
-                            <div class="article-thumb">
-                                <a href="blog-detail.html">
-                                    <img class="lazyload blog-img" data-src="images/collections/furniture_cate4.jpg" src="images/collections/furniture_cate4.jpg"
-                                        alt="img-blog">
-                                </a>
-                            
-                            </div>
-                            <div class="article-content">
-                                <div class="article-title">
-                                    <a href="blog-detail.html" class="">The next generation of leather alternatives</a>
-                                </div>
-                                <div class="article-btn">
-                                    <a href="blog-detail.html" class="tf-btn btn-line fw-6">Read more<i
-                                            class="icon icon-arrow1-top-left"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-            
-           
-                </div>
+                  </div>
+                <% }) %>
+              <% } else { %>
+                <p>No blogs found.</p>
+              <% } %>
             </div>
+          </div>
         </div>
+
         <!-- /blog-grid-main -->
 
         <!-- footer -->
@@ -331,12 +210,12 @@
                 <div class="col-xl-3 col-md-6 col-12">
                   <div class="footer-infor">
                     <div class="footer-logo">
-                      <a href="index-2.html">
+                      <a href="/">
                         <img src="images/kasavika/logo.png" alt="" />
                       </a>
                     </div>
                   <p class="mb-1">Kasavika celebrates Indian tradition with sarees that blend timeless craftsmanship and modern elegance. </p>
-                    <a href="contact-1.html" class="tf-btn btn-line"
+                    <a href="/contact" class="tf-btn btn-line"
                       >Get direction<i class="icon icon-arrow1-top-left"></i
                     ></a>
                    
@@ -419,27 +298,27 @@
                   </div>
                   <ul class="footer-menu-list tf-collapse-content">
                     <li>
-                        <a href="index.html" class="footer-menu_item"
+                        <a href="/" class="footer-menu_item"
                           >Home</a
                         >
                       </li>
                     <li>
-                      <a href="about-us.html" class="footer-menu_item"
+                      <a href="/about" class="footer-menu_item"
                         >About Us</a
                       >
                     </li>
                     <li>
-                      <a href="shop.html" class="footer-menu_item"
+                      <a href="/store" class="footer-menu_item"
                         >Shop</a
                       >
                     </li>
                     <li>
-                        <a href="blogs.html" class="footer-menu_item"
+                        <a href="/blogs" class="footer-menu_item"
                           >Blogs</a
                         >
                       </li>
                     <li>
-                      <a href="contact.html" class="footer-menu_item"
+                      <a href="/contact" class="footer-menu_item"
                         >Contact Us</a
                       >
                     </li>
@@ -563,9 +442,8 @@
           <ul class="nav-ul-mb" id="wrapper-menu-navigation">
             <li class="nav-mb-item">
               <a
-                href="index.html"
+                href="/"
                 class="collapsed mb-menu-link current"
-                data-bs-toggle="collapse"
                 aria-expanded="true"
                 aria-controls="dropdown-menu-one"
               >
@@ -576,7 +454,6 @@
               <a
                 href="#dropdown-menu-two"
                 class="collapsed mb-menu-link current"
-                data-bs-toggle="collapse"
                 aria-expanded="true"
                 aria-controls="dropdown-menu-two"
               >
@@ -585,61 +462,15 @@
               </a>
               <div id="dropdown-menu-two" class="collapse">
                 <ul class="sub-nav-menu" id="sub-menu-navigation">
-                  <li>
-                    <a
-                      href="shop.html"
-                      class="sub-nav-link collapsed"
-                      data-bs-toggle="collapse"
-                      aria-expanded="true"
-                      aria-controls="sub-shop-one"
-                    >
-                      <span>Living</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="shop.html"
-                      class="sub-nav-link collapsed"
-                      data-bs-toggle="collapse"
-                      aria-expanded="true"
-                      aria-controls="sub-shop-one"
-                    >
-                      <span>Lighting</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="shop.html"
-                      class="sub-nav-link collapsed"
-                      data-bs-toggle="collapse"
-                      aria-expanded="true"
-                      aria-controls="sub-shop-one"
-                    >
-                      <span>Bedroom</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="shop.html"
-                      class="sub-nav-link collapsed"
-                      data-bs-toggle="collapse"
-                      aria-expanded="true"
-                      aria-controls="sub-shop-one"
-                    >
-                      <span>Sofa</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="shop.html"
-                      class="sub-nav-link collapsed"
-                      data-bs-toggle="collapse"
-                      aria-expanded="true"
-                      aria-controls="sub-shop-one"
-                    >
-                      <span>Dining</span>
-                    </a>
-                  </li>
+                  <ul class="menu-list">
+                         <% if (categories) { %>
+                            <% categories.forEach(c => { %>
+                              <li> <a href=""><%= c.name %></a></li>
+                            <% }) %>
+                          <% } else { %>
+                            <li>No categories</li>
+                          <% } %>
+                      </ul>
                 </ul>
               </div>
             </li>
@@ -658,9 +489,8 @@
             </li>
             <li class="nav-mb-item">
               <a
-                href="about-us.html"
+                href="/about"
                 class="collapsed mb-menu-link current"
-                data-bs-toggle="collapse"
                 aria-expanded="true"
                 aria-controls="dropdown-menu-four"
               >
@@ -671,9 +501,8 @@
             </li>
             <li class="nav-mb-item">
               <a
-                href="blogs.html"
+                href="/blogs"
                 class="collapsed mb-menu-link current"
-                data-bs-toggle="collapse"
                 aria-expanded="true"
                 aria-controls="dropdown-menu-five"
               >
@@ -684,9 +513,8 @@
             </li>
             <li class="nav-mb-item">
                 <a
-                  href="contact.html"
+                  href="/contact"
                   class="collapsed mb-menu-link current"
-                  data-bs-toggle="collapse"
                   aria-expanded="true"
                   aria-controls="dropdown-menu-five"
                 >
@@ -697,7 +525,7 @@
               </li>
               <li class="nav-mb-item">
                 <a
-                  href="cart.html"
+                  href="/cart"
                   class="collapsed mb-menu-link current"
                   data-bs-toggle="collapse"
                   aria-expanded="true"

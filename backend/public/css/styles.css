@@ -21271,4 +21271,22 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
 .abt-img{
   height: 60vh!important;
 }
+/* .article-thumb {
+  width: 100% !important;
+  height: auto !important;
+  overflow: visible !important;
+}
+
+.blog-img {
+  width: 100% !important;
+  height: auto !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  transform: none !important;
+  display: block !important;
+  max-width: 100% !important;
+  max-height: none !important;
+} */
+
+
 /*# sourceMappingURL=styles.css.map */

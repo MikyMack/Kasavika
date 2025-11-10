@@ -12,17 +12,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <!-- font -->
-    <link rel="stylesheet" href="fonts/fonts.css">
+    <link rel="stylesheet" href="/fonts/fonts.css">
     <!-- Icons -->
-    <link rel="stylesheet" href="fonts/font-icons.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/swiper-bundle.min.css">
-    <link rel="stylesheet" href="css/animate.css">
-    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+    <link rel="stylesheet" href="/fonts/font-icons.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css" />
 
     <!-- Favicon and Touch Icons  -->
-    <link rel="shortcut icon" href="images/kasavika/logo.png">
-    <link rel="apple-touch-icon-precomposed" href="images/kasavika/logo.png">
+    <link rel="shortcut icon" href="/images/kasavika/logo.png">
+    <link rel="apple-touch-icon-precomposed" href="/images/kasavika/logo.png">
 
 </head>
 
@@ -64,7 +64,7 @@
               </div>
               <div class="col-xl-3 col-md-4 col-6">
                 <a href="index.html" class="logo-header">
-                  <img src="images/kasavika/logo.png" alt="logo" class="logo" />
+                  <img src="/images/kasavika/logo.png" alt="logo" class="logo" />
                 </a>
               </div>
               <div class="col-xl-6 tf-md-hidden">
@@ -179,16 +179,15 @@
                         <div class="blog-detail-main">
                             <div class="blog-detail-main-heading">
                           
-                                <div class="title">Blog title</div>
-                                <div class="meta">by <span>admin</span> on <span>Oct 02</span></div>
+                                <div class="title"><%= blog.title %></div>
+                                <div class="meta">by <span><%= blog.author %></span> on <span><%= blog.createdAt.toDateString() %></span></div>
                                 <div class="image">
-                                    <img class="lazyload blog-details-img" data-src="images/slider/furniture_slide1.jpg"
-                                        src="images/slider/furniture_slide1.jpg" alt="">
+                                    <img class="lazyload blog-details-img" data-src="<%= blog.imageUrl %>" src="<%= blog.imageUrl %>" alt="<%= blog.title %>">
                                 </div>
                             </div>
                             <blockquote>
                                 <div class="icon">
-                                    <img src="images/item/quote.svg" alt="">
+                                    <img src="/images/item/quote.svg" alt="">
                                 </div>
                                 <div class="text">
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt veniam sed voluptas qui magnam deleniti perferendis, aliquid explicabo recusandae nisi quia, et, maiores facere autem exercitationem quidem sunt doloremque rerum.
@@ -198,8 +197,8 @@
                             </blockquote>
                             <div class="grid-image">
                                 <div>
-                                    <img class="lazyload" data-src="images/slider/furniture_slide3.jpg"
-                                        src="images/slider/furniture_slide3.jpg" alt="">
+                                    <img class="lazyload" data-src="/images/slider/furniture_slide3.jpg"
+                                        src="/images/slider/furniture_slide3.jpg" alt="">
                                 </div>
                                 <div>
                                     <img class="lazyload" data-src="images/slider/furniture_slide2.jpg"
@@ -261,7 +260,7 @@
     
 
         <!-- footer -->
-         <footer id="footer" class="footer md-pb-70 has-border-full">
+      <footer id="footer" class="footer md-pb-70 has-border-full">
         <div class="footer-wrap">
           <div class="footer-body">
             <div class="container">
@@ -269,12 +268,12 @@
                 <div class="col-xl-3 col-md-6 col-12">
                   <div class="footer-infor">
                     <div class="footer-logo">
-                      <a href="index-2.html">
+                      <a href="/">
                         <img src="images/kasavika/logo.png" alt="" />
                       </a>
                     </div>
                   <p class="mb-1">Kasavika celebrates Indian tradition with sarees that blend timeless craftsmanship and modern elegance. </p>
-                    <a href="contact-1.html" class="tf-btn btn-line"
+                    <a href="/contact" class="tf-btn btn-line"
                       >Get direction<i class="icon icon-arrow1-top-left"></i
                     ></a>
                    
@@ -357,27 +356,27 @@
                   </div>
                   <ul class="footer-menu-list tf-collapse-content">
                     <li>
-                        <a href="index.html" class="footer-menu_item"
+                        <a href="/" class="footer-menu_item"
                           >Home</a
                         >
                       </li>
                     <li>
-                      <a href="about-us.html" class="footer-menu_item"
+                      <a href="/about" class="footer-menu_item"
                         >About Us</a
                       >
                     </li>
                     <li>
-                      <a href="shop.html" class="footer-menu_item"
+                      <a href="/store" class="footer-menu_item"
                         >Shop</a
                       >
                     </li>
                     <li>
-                        <a href="blogs.html" class="footer-menu_item"
+                        <a href="/blogs" class="footer-menu_item"
                           >Blogs</a
                         >
                       </li>
                     <li>
-                      <a href="contact.html" class="footer-menu_item"
+                      <a href="/contact" class="footer-menu_item"
                         >Contact Us</a
                       >
                     </li>
@@ -1135,16 +1134,16 @@
 
 
     <!-- Javascript -->
-    <script type="text/javascript" src="js/jquery.min.js"></script>
-    <script type="text/javascript" src="js/swiper-bundle.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/carousel.js"></script>
-    <script type="text/javascript" src="js/bootstrap-select.min.js"></script>
-    <script type="text/javascript" src="js/lazysize.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap-select.min.js"></script>
-    <script type="text/javascript" src="js/wow.min.js"></script>
-    <script type="text/javascript" src="js/multiple-modal.js"></script>
-    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/swiper-bundle.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/carousel.js"></script>
+    <script type="text/javascript" src="/js/bootstrap-select.min.js"></script>
+    <script type="text/javascript" src="/js/lazysize.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap-select.min.js"></script>
+    <script type="text/javascript" src="/js/wow.min.js"></script>
+    <script type="text/javascript" src="/js/multiple-modal.js"></script>
+    <script type="text/javascript" src="/js/main.js"></script>
 </body>
 
 

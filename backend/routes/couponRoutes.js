@@ -46,6 +46,8 @@ router.post('/create-coupon', isAdmin, async (req, res) => {
       res.status(400).json({ error: 'Coupon code already exists' });
     } else {
       res.status(500).json({ error: 'Server error' });
+      // console.log(error);
+      
     }
   }
 });
