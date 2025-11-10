@@ -599,7 +599,8 @@
                             </div>
                             <div class="card-product-info">
                                 <a href="productDetails.html" class="title link">Sample title</a>
-                                <span class="price current-price">$10.00</span>
+                                <span class="price current-price">₹
+10.00</span>
                                 <ul class="list-color-product">
                              
                                     <li class="list-color-item color-swatch">
@@ -647,7 +648,8 @@
                             </div>
                             <div class="card-product-info">
                                 <a href="productDetails.html" class="title link">Sample title</a>
-                                <span class="price current-price">$10.00</span>
+                                <span class="price current-price">₹
+10.00</span>
                                 <ul class="list-color-product">
                                     <li class="list-color-item color-swatch active">
                                         <span class="tooltip">Black</span>
@@ -696,7 +698,8 @@
                             </div>
                             <div class="card-product-info">
                                 <a href="productDetails.html" class="title link">Sample title</a>
-                                <span class="price current-price">$9.95</span>
+                                <span class="price current-price">₹
+9.95</span>
                                 <ul class="list-color-product">
                                     <li class="list-color-item color-swatch active">
                                         <span class="tooltip">White</span>
@@ -1408,8 +1411,10 @@
                                     <div class="content">
                                         <a href="productDetails.html">Cotton jersey top</a>
                                         <div class="tf-product-info-price">
-                                            <div class="compare-at-price">$10.00</div>
-                                            <div class="price-on-sale fw-6">$8.00</div>
+                                            <div class="compare-at-price">₹
+10.00</div>
+                                            <div class="price-on-sale fw-6">₹
+8.00</div>
                                         </div>
                                     </div>
                                 </div>
@@ -1422,7 +1427,8 @@
                                     <div class="content">
                                         <a href="productDetails.html">Mini crossbody bag</a>
                                         <div class="tf-product-info-price">
-                                            <div class="price fw-6">$18.00</div>
+                                            <div class="price fw-6">₹
+18.00</div>
                                         </div>
                                     </div>
                                 </div>
@@ -1435,7 +1441,8 @@
                                     <div class="content">
                                         <a href="productDetails.html">Oversized Printed T-shirt</a>
                                         <div class="tf-product-info-price">
-                                            <div class="price fw-6">$18.00</div>
+                                            <div class="price fw-6">₹
+18.00</div>
                                         </div>
                                     </div>
                                 </div>
@@ -2519,7 +2526,145 @@
       </div>
     <!-- /modal quick_view -->
 
+    <!-- Filter -->
+<div class="offcanvas offcanvas-start canvas-filter" id="filterShop">
+  <div class="canvas-wrapper">
+    <header class="canvas-header">
+      <div class="filter-icon">
+        <span class="icon icon-filter"></span>
+        <span>Filter</span>
+      </div>
+      <span class="icon-close icon-close-popup" data-bs-dismiss="offcanvas" aria-label="Close"></span>
+    </header>
 
+    <div class="canvas-body">
+      <!-- Categories -->
+      <div class="widget-facet wd-categories">
+        <div class="facet-title" data-bs-target="#categories" data-bs-toggle="collapse" aria-expanded="true"
+          aria-controls="categories">
+          <span>Categories</span>
+          <span class="icon icon-arrow-up"></span>
+        </div>
+        <div id="categories" class="collapse show">
+          <ul class="list-categoris current-scrollbar mb_36">
+            <li class="cate-item current"><a href="#"><span>All Sarees</span></a></li>
+            <li class="cate-item"><a href="#"><span>Silk Sarees</span></a></li>
+            <li class="cate-item"><a href="#"><span>Cotton Sarees</span></a></li>
+            <li class="cate-item"><a href="#"><span>Linen Sarees</span></a></li>
+            <li class="cate-item"><a href="#"><span>Banarasi Sarees</span></a></li>
+            <li class="cate-item"><a href="#"><span>Designer Sarees</span></a></li>
+            <li class="cate-item"><a href="#"><span>Wedding Collection</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <form action="#" id="facet-filter-form" class="facet-filter-form">
+
+        <!-- Availability -->
+        <div class="widget-facet">
+          <div class="facet-title" data-bs-target="#availability" data-bs-toggle="collapse" aria-expanded="true"
+            aria-controls="availability">
+            <span>Availability</span>
+            <span class="icon icon-arrow-up"></span>
+          </div>
+          <div id="availability" class="collapse show">
+            <ul class="tf-filter-group current-scrollbar mb_36">
+              <li class="list-item d-flex gap-12 align-items-center">
+                <input type="radio" name="availability" class="tf-check" id="inStock">
+                <label for="inStock" class="label"><span>In stock</span>&nbsp;<span>(120)</span></label>
+              </li>
+              <li class="list-item d-flex gap-12 align-items-center">
+                <input type="radio" name="availability" class="tf-check" id="outStock">
+                <label for="outStock" class="label"><span>Out of stock</span>&nbsp;<span>(8)</span></label>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Price -->
+        <div class="widget-facet">
+          <div class="facet-title" data-bs-target="#price" data-bs-toggle="collapse" aria-expanded="true"
+            aria-controls="price">
+            <span>Price Range</span>
+            <span class="icon icon-arrow-up"></span>
+          </div>
+          <div id="price" class="collapse show">
+            <div class="widget-price filter-price">
+              <div class="price-val-range" id="price-value-range" data-min="500" data-max="10000"></div>
+              <div class="box-title-price">
+                <span class="title-price">Price :</span>
+                <div class="caption-price">
+                  <div class="price-val" id="price-min-value" data-currency="₹"></div>
+                  <span>-</span>
+                  <div class="price-val" id="price-max-value" data-currency="₹"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fabric -->
+        <div class="widget-facet">
+          <div class="facet-title" data-bs-target="#fabric" data-bs-toggle="collapse" aria-expanded="true"
+            aria-controls="fabric">
+            <span>Fabric</span>
+            <span class="icon icon-arrow-up"></span>
+          </div>
+          <div id="fabric" class="collapse show">
+            <ul class="tf-filter-group current-scrollbar mb_36">
+              <li><input type="radio" name="fabric" class="tf-check" id="Silk"><label for="Silk"><span>Silk</span>&nbsp;<span>(25)</span></label></li>
+              <li><input type="radio" name="fabric" class="tf-check" id="Cotton"><label for="Cotton"><span>Cotton</span>&nbsp;<span>(30)</span></label></li>
+              <li><input type="radio" name="fabric" class="tf-check" id="Linen"><label for="Linen"><span>Linen</span>&nbsp;<span>(15)</span></label></li>
+              <li><input type="radio" name="fabric" class="tf-check" id="Organza"><label for="Organza"><span>Organza</span>&nbsp;<span>(10)</span></label></li>
+              <li><input type="radio" name="fabric" class="tf-check" id="Chiffon"><label for="Chiffon"><span>Chiffon</span>&nbsp;<span>(8)</span></label></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Color -->
+        <div class="widget-facet">
+          <div class="facet-title" data-bs-target="#color" data-bs-toggle="collapse" aria-expanded="true"
+            aria-controls="color">
+            <span>Color</span>
+            <span class="icon icon-arrow-up"></span>
+          </div>
+          <div id="color" class="collapse show">
+            <ul class="tf-filter-group filter-color current-scrollbar mb_36">
+              <li><input type="radio" name="color" class="tf-check-color bg_red" id="Red" value="Red"><label for="Red"><span>Red</span></label></li>
+              <li><input type="radio" name="color" class="tf-check-color bg_green" id="Green" value="Green"><label for="Green"><span>Green</span></label></li>
+              <li><input type="radio" name="color" class="tf-check-color bg_blue" id="Blue" value="Blue"><label for="Blue"><span>Blue</span></label></li>
+              <li><input type="radio" name="color" class="tf-check-color bg_gold" id="Gold" value="Gold"><label for="Gold"><span>Gold</span></label></li>
+              <li><input type="radio" name="color" class="tf-check-color bg_pink" id="Pink" value="Pink"><label for="Pink"><span>Pink</span></label></li>
+              <li><input type="radio" name="color" class="tf-check-color bg_white" id="White" value="White"><label for="White"><span>White</span></label></li>
+              <li><input type="radio" name="color" class="tf-check-color bg_yellow" id="Yellow" value="Yellow"><label for="Yellow"><span>Yellow</span></label></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Occasion -->
+        <div class="widget-facet">
+          <div class="facet-title" data-bs-target="#occasion" data-bs-toggle="collapse" aria-expanded="true"
+            aria-controls="occasion">
+            <span>Occasion</span>
+            <span class="icon icon-arrow-up"></span>
+          </div>
+          <div id="occasion" class="collapse show">
+            <ul class="tf-filter-group current-scrollbar">
+              <li><input type="radio" name="occasion" class="tf-check" id="Casual"><label for="Casual"><span>Casual</span></label></li>
+              <li><input type="radio" name="occasion" class="tf-check" id="Party"><label for="Party"><span>Party Wear</span></label></li>
+              <li><input type="radio" name="occasion" class="tf-check" id="Wedding"><label for="Wedding"><span>Wedding</span></label></li>
+              <li><input type="radio" name="occasion" class="tf-check" id="Festival"><label for="Festival"><span>Festival</span></label></li>
+              <li><input type="radio" name="occasion" class="tf-check" id="Office"><label for="Office"><span>Office Wear</span></label></li>
+            </ul>
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+
+    <!-- End Filter -->
 
 
 
