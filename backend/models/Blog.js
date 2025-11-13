@@ -1,7 +1,8 @@
 // models/Blog.js
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const BlogSchema = new mongoose.Schema({
+const BlogSchema = new mongoose.Schema(
+  {
     title: { type: String, required: true },
     metaTitle: { type: String, required: true },
     metaDescription: { type: String, required: true },
@@ -9,6 +10,8 @@ const BlogSchema = new mongoose.Schema({
     content: { type: String, required: true },
     author: { type: String, required: true },
     imageUrl: { type: String, required: true },
-}, { timestamps: true });
+  },
+  { timestamps: true }
+);
 
-module.exports = mongoose.model('Blog', BlogSchema);
+module.exports = mongoose.model("Blog", BlogSchema);

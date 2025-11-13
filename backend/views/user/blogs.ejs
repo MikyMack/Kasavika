@@ -76,7 +76,7 @@
                     ></a>
                   </li>
                   <li class="menu-item">
-                    <a href="/shop" class="item-link"
+                    <a href="/store" class="item-link"
                       >Shop<i class="icon icon-arrow-down"></i
                     ></a>
                     <div class="sub-menu">
@@ -163,43 +163,66 @@
         </div>
         <!-- /page-title -->
 
-        <!-- blog-grid-main -->
-       <div class="blog-grid-main">
-          <div class="container">
-            <div class="row">
-              <% if (blogs && blogs.length) { %>
-                <% blogs.forEach(blog => { %>
-                  <div class="col-xl-4 col-md-6 col-12 mb-4">
-                    <div class="blog-article-item">
-                      <div class="article-thumb">
-                        <a href="/blogs/<%= blog._id %>">
-                          <img class="lazyload blog-img" 
-                              data-src="<%= blog.imageUrl %>" 
-                              src="<%= blog.imageUrl %>" 
-                              alt="<%= blog.title %>">
-                        </a>
-                      </div>
-                      <div class="article-content">
-                        <div class="article-title">
-                          <a href="/blogs/<%= blog._id %>"><%= blog.title %></a>
-                        </div>
-                        <div class="article-btn">
-                          <a href="/blogs/<%= blog._id %>" class="tf-btn btn-line fw-6">
-                            Read more <i class="icon icon-arrow1-top-left"></i>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                <% }) %>
-              <% } else { %>
-                <p>No blogs found.</p>
-              <% } %>
-            </div>
-          </div>
-        </div>
+        <!-- blog-detail -->
+        <div class="blog-detail">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="blog-detail-main">
+                            <div class="blog-detail-main-heading">
+                                <div class="title"><%= blog.title %></div>
+                                <div class="meta">
+                                    by <span><%= blog.author %></span> on 
+                                    <span><%= new Date(blog.createdAt).toDateString() %></span>
+                                </div>
+                                <% if (blog.imageUrl) { %>
+                                <div class="image">
+                                    <img class="lazyload blog-details-img" 
+                                        data-src="<%= blog.imageUrl %>" 
+                                        src="<%= blog.imageUrl %>" 
+                                        alt="<%= blog.title %>">
+                                </div>
+                                <% } %>
+                            </div>
 
-        <!-- /blog-grid-main -->
+                            <div class="desc"><%= blog.content %></div>
+
+                            <div class="tf-article-navigation d-flex justify-content-between">
+                                <% if (relatedBlogs[0]) { %>
+                                <div class="item position-relative d-flex prev">
+                                    <a href="/blogs/<%= relatedBlogs[0]._id %>" class="icon">
+                                        <i class="icon-arrow-left"></i>
+                                    </a>
+                                    <div class="inner">
+                                        <a href="/blogs/<%= relatedBlogs[0]._id %>">PREVIOUS</a>
+                                        <h6>
+                                            <a href="/blogs/<%= relatedBlogs[0]._id %>"><%= relatedBlogs[0].title %></a>
+                                        </h6>
+                                    </div>
+                                </div>
+                                <% } %>
+
+                                <% if (relatedBlogs[1]) { %>
+                                <div class="item position-relative d-flex justify-content-end next">
+                                    <div class="inner text-end">
+                                        <a href="/blogs/<%= relatedBlogs[1]._id %>">NEXT</a>
+                                        <h6>
+                                            <a href="/blogs/<%= relatedBlogs[1]._id %>"><%= relatedBlogs[1].title %></a>
+                                        </h6>
+                                    </div>
+                                    <a href="/blogs/<%= relatedBlogs[1]._id %>" class="icon">
+                                        <i class="icon-arrow-right"></i>
+                                    </a>
+                                </div>
+                                <% } %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /blog-detail -->
+
 
         <!-- footer -->
       <footer id="footer" class="footer md-pb-70 has-border-full">
@@ -390,7 +413,7 @@
     <!-- toolbar-bottom -->
     <div class="tf-toolbar-bottom type-1150">
       <div class="toolbar-item">
-          <a href="index.html" data-bs-toggle="offcanvas" aria-controls="offcanvasLeft">
+          <a href="/" data-bs-toggle="offcanvas" aria-controls="offcanvasLeft">
               <div class="toolbar-icon">
                   <i class="icon-home"></i>
               </div>
@@ -398,7 +421,7 @@
           </a>
       </div>
       <div class="toolbar-item">
-          <a href="shop.html" data-bs-toggle="offcanvas" aria-controls="offcanvasLeft">
+          <a href="/store" data-bs-toggle="offcanvas" aria-controls="offcanvasLeft">
               <div class="toolbar-icon">
                   <i class="icon-shop"></i>
               </div>
@@ -417,7 +440,7 @@
       </div>
   
       <div class="toolbar-item">
-          <a href="cart.html" data-bs-toggle="modal">
+          <a href="/cart" data-bs-toggle="modal">
               <div class="toolbar-icon">
                   <i class="icon-bag"></i>
                   <div class="toolbar-count">1</div>
@@ -452,7 +475,7 @@
             </li>
             <li class="nav-mb-item">
               <a
-                href="#dropdown-menu-two"
+                href="/store"
                 class="collapsed mb-menu-link current"
                 aria-expanded="true"
                 aria-controls="dropdown-menu-two"

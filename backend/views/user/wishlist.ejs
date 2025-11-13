@@ -35,8 +35,8 @@
     </div>
     <!-- /preload -->
     <div id="wrapper">
-      <!-- header -->
-     <header id="header" class="header-default">
+       <!-- Header -->
+      <header id="header" class="header-default">
         <div class="px_15 lg-px_40">
           <div class="row wrapper-header align-items-center">
             <div class="col-md-4 col-3 tf-lg-hidden">
@@ -60,7 +60,7 @@
               </a>
             </div>
             <div class="col-xl-3 col-md-4 col-6">
-              <a href="index.html" class="logo-header">
+              <a href="/" class="logo-header">
                 <img src="images/kasavika/logo.png" alt="logo" class="logo" />
               </a>
             </div>
@@ -70,68 +70,40 @@
                   class="box-nav-ul d-flex align-items-center justify-content-center gap-30"
                 >
                   <li class="menu-item">
-                    <a href="index.html" class="item-link"
+                    <a href="/" class="item-link"
                       >Home<i class="icon"></i
                     ></a>
                   </li>
                   <li class="menu-item">
-                    <a href="shop.html" class="item-link"
+                    <a href="/store" class="item-link"
                       >Shop<i class="icon icon-arrow-down"></i
                     ></a>
                     <div class="sub-menu">
                       <ul class="menu-list">
-                        <li>
-                          <a
-                            href="shop.html"
-                            class="menu-link-text link text_black-2"
-                            >Living</a
-                          >
-                        </li>
-                        <li>
-                          <a
-                            href="shop.html"
-                            class="menu-link-text link text_black-2"
-                            >Lighting</a
-                          >
-                        </li>
-                        <li>
-                          <a
-                            href="shop.html"
-                            class="menu-link-text link text_black-2"
-                            >Bedroom</a
-                          >
-                        </li>
-                        <li>
-                          <a
-                            href="shop.html"
-                            class="menu-link-text link text_black-2"
-                            >Sofa</a
-                          >
-                        </li>
-                        <li>
-                          <a
-                            href="shop.html"
-                            class="menu-link-text link text_black-2"
-                            >Dining</a
-                          >
-                        </li>
+                         <% if (categories) { %>
+                            <% categories.forEach(c => { %>
+                              <li> <a href=""><%= c.name %></a></li>
+                            <% }) %>
+                          <% } else { %>
+                            <li>No categories</li>
+                          <% } %>
                       </ul>
                     </div>
                   </li>
 
                   <li class="menu-item position-relative">
-                    <a href="about-us.html" class="item-link"
+                    <a href="/about" class="item-link"
                       >About Us<i class="icon"></i
                     ></a>
                   </li>
                   <li class="menu-item">
-                    <a href="my-account-orders.html" class="item-link">Orders</a>
+                    <a href="/orders" class="item-link">Orders</a>
                   </li>
                   <li class="menu-item position-relative">
-                    <a href="blogs.html" class="item-link">Blogs<i class="icon"></i></a>
+                    <a href="/blogs" class="item-link">Blogs<i class="icon"></i></a>
                   </li>
                   <li class="menu-item">
-                    <a href="contact.html" class="item-link">Contact Us</a>
+                    <a href="/contact" class="item-link">Contact Us</a>
                   </li>
                 </ul>
               </nav>
@@ -140,23 +112,19 @@
               <ul
                 class="nav-icon d-flex justify-content-end align-items-center gap-20"
               >
-            
                 <li class="nav-account">
-                  <a href="#login" data-bs-toggle="modal" class="nav-icon-item"
+                  <a href="/login" data-bs-toggle="modal" class="nav-icon-item"
                     ><i class="icon icon-account"></i
                   ></a>
                 </li>
-               <li class="nav-wishlist">
+       <li class="nav-wishlist">
                   <a href="wishlist.html" class="nav-icon-item"
                     ><i class="icon icon-heart"></i
                     ></a
                   >
                 </li>
                 <li class="nav-cart">
-                  <a
-                    href="cart.html"
-              
-                    class="nav-icon-item"
+                  <a href="/cart" class="nav-icon-item"
                     ><i class="icon icon-bag"></i
                     ><span class="count-box">0</span></a
                   >
@@ -166,7 +134,7 @@
           </div>
         </div>
       </header>
-      <!-- /header -->
+      <!-- /Header -->
 
       <!-- page-title -->
       <div class="tf-page-title">
@@ -179,139 +147,66 @@
       <!-- page-cart -->
       <section class="flat-spacing-11">
         <div class="container">
-          <!-- <div class="tf-page-cart text-center mt_140 mb_200">
-                    <h5 class="mb_24">Your cart is empty</h5>
-                    <p class="mb_24">You may check out all the available products and buy some in the shop</p>
-                    <a href="shop-default.html" class="tf-btn btn-sm radius-3 btn-fill btn-icon animate-hover-btn">Return to shop<i class="icon icon-arrow1-top-left"></i></a>
-                </div> -->
-   
-          <div  class="tf-page-cart-wrap1">
-            <div class="tf-page-cart-item">
-              <form>
-                <table class="tf-table-page-cart">
-                  <thead>
-                    <tr>
-                      <th>Product</th>
-                      <th>Price</th>
-                      <th>Stock Status</th>
-                      <th>Action</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr class="tf-cart-item file-delete">
-                      <td class="tf-cart-item_product">
-                        <a href="product-detail.html" class="img-box">
-                          <img
-                            src="images/products/furniture-1.jpg"
-                            alt="img-product"
-                          />
-                        </a>
-                        <div class="cart-info">
-                          <a href="product-detail.html" class="cart-title link"
-                            >product title
-                          </a>
-                          <div class="cart-meta-variant">White / M</div>
-                          <span class="remove-cart link remove">Remove</span>
-                        </div>
-                      </td>
-                      <td
-                        class="tf-cart-item_price tf-variant-item-price"
-                        cart-data-title="Price"
-                      >
-                        <div class="cart-price price">₹18.00</div>
-                      </td>
-                       <td
-                        class="tf-cart-item_price tf-variant-item-price"
-                        cart-data-title="Stock Status"
-                      >
-                        <div style="background-color: rgb(14, 132, 26); padding: 5px; border-radius: 10px; color: white;" class="cart-price price ">In Stock</div>
-                      </td>
-                      <td
-                        class="tf-cart-item_total tf-variant-item-total"
-                        cart-data-title="Actions"
-                      >
-                        <div class="cart-total price"><i class="icon icon-bag"></i
-                    ></div>
-                      </td>
-                    </tr>
-                   <tr class="tf-cart-item file-delete">
-                      <td class="tf-cart-item_product">
-                        <a href="product-detail.html" class="img-box">
-                          <img
-                            src="images/products/furniture-1.jpg"
-                            alt="img-product"
-                          />
-                        </a>
-                        <div class="cart-info">
-                          <a href="product-detail.html" class="cart-title link"
-                            >product title
-                          </a>
-                          <div class="cart-meta-variant">White / M</div>
-                          <span class="remove-cart link remove">Remove</span>
-                        </div>
-                      </td>
-                      <td
-                        class="tf-cart-item_price tf-variant-item-price"
-                        cart-data-title="Price"
-                      >
-                        <div class="cart-price price">₹18.00</div>
-                      </td>
-                       <td
-                        class="tf-cart-item_price tf-variant-item-price"
-                        cart-data-title="Price"
-                      >
-                        <div style="background-color: rgb(14, 132, 26); padding: 5px; border-radius: 10px; color: white;" class="cart-price price ">In Stock</div>
-                      </td>
-                      <td
-                        class="tf-cart-item_total tf-variant-item-total"
-                        cart-data-title="Total"
-                      >
-                        <div  class="cart-total price"><i class="icon icon-bag"></i
-                    ></div>
-                      </td>
-                    </tr>
-                   <tr class="tf-cart-item file-delete">
-                      <td class="tf-cart-item_product">
-                        <a href="product-detail.html" class="img-box">
-                          <img
-                            src="images/products/furniture-1.jpg"
-                            alt="img-product"
-                          />
-                        </a>
-                        <div class="cart-info">
-                          <a href="product-detail.html" class="cart-title link"
-                            >product title
-                          </a>
-                          <div class="cart-meta-variant">White / M</div>
-                          <span class="remove-cart link remove">Remove</span>
-                        </div>
-                      </td>
-                      <td
-                        class="tf-cart-item_price tf-variant-item-price"
-                        cart-data-title="Price"
-                      >
-                        <div class="cart-price price">₹18.00</div>
-                      </td>
-                       <td
-                        class="tf-cart-item_price tf-variant-item-price"
-                        cart-data-title="Price"
-                      >
-                        <div style="background-color: rgb(14, 132, 26); padding: 5px; border-radius: 10px; color: white;" class="cart-price price ">In Stock</div>
-                      </td>
-                      <td
-                        class="tf-cart-item_total tf-variant-item-total"
-                        cart-data-title="Total"
-                      >
-                        <div class="cart-total price"><i class="icon icon-bag"></i
-                    ></div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-          
-              </form>
-            </div>
-        
+         <div class="tf-page-cart-wrap1">
+            <% if (wishlist && wishlist.length > 0) { %>
+              <div class="tf-page-cart-item">
+                <form>
+                  <table class="tf-table-page-cart">
+                    <thead>
+                      <tr>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Stock Status</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% wishlist.forEach(item => { 
+                          const product = item.product || {};
+                          const price = product.salePrice && product.salePrice > 0 ? product.salePrice : product.price;
+                      %>
+                        <tr class="tf-cart-item file-delete">
+                          <td class="tf-cart-item_product">
+                            <a href="/product/<%= product._id %>" class="img-box">
+                              <img src="<%= product.images[0] || '/images/default-product.png' %>" alt="<%= product.name %>" />
+                            </a>
+                            <div class="cart-info">
+                              <a href="/product/<%= product._id %>" class="cart-title link"><%= product.name %></a>
+                              <div class="cart-meta-variant">
+                                <%= item.selectedColor || 'Default' %> 
+                                <% if(item.selectedSize) { %>/ <%= item.selectedSize %><% } %>
+                              </div>
+                              <span class="remove-cart link remove" data-item-id="<%= item._id %>">Remove</span>
+                            </div>
+                          </td>
+                          <td class="tf-cart-item_price tf-variant-item-price" cart-data-title="Price">
+                            <div class="cart-price price">₹<%= price.toFixed(2) %></div>
+                          </td>
+                          <td class="tf-cart-item_price tf-variant-item-price" cart-data-title="Stock Status">
+                            <div class="cart-price price">
+                              <%= product.stock > 0 ? 'In Stock' : 'Out of Stock' %>
+                            </div>
+                          </td>
+                          <td class="tf-cart-item_total tf-variant-item-total" cart-data-title="Actions">
+                            <div class="cart-total price">
+                              <i class="icon icon-bag move-to-cart" style="cursor:pointer;"></i>
+                            </div>
+                          </td>
+                        </tr>
+                      <% }) %>
+                    </tbody>
+                  </table>
+                </form>
+              </div>
+            <% } else { %>
+              <div class="tf-page-cart text-center mt_140 mb_200">
+                <h5 class="mb_24">Your wishlist is empty</h5>
+                <p class="mb_24">You may check out all the available products and add some to your wishlist.</p>
+                <a href="/shop" class="tf-btn btn-sm radius-3 btn-fill btn-icon animate-hover-btn">
+                  Return to shop <i class="icon icon-arrow1-top-left"></i>
+                </a>
+              </div>
+            <% } %>
           </div>
         </div>
       </section>
@@ -939,6 +834,49 @@
     <!-- /modal login -->
 
     <!-- Javascript -->
+
+    // remove item from wishlist script
+<script>
+      document.addEventListener('DOMContentLoaded', () => {
+        // Event delegation for remove buttons
+        document.querySelector('tbody').addEventListener('click', async (e) => {
+          if (!e.target.classList.contains('remove-cart')) return;
+
+          // Use the cart item's _id instead of product ID
+          const itemId = e.target.dataset.itemId;
+          const row = e.target.closest('tr');
+
+          if (!itemId || !row) return;
+
+          try {
+            const response = await fetch(`/wishlist/${itemId}`, {
+              method: 'DELETE',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+            });
+
+            if (!response.ok) throw new Error('Failed to remove item');
+
+            const wishlist = await response.json();
+            console.log(wishlist);
+            
+
+            // Remove row from DOM
+            row.remove();
+
+          } catch (err) {
+            console.error(err);
+            alert('Error removing item. Please try again.');
+            e.target.style.pointerEvents = '';
+            e.target.textContent = 'Remove';
+          }
+        });
+      });
+      </script>
+
+
+
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/swiper-bundle.min.js"></script>
