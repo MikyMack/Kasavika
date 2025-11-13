@@ -358,11 +358,12 @@
                           <% product.colorVariants.forEach((variant, index) => { %>
                             <button
                               type="button"
-                              class="hover-tooltip radius-40 color-btn btn-radio btn-radio-color"
+                              class="hover-tooltip radius-20 btn p-3  color-btn btn-radio btn-radio-color"
                               data-value="<%= variant.color %>"
                               data-images='<%- JSON.stringify(variant.images) %>'
+                              style="background-color: <%= variant.color.startsWith('#') ? variant.color : variant.color.toLowerCase() %>;"
                             >
-                              <span class="btn-checkbox" style="background-color: <%= variant.color.startsWith('#') ? variant.color : variant.color.toLowerCase() %>;"></span>
+                              <span class="btn-checkbox" ></span>
                               <span class="tooltip"><%= variant.color %></span>
                             </button>
                           <% }) %>
@@ -2483,88 +2484,86 @@
 
       //  add to cart
    <script>
-document.addEventListener("DOMContentLoaded", function () {
-  const addToCartBtn = document.querySelector(".btn-add-to-cart");
-  const quantityInput = document.querySelector(".quantity-product");
-  const btnIncrease = document.querySelector(".btn-increase");
-  const btnDecrease = document.querySelector(".btn-decrease");
-  const totalPriceEl = document.querySelector(".total-price");
+    document.addEventListener("DOMContentLoaded", function () {
+      const addToCartBtn = document.querySelector(".btn-add-to-cart");
+      const quantityInput = document.querySelector(".quantity-product");
+      const btnIncrease = document.querySelector(".btn-increase");
+      const btnDecrease = document.querySelector(".btn-decrease");
+      const totalPriceEl = document.querySelector(".total-price");
 
-  // --- Base unit price from data attribute ---
-  const unitPrice = parseFloat(totalPriceEl.dataset.unitPrice);
+      // --- Base unit price from data attribute ---
+      const unitPrice = parseFloat(totalPriceEl.dataset.unitPrice);
 
-  // --- Update total price display ---
-  function updateTotalPrice() {
-    const qty = parseInt(quantityInput.value) || 1;
-    const total = unitPrice * qty;
-    totalPriceEl.textContent = `₹${total.toFixed(2)}`;
-  }
-
-  // --- Quantity buttons ---
-  btnIncrease.addEventListener("click", (e) => {
-    e.stopPropagation();
-    quantityInput.value = parseInt(quantityInput.value) + 1;
-    updateTotalPrice();
-  });
-
-  btnDecrease.addEventListener("click", (e) => {
-    e.stopPropagation();
-    const current = parseInt(quantityInput.value);
-    if (current > 1) {
-      quantityInput.value = current - 1;
-      updateTotalPrice();
-    }
-  });
-
-  // --- Add to Cart logic ---
-  addToCartBtn.addEventListener("click", async function () {
-    try {
-      const productId = "<%= product._id %>";
-      const quantity = parseInt(quantityInput.value) || 1;
-      const selectedColor = document.querySelector(".color-btn.selected")?.dataset.value;
-      const selectedSize = document.querySelector(".size-btn.selected")?.dataset.value;
-
-      // Validation
-      if (document.querySelector(".color-btn") && !selectedColor) {
-        return alert("Please select a color!");
-      }
-      if (document.querySelector(".size-btn") && !selectedSize) {
-        return alert("Please select a size!");
+      // --- Update total price display ---
+      function updateTotalPrice() {
+        const qty = parseInt(quantityInput.value) || 1;
+        const total = unitPrice * qty;
+        totalPriceEl.textContent = `₹${total.toFixed(2)}`;
       }
 
-      const bodyData = { productId, quantity, selectedColor, selectedSize };
-
-      const response = await fetch("/add-cart", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(bodyData),
+      // --- Quantity buttons ---
+      btnIncrease.addEventListener("click", (e) => {
+        e.stopPropagation();
+        quantityInput.value = parseInt(quantityInput.value) + 1;
+        updateTotalPrice();
       });
 
-      if (response.status === 401 || response.redirected) {
-        localStorage.setItem("pendingCartItem", JSON.stringify(bodyData));
-        window.location.href = "/auth/login";
-        return;
-      }
-
-      const data = await response.json();
-      if (response.ok) {
-        const cartBadge = document.querySelector(".cart-badge");
-        if (cartBadge && data.cartCount !== undefined) {
-          cartBadge.textContent = data.cartCount;
+      btnDecrease.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const current = parseInt(quantityInput.value);
+        if (current > 1) {
+          quantityInput.value = current - 1;
+          updateTotalPrice();
         }
-        alert("Product added to cart successfully!");
-      } else {
-        alert(data.error || "Something went wrong while adding to cart.");
-      }
-    } catch (error) {
-      console.error("Add to cart error:", error);
-      alert("Unable to add to cart right now. Please try again later.");
-    }
-  });
-});
-</script>
+      });
 
+      // --- Add to Cart logic ---
+      addToCartBtn.addEventListener("click", async function () {
+        try {
+          const productId = "<%= product._id %>";
+          const quantity = parseInt(quantityInput.value) || 1;
+          const selectedColor = document.querySelector(".color-btn.selected")?.dataset.value;
+          const selectedSize = document.querySelector(".size-btn.selected")?.dataset.value;
 
+          // Validation
+          if (document.querySelector(".color-btn") && !selectedColor) {
+            return alert("Please select a color!");
+          }
+          if (document.querySelector(".size-btn") && !selectedSize) {
+            return alert("Please select a size!");
+          }
+
+          const bodyData = { productId, quantity, selectedColor, selectedSize };
+
+          const response = await fetch("/add-cart", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(bodyData),
+          });
+
+          if (response.status === 401 || response.redirected) {
+            localStorage.setItem("pendingCartItem", JSON.stringify(bodyData));
+            window.location.href = "/auth/login";
+            return;
+          }
+
+          const data = await response.json();
+          if (response.ok) {
+            const cartBadge = document.querySelector(".cart-badge");
+            if (cartBadge && data.cartCount !== undefined) {
+              cartBadge.textContent = data.cartCount;
+            }
+            alert("Product added to cart successfully!");
+          } else {
+            alert(data.error || "Something went wrong while adding to cart.");
+          }
+        } catch (error) {
+          console.error("Add to cart error:", error);
+          alert("Unable to add to cart right now. Please try again later.");
+        }
+      });
+    });
+    </script>
       
 
 

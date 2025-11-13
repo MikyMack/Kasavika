@@ -940,7 +940,26 @@ var totalVariant = function () {
     }
   });
 };
+// account
+  document.addEventListener('DOMContentLoaded', () => {
+    const navItems = document.querySelectorAll('.my-account-nav-item[data-target]');
+    const sections = document.querySelectorAll('.account-section');
 
+    navItems.forEach(item => {
+      item.addEventListener('click', () => {
+        // Remove active class from all nav items
+        navItems.forEach(nav => nav.classList.remove('active'));
+        item.classList.add('active');
+
+        // Hide all sections
+        sections.forEach(section => section.style.display = 'none');
+
+        // Show the selected section
+        const target = item.getAttribute('data-target');
+        document.getElementById(target).style.display = 'block';
+      });
+    });
+  });
 
   // Dom Ready
   $(function () {

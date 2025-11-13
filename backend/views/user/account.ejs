@@ -168,106 +168,106 @@
         </div>
         <!-- /page-title -->
 
-        <!-- page-cart -->
-        <section class="flat-spacing-11">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-3">
-                        <div class="wrap-sidebar-account">
-                            <ul class="my-account-nav">
-
-                                <li><span class="my-account-nav-item active">Orders</span></li>
-                                <li><a href="my-account-address.html" class="my-account-nav-item">Address</a></li>
-                                <li><a href="my-account-edit.html" class="my-account-nav-item">Account Details</a></li>
-    
-                                <li><a href="login.html" class="my-account-nav-item">Logout</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-9">
-                        <div class="my-account-content account-order">
-                            <div class="wrap-account-order">
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th class="fw-6">Order</th>
-                                            <th class="fw-6">Date</th>
-                                            <th class="fw-6">Status</th>
-                                            <th class="fw-6">Total</th>
-                                            <th class="fw-6">Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="tf-order-item">
-                                            <td>
-                                                #123
-                                            </td>
-                                            <td>
-                                                August 1, 2024
-                                            </td>
-                                            <td>
-                                                On hold
-                                            </td>
-                                            <td>
-                                               ₹200.0 for 1 items
-                                            </td>
-                                            <td>
-                                                <a href="my-account-orders-details.html"
-                                                    class="tf-btn btn-fill animate-hover-btn rounded-0 justify-content-center">
-                                                    <span>View</span>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr class="tf-order-item">
-                                            <td>
-                                                #345
-                                            </td>
-                                            <td>
-                                                August 2, 2024
-                                            </td>
-                                            <td>
-                                                On hold
-                                            </td>
-                                            <td>
-                                               ₹300.0 for 1 items
-                                            </td>
-                                            <td>
-                                                <a href="my-account-orders-details.html"
-                                                    class="tf-btn btn-fill animate-hover-btn rounded-0 justify-content-center">
-                                                    <span>View</span>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr class="tf-order-item">
-                                            <td>
-                                                #567
-                                            </td>
-                                            <td>
-                                                August 3, 2024
-                                            </td>
-                                            <td>
-                                                On hold
-                                            </td>
-                                            <td>
-                                               ₹400.0 for 1 items
-                                            </td>
-                                            <td>
-                                                <a href="my-account-orders-details.html"
-                                                    class="tf-btn btn-fill animate-hover-btn rounded-0 justify-content-center">
-                                                    <span>View</span>
-                                                </a>
-                                            </td>
-                                        </tr>
-
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <!-- page-content -->
+      <section class="flat-spacing-11">
+        <div class="container">
+          <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-3">
+              <div class="wrap-sidebar-account">
+                <ul class="my-account-nav">
+                  <li><span class="my-account-nav-item active" data-target="orders-section">Orders</span></li>
+                  <li><span class="my-account-nav-item" data-target="address-section">Address</span></li>
+                  <li><span class="my-account-nav-item" data-target="details-section">Account Details</span></li>
+                  <li><a href="/auth/logout" class="my-account-nav-item">Logout</a></li>
+                </ul>
+              </div>
             </div>
-        </section>
-        <!-- page-cart -->
+
+            <!-- Content Area -->
+            <div class="col-lg-9">
+              <div class="my-account-content">
+
+                <!-- Orders Section -->
+                <div id="orders-section" class="account-section active">
+                  <div class="wrap-account-order">
+                    <table>
+                      <thead>
+                        <tr>
+                          <th class="fw-6">Order</th>
+                          <th class="fw-6">Date</th>
+                          <th class="fw-6">Status</th>
+                          <th class="fw-6">Total</th>
+                          <th class="fw-6">Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <% if (orders && orders.length > 0) { %>
+                          <% orders.forEach(order => { %>
+                            <tr class="tf-order-item">
+                              <td>#<%= order._id %></td>
+                              <td><%= order.date.toDateString() %></td>
+                              <td><%= order.status %></td>
+                              <td>₹<%= order.total %> for <%= order.items.length %> items</td>
+                              <td>
+                                <a href="/my-account/order/<%= order._id %>"
+                                  class="tf-btn btn-fill animate-hover-btn rounded-0 justify-content-center">
+                                  <span>View</span>
+                                </a>
+                              </td>
+                            </tr>
+                          <% }) %>
+                        <% } else { %>
+                          <tr><td colspan="5" class="text-center">No orders found</td></tr>
+                        <% } %>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <!-- Address Section -->
+                <div id="address-section" class="account-section" style="display: none;">
+                  <h5 class="fw-6 mb_20">Saved Addresses</h5>
+                  <% if (user && user.addresses && user.addresses.length > 0) { %>
+                    <% user.addresses.forEach(address => { %>
+                      <div class="address-box mb_20 p-3 border rounded-3">
+                        <p><strong><%= address.name %></strong></p>
+                        <p><%= address.street %>, <%= address.city %>, <%= address.state %> - <%= address.zip %></p>
+                        <p>Phone: <%= address.phone %></p>
+                      </div>
+                    <% }) %>
+                  <% } else { %>
+                    <p>No address found.</p>
+                  <% } %>
+                  <a href="/my-account/add-address" class="tf-btn btn-fill">Add New Address</a>
+                </div>
+
+                <!-- Account Details Section -->
+                <div id="details-section" class="account-section" style="display: none;">
+                  <h5 class="fw-6 mb_20">Account Details</h5>
+                  <form action="/my-account/update" method="POST">
+                    <div class="mb_20">
+                      <label class="fw-6">Name</label>
+                      <input type="text" name="name" value="<%= user.name %>" class="form-control" required />
+                    </div>
+                    <div class="mb_20">
+                      <label class="fw-6">Email</label>
+                      <input type="email" name="email" value="<%= user.email %>" class="form-control" required />
+                    </div>
+                    <div class="mb_20">
+                      <label class="fw-6">Phone</label>
+                      <input type="text" name="mobile" value="<%= user.mobile %>" class="form-control" />
+                    </div>
+                    <button type="submit" class="tf-btn btn-fill">Update</button>
+                  </form>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+        <!-- page-content -->
 
 
  
