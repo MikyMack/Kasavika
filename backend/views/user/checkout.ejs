@@ -43,7 +43,7 @@
     </div>
     <!-- /preload -->
     <div id="wrapper">
-      <!-- header -->
+      <!-- Header -->
       <header id="header" class="header-default">
         <div class="px_15 lg-px_40">
           <div class="row wrapper-header align-items-center">
@@ -68,7 +68,7 @@
               </a>
             </div>
             <div class="col-xl-3 col-md-4 col-6">
-              <a href="index.html" class="logo-header">
+              <a href="/" class="logo-header">
                 <img src="images/kasavika/logo.png" alt="logo" class="logo" />
               </a>
             </div>
@@ -78,70 +78,38 @@
                   class="box-nav-ul d-flex align-items-center justify-content-center gap-30"
                 >
                   <li class="menu-item">
-                    <a href="index.html" class="item-link"
-                      >Home<i class="icon"></i
-                    ></a>
+                    <a href="/" class="item-link">Home<i class="icon"></i></a>
                   </li>
                   <li class="menu-item">
-                    <a href="shop.html" class="item-link"
+                    <a href="/store" class="item-link"
                       >Shop<i class="icon icon-arrow-down"></i
                     ></a>
                     <div class="sub-menu">
                       <ul class="menu-list">
-                        <li>
-                          <a
-                            href="shop.html"
-                            class="menu-link-text link text_black-2"
-                            >Living</a
-                          >
-                        </li>
-                        <li>
-                          <a
-                            href="shop.html"
-                            class="menu-link-text link text_black-2"
-                            >Lighting</a
-                          >
-                        </li>
-                        <li>
-                          <a
-                            href="shop.html"
-                            class="menu-link-text link text_black-2"
-                            >Bedroom</a
-                          >
-                        </li>
-                        <li>
-                          <a
-                            href="shop.html"
-                            class="menu-link-text link text_black-2"
-                            >Sofa</a
-                          >
-                        </li>
-                        <li>
-                          <a
-                            href="shop.html"
-                            class="menu-link-text link text_black-2"
-                            >Dining</a
-                          >
-                        </li>
+                        <% if (categories) { %> <% categories.forEach(c => { %>
+                        <li><a href=""><%= c.name %></a></li>
+                        <% }) %> <% } else { %>
+                        <li>No categories</li>
+                        <% } %>
                       </ul>
                     </div>
                   </li>
 
                   <li class="menu-item position-relative">
-                    <a href="about-us.html" class="item-link"
+                    <a href="/about" class="item-link"
                       >About Us<i class="icon"></i
                     ></a>
                   </li>
                   <li class="menu-item">
-                    <a href="my-account-orders.html" class="item-link">Orders</a>
+                    <a href="/orders" class="item-link">Orders</a>
                   </li>
                   <li class="menu-item position-relative">
-                    <a href="blogs.html" class="item-link"
+                    <a href="/blogs" class="item-link"
                       >Blogs<i class="icon"></i
                     ></a>
                   </li>
                   <li class="menu-item">
-                    <a href="contact.html" class="item-link">Contact Us</a>
+                    <a href="/contact" class="item-link">Contact Us</a>
                   </li>
                 </ul>
               </nav>
@@ -155,14 +123,13 @@
                     ><i class="icon icon-account"></i
                   ></a>
                 </li>
-            <li class="nav-wishlist">
-                  <a href="wishlist.html" class="nav-icon-item"
+                <li class="nav-wishlist">
+                  <a href="/wishlist" class="nav-icon-item"
                     ><i class="icon icon-heart"></i
-                    ></a
-                  >
+                  ></a>
                 </li>
                 <li class="nav-cart">
-                  <a href="cart.html" class="nav-icon-item"
+                  <a href="/cart" class="nav-icon-item"
                     ><i class="icon icon-bag"></i
                     ><span class="count-box">0</span></a
                   >
@@ -172,7 +139,7 @@
           </div>
         </div>
       </header>
-      <!-- /header -->
+      <!-- /Header -->
 
       <!-- page-title -->
       <div class="tf-page-title">
@@ -187,211 +154,302 @@
         <div class="container">
           <div class="tf-page-cart-wrap layout-2">
             <div class="tf-page-cart-item">
-              <h5 class="fw-5 mb_20">Billing details</h5>
-             <form class="form-checkout">
-              <div class="box grid-2">
-                <fieldset class="fieldset">
-                  <label for="full-name">Full Name</label>
-                  <input
-                    type="text"
-                    id="full-name"
-                    placeholder="Full Name"
-                    value="<%= user ? (user.name || '') : '' %>"
-                    readonly
-                  />
-                </fieldset>
+              <h4 class="fw-6 mb_24">Delivery Address</h4>
 
-                <fieldset class="fieldset">
-                  <label for="email">Email</label>
-                  <input
-                    type="email"
-                    id="email"
-                    placeholder="Email"
-                    value="<%= user ? (user.email || '') : '' %>"
-                    readonly
-                  />
-                </fieldset>
-              </div>
+              <div class="tf-page-cart-item">
+                <h4 class="fw-6 mb_24">Delivery Address</h4>
 
-              <fieldset class="box fieldset">
-                <label for="phone">Mobile Number</label>
-                <input
-                  type="number"
-                  id="phone"
-                  placeholder="Mobile Number"
-                  value="<%= user ? (user.mobile || '') : '' %>"
-                />
-              </fieldset>
+                <form id="checkout-form">
+                  <!-- ADDRESS LIST -->
+                  <div id="address-list" class="address-list">
+                    <% if (addresses && addresses.length > 0) { %> <%
+                    addresses.forEach(addr => { %>
 
-              <fieldset class="box fieldset">
-                <label for="address">Address</label>
-                <input
-                  type="text"
-                  id="address"
-                  placeholder="Street Address"
-                  value="<%= (addresses && addresses.length > 0) ? (addresses[0].addressLine1 || '') : '' %>"
-                />
-              </fieldset>
-
-              <fieldset class="box fieldset">
-                <label for="city">City</label>
-                <input
-                  type="text"
-                  id="city"
-                  placeholder="Town / City"
-                  value="<%= (addresses && addresses.length > 0) ? (addresses[0].city || '') : '' %>"
-                />
-              </fieldset>
-
-              <fieldset class="box fieldset">
-                <label for="country">Country / Region</label>
-                <div class="select-custom">
-                  <select
-                    class="tf-select w-100"
-                    id="country"
-                    name="address[country]"
-                  >
-                    <% const selectedCountry = (addresses && addresses.length > 0) ? addresses[0].country : 'India'; %>
-                    <option value="India" <%= selectedCountry === 'India' ? 'selected' : '' %>>India</option>
-                    <option value="United States" <%= selectedCountry === 'United States' ? 'selected' : '' %>>United States</option>
-                    <option value="United Kingdom" <%= selectedCountry === 'United Kingdom' ? 'selected' : '' %>>United Kingdom</option>
-                    <option value="Australia" <%= selectedCountry === 'Australia' ? 'selected' : '' %>>Australia</option>
-                  </select>
-                </div>
-              </fieldset>
-
-              <fieldset class="box fieldset">
-                <label for="note">Order notes (optional)</label>
-                <textarea name="note" id="note"><%= cart.note || '' %></textarea>
-              </fieldset>
-            </form>
-
-
-            </div>
-            <div class="tf-page-cart-footer">
-            <div class="tf-cart-footer-inner">
-              <h5 class="fw-5 mb_20">Your order</h5>
-
-              <form class="tf-page-cart-checkout widget-wrap-checkout" action="/place-order" method="POST">
-                <ul class="wrap-checkout-product">
-                  <% if (cart && cart.items && cart.items.length > 0) { %>
-                    <% cart.items.forEach(item => { %>
-                      <li class="checkout-product-item">
-                        <figure class="img-product">
-                          <img
-                            src="<%= item.productImage || '/images/placeholder.jpg' %>"
-                            alt="<%= item.productName %>"
-                          />
-                          <span class="quantity"><%= item.quantity %></span>
-                        </figure>
-                        <div class="content">
-                          <div class="info">
-                            <p class="name"><%= item.productName %></p>
-
-                            <% if (item.selectedColor || item.selectedSize) { %>
-                              <span class="variant">
-                                <%= item.selectedColor ? item.selectedColor : '' %>
-                                <%= item.selectedSize ? ' / ' + item.selectedSize : '' %>
-                              </span>
-                            <% } %>
-                          </div>
-                          <span class="price">
-                            ₹<%= (item.price * item.quantity).toFixed(2) %>
-                          </span>
+                    <div
+                      class="address-card <%= addr.isDefault ? 'selected' : '' %>"
+                      data-id="<%= addr._id %>"
+                    >
+                      <div class="address-main">
+                        <div class="address-header">
+                          <strong class="address-name"><%= addr.name %></strong>
+                          <span class="address-phone"
+                            >📞 <%= addr.phone %></span
+                          >
                         </div>
-                      </li>
-                    <% }) %>
-                  <% } else { %>
-                    <li>No products in your cart.</li>
-                  <% } %>
-                </ul>
 
-                <!-- Coupon -->
-                <div class="coupon-box">
-                  <input type="text" placeholder="Discount code" name="couponCode" />
-                  <button
-                    type="button"
-                    id="applyCouponBtn"
-                    class="tf-btn btn-sm radius-3 btn-fill btn-icon animate-hover-btn"
+                        <div class="address-body">
+                          <%= addr.addressLine1 %>, <%= addr.district %><br />
+                          <%= addr.city %>, <%= addr.state %> - <%= addr.pincode
+                          %><br />
+                          <small><%= addr.addressType %></small>
+                        </div>
+
+                        <% if (addr.isDefault) { %>
+                        <span class="default-badge">Default</span>
+                        <% } %>
+                      </div>
+
+                      <div class="address-actions">
+                        <button
+                          type="button"
+                          class="edit-btn"
+                          data-id="<%= addr._id %>"
+                        >
+                          Edit
+                        </button>
+                        <button
+                          type="button"
+                          class="delete-btn"
+                          data-id="<%= addr._id %>"
+                        >
+                          Delete
+                        </button>
+                      </div>
+
+                      <div class="radio-indicator"></div>
+                    </div>
+
+                    <% }) %> <% } else { %>
+                    <p class="no-address">No saved addresses found.</p>
+                    <% } %>
+
+                    <button
+                      type="button"
+                      id="add-new-btn"
+                      class="add-new-address-btn"
+                    >
+                      + Add New Address
+                    </button>
+                  </div>
+
+                  <!-- NEW / EDIT ADDRESS FORM -->
+                  <div
+                    id="new-address-fields"
+                    class="new-address-fields hidden"
                   >
-                    Apply
-                  </button>
-                </div>
+                    <h5 class="fw-5 mb_16" id="form-title">Add New Address</h5>
 
-                <!-- Totals -->
-                <div class="d-flex justify-content-between line pb_20">
-                  <h6 class="fw-5">Subtotal</h6>
-                  <h6 class="fw-5">₹<%= cart.subtotal.toFixed(2) %></h6>
-                </div>
+                    <input type="hidden" id="address-id" />
 
-                <% if (cart.discountAmount && cart.discountAmount > 0) { %>
+                    <fieldset class="box fieldset">
+                      <label>Full Name</label>
+                      <input type="text" id="name" required />
+                    </fieldset>
+
+                    <fieldset class="box fieldset">
+                      <label>Mobile Number</label>
+                      <input type="text" id="phone" required />
+                    </fieldset>
+
+                    <fieldset class="box fieldset">
+                      <label>Pincode</label>
+                      <input type="text" id="pincode" required />
+                    </fieldset>
+
+                    <fieldset class="box fieldset">
+                      <label>State</label>
+                      <input type="text" id="state" required />
+                    </fieldset>
+
+                    <fieldset class="box fieldset">
+                      <label>City</label>
+                      <input type="text" id="city" required />
+                    </fieldset>
+
+                    <fieldset class="box fieldset">
+                      <label>District</label>
+                      <input type="text" id="district" />
+                    </fieldset>
+
+                    <fieldset class="box fieldset">
+                      <label>Address Line 1</label>
+                      <input type="text" id="addressLine1" required />
+                    </fieldset>
+
+                    <fieldset class="box fieldset">
+                      <label>Address Line 2</label>
+                      <input type="text" id="addressLine2" />
+                    </fieldset>
+
+                    <fieldset class="box fieldset">
+                      <label>Landmark</label>
+                      <input type="text" id="landmark" />
+                    </fieldset>
+
+                    <fieldset class="box fieldset">
+                      <label>Address Type</label>
+                      <select id="addressType" class="tf-select w-100">
+                        <option value="Home">Home</option>
+                        <option value="Work">Work</option>
+                        <option value="Other">Other</option>
+                      </select>
+                    </fieldset>
+
+                    <fieldset class="box fieldset">
+                      <label class="checkbox">
+                        <input type="checkbox" id="isDefault" /> Set as default
+                      </label>
+                    </fieldset>
+
+                    <button
+                      type="button"
+                      id="save-address"
+                      class="btn btn-primary w-100"
+                    >
+                      Save Address
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <div class="tf-page-cart-footer">
+              <div class="tf-cart-footer-inner">
+                <h5 class="fw-5 mb_20">Your order</h5>
+
+                <form
+                  class="tf-page-cart-checkout widget-wrap-checkout"
+                  action="/place-order"
+                  method="POST"
+                >
+                  <ul class="wrap-checkout-product">
+                    <% if (cart && cart.items && cart.items.length > 0) { %> <%
+                    cart.items.forEach(item => { %>
+                    <li class="checkout-product-item">
+                      <figure class="img-product">
+                        <img
+                          src="<%= item.productImage || '/images/placeholder.jpg' %>"
+                          alt="<%= item.productName %>"
+                        />
+                        <span class="quantity"><%= item.quantity %></span>
+                      </figure>
+                      <div class="content">
+                        <div class="info">
+                          <p class="name"><%= item.productName %></p>
+
+                          <% if (item.selectedColor || item.selectedSize) { %>
+                          <span class="variant">
+                            <%= item.selectedColor ? item.selectedColor : '' %>
+                            <%= item.selectedSize ? ' / ' + item.selectedSize :
+                            '' %>
+                          </span>
+                          <% } %>
+                        </div>
+                        <span class="price">
+                          ₹<%= (item.price * item.quantity).toFixed(2) %>
+                        </span>
+                      </div>
+                    </li>
+                    <% }) %> <% } else { %>
+                    <li>No products in your cart.</li>
+                    <% } %>
+                  </ul>
+
+                  <!-- Coupon -->
+                  <div class="coupon-box">
+                    <input
+                      type="text"
+                      placeholder="Discount code"
+                      name="couponCode"
+                    />
+                    <button
+                      type="button"
+                      id="applyCouponBtn"
+                      class="tf-btn btn-sm radius-3 btn-fill btn-icon animate-hover-btn"
+                    >
+                      Apply
+                    </button>
+                  </div>
+
+                  <!-- Totals -->
+                  <div class="d-flex justify-content-between line pb_20">
+                    <h6 class="fw-5">Subtotal</h6>
+                    <h6 class="fw-5">₹<%= cart.subtotal.toFixed(2) %></h6>
+                  </div>
+
+                  <% if (cart.discountAmount && cart.discountAmount > 0) { %>
                   <div class="d-flex justify-content-between line pb_20">
                     <h6 class="fw-5 text-success">Discount</h6>
-                    <h6 class="fw-5 text-success">-₹<%= cart.discountAmount.toFixed(2) %></h6>
+                    <h6 class="fw-5 text-success">
+                      -₹<%= cart.discountAmount.toFixed(2) %>
+                    </h6>
                   </div>
-                <% } %>
+                  <% } %>
 
-                <div class="d-flex justify-content-between line pb_20">
-                  <h6 class="fw-5">Total</h6>
-                  <h6 class="total fw-5">₹<%= cart.total.toFixed(2) %></h6>
-                </div>
-
-                <!-- Payment Options -->
-                <div class="wd-check-payment">
-                  <div class="fieldset-radio mb_20">
-                    <input
-                      type="radio"
-                      name="payment"
-                      id="bank"
-                      class="tf-check"
-                      value="bank"
-                      checked
-                    />
-                    <label for="bank">Direct bank transfer</label>
-                  </div>
-                  <div class="fieldset-radio mb_20">
-                    <input
-                      type="radio"
-                      name="payment"
-                      id="delivery"
-                      class="tf-check"
-                      value="cod"
-                    />
-                    <label for="delivery">Cash on delivery</label>
+                  <div class="d-flex justify-content-between line pb_20">
+                    <h6 class="fw-5">Total</h6>
+                    <h6 class="total fw-5">₹<%= cart.total.toFixed(2) %></h6>
                   </div>
 
-                  <p class="text_black-2 mb_20">
-                    Your personal data will be used to process your order, support your experience
-                    throughout this website, and for other purposes described in our
-                    <a href="/privacy-policy" class="text-decoration-underline">privacy policy</a>.
-                  </p>
+                  <!-- Payment Options -->
+                  <div class="wd-check-payment">
+                    <div class="fieldset-radio mb_20">
+                      <input
+                        type="radio"
+                        name="payment"
+                        id="bank"
+                        class="tf-check"
+                        value="bank"
+                        checked
+                      />
+                      <label for="bank">Direct bank transfer</label>
+                    </div>
+                    <div class="fieldset-radio mb_20">
+                      <input
+                        type="radio"
+                        name="payment"
+                        id="delivery"
+                        class="tf-check"
+                        value="cod"
+                      />
+                      <label for="delivery">Cash on delivery</label>
+                    </div>
 
-                  <div class="box-checkbox fieldset-radio mb_20">
-                    <input type="checkbox" id="check-agree" class="tf-check" required />
-                    <label for="check-agree" class="text_black-2">
-                      I have read and agree to the website
-                      <a href="/terms-conditions" class="text-decoration-underline">terms and conditions</a>.
-                    </label>
+                    <p class="text_black-2 mb_20">
+                      Your personal data will be used to process your order,
+                      support your experience throughout this website, and for
+                      other purposes described in our
+                      <a
+                        href="/privacy-policy"
+                        class="text-decoration-underline"
+                        >privacy policy</a
+                      >.
+                    </p>
+
+                    <div class="box-checkbox fieldset-radio mb_20">
+                      <input
+                        type="checkbox"
+                        id="check-agree"
+                        class="tf-check"
+                        required
+                      />
+                      <label for="check-agree" class="text_black-2">
+                        I have read and agree to the website
+                        <a
+                          href="/terms-conditions"
+                          class="text-decoration-underline"
+                          >terms and conditions</a
+                        >.
+                      </label>
+                    </div>
                   </div>
-                </div>
 
-                <button
-                  type="submit"
-                  class="tf-btn radius-3 btn-fill btn-icon animate-hover-btn justify-content-center"
-                >
-                  Place order
-                </button>
-              </form>
+                  <button
+                    type="submit"
+                    class="tf-btn radius-3 btn-fill btn-icon animate-hover-btn justify-content-center"
+                  >
+                    Place order
+                  </button>
+                </form>
+              </div>
             </div>
-          </div>
-
           </div>
         </div>
       </section>
       <!-- page-cart -->
 
       <!-- footer -->
-        <footer id="footer" class="footer md-pb-70 has-border-full">
+      <footer id="footer" class="footer md-pb-70 has-border-full">
         <div class="footer-wrap">
           <div class="footer-body">
             <div class="container">
@@ -403,11 +461,14 @@
                         <img src="images/kasavika/logo.png" alt="" />
                       </a>
                     </div>
-                  <p class="mb-1">Kasavika celebrates Indian tradition with sarees that blend timeless craftsmanship and modern elegance. </p>
+                    <p class="mb-1">
+                      Kasavika celebrates Indian tradition with sarees that
+                      blend timeless craftsmanship and modern elegance.
+                    </p>
                     <a href="contact-1.html" class="tf-btn btn-line"
                       >Get direction<i class="icon icon-arrow1-top-left"></i
                     ></a>
-                   
+
                     <ul class="tf-social-icon d-flex gap-10">
                       <li>
                         <a
@@ -430,8 +491,6 @@
                           ><i class="icon fs-14 icon-instagram"></i
                         ></a>
                       </li>
-                    
-                 
                     </ul>
                   </div>
                 </div>
@@ -467,14 +526,10 @@
                       <a href="faq.html" class="footer-menu_item">FAQ’s</a>
                     </li>
                     <li>
-                      <a href="login.html" class="footer-menu_item"
-                        >Account</a
-                      >
+                      <a href="login.html" class="footer-menu_item">Account</a>
                     </li>
                     <li>
-                      <a href="cart.html" class="footer-menu_item"
-                        > Cart</a
-                      >
+                      <a href="cart.html" class="footer-menu_item"> Cart</a>
                     </li>
                   </ul>
                 </div>
@@ -487,31 +542,24 @@
                   </div>
                   <ul class="footer-menu-list tf-collapse-content">
                     <li>
-                        <a href="index.html" class="footer-menu_item"
-                          >Home</a
-                        >
-                      </li>
+                      <a href="index.html" class="footer-menu_item">Home</a>
+                    </li>
                     <li>
                       <a href="about-us.html" class="footer-menu_item"
                         >About Us</a
                       >
                     </li>
                     <li>
-                      <a href="shop.html" class="footer-menu_item"
-                        >Shop</a
-                      >
+                      <a href="shop.html" class="footer-menu_item">Shop</a>
                     </li>
                     <li>
-                        <a href="blogs.html" class="footer-menu_item"
-                          >Blogs</a
-                        >
-                      </li>
+                      <a href="blogs.html" class="footer-menu_item">Blogs</a>
+                    </li>
                     <li>
                       <a href="contact.html" class="footer-menu_item"
                         >Contact Us</a
                       >
                     </li>
-                 
                   </ul>
                 </div>
                 <div class="col-xl-3 col-md-6 col-12">
@@ -522,11 +570,11 @@
                     <div class="footer-heading footer-heading-moblie">
                       <h6>Contact Us</h6>
                     </div>
-                  <ul>
+                    <ul>
                       <li>
                         <p>
                           Address: Kuzhivila payattuvila P.O <br />
-                         Balaramapuram, Thiruvananthapuram Kerala 
+                          Balaramapuram, Thiruvananthapuram Kerala
                         </p>
                       </li>
                       <li>
@@ -534,9 +582,8 @@
                       </li>
                       <li>
                         <p>Phone: <a href="#">9633305606</a></p>
-                         <p>Phone: <a href="#">9633306606</a></p>
+                        <p>Phone: <a href="#">9633306606</a></p>
                       </li>
-                 
                     </ul>
                   </div>
                 </div>
@@ -553,9 +600,8 @@
                     <div class="footer-menu_item">
                       © 2025 Kasavika. All Rights Reserved.
                     </div>
-                   
                   </div>
-                </div>  
+                </div>
               </div>
             </div>
           </div>
@@ -584,49 +630,53 @@
     </div>
     <!-- /gotop -->
 
-
     <!-- toolbar-bottom -->
     <div class="tf-toolbar-bottom type-1150">
       <div class="toolbar-item">
-          <a href="index.html" data-bs-toggle="offcanvas" aria-controls="offcanvasLeft">
-              <div class="toolbar-icon">
-                  <i class="icon-home"></i>
-              </div>
-              <div class="toolbar-label">Home</div>
-          </a>
+        <a
+          href="index.html"
+          data-bs-toggle="offcanvas"
+          aria-controls="offcanvasLeft"
+        >
+          <div class="toolbar-icon">
+            <i class="icon-home"></i>
+          </div>
+          <div class="toolbar-label">Home</div>
+        </a>
       </div>
       <div class="toolbar-item">
-          <a href="shop.html" data-bs-toggle="offcanvas" aria-controls="offcanvasLeft">
-              <div class="toolbar-icon">
-                  <i class="icon-shop"></i>
-              </div>
-              <div class="toolbar-label">Shop</div>
-          </a>
+        <a
+          href="shop.html"
+          data-bs-toggle="offcanvas"
+          aria-controls="offcanvasLeft"
+        >
+          <div class="toolbar-icon">
+            <i class="icon-shop"></i>
+          </div>
+          <div class="toolbar-label">Shop</div>
+        </a>
       </div>
 
- 
       <div class="toolbar-item">
-          <a href="#login" data-bs-toggle="modal">
-              <div class="toolbar-icon">
-                  <i class="icon-account"></i>
-              </div>
-              <div class="toolbar-label">Account</div>
-          </a>
+        <a href="#login" data-bs-toggle="modal">
+          <div class="toolbar-icon">
+            <i class="icon-account"></i>
+          </div>
+          <div class="toolbar-label">Account</div>
+        </a>
       </div>
-  
+
       <div class="toolbar-item">
-          <a href="cart.html" data-bs-toggle="modal">
-              <div class="toolbar-icon">
-                  <i class="icon-bag"></i>
-                  <div class="toolbar-count">1</div>
-              </div>
-              <div class="toolbar-label">Cart</div>
-          </a>
+        <a href="cart.html" data-bs-toggle="modal">
+          <div class="toolbar-icon">
+            <i class="icon-bag"></i>
+            <div class="toolbar-count">1</div>
+          </div>
+          <div class="toolbar-label">Cart</div>
+        </a>
       </div>
-  </div>
+    </div>
     <!-- /toolbar-bottom -->
-
-  
 
     <!-- mobile menu -->
     <div class="offcanvas offcanvas-start canvas-mb" id="mobileMenu">
@@ -729,9 +779,7 @@
                 aria-controls="dropdown-menu-five"
               >
                 <span>Orders</span>
-            
               </a>
-        
             </li>
             <li class="nav-mb-item">
               <a
@@ -742,9 +790,7 @@
                 aria-controls="dropdown-menu-four"
               >
                 <span>About Us</span>
-                
               </a>
-      
             </li>
             <li class="nav-mb-item">
               <a
@@ -755,40 +801,32 @@
                 aria-controls="dropdown-menu-five"
               >
                 <span>Blogs</span>
-            
               </a>
-        
             </li>
             <li class="nav-mb-item">
-                <a
-                  href="contact.html"
-                  class="collapsed mb-menu-link current"
-                  data-bs-toggle="collapse"
-                  aria-expanded="true"
-                  aria-controls="dropdown-menu-five"
-                >
-                  <span>Contact Us</span>
-              
-                </a>
-          
-              </li>
-              <li class="nav-mb-item">
-                <a
-                  href="cart.html"
-                  class="collapsed mb-menu-link current"
-                  data-bs-toggle="collapse"
-                  aria-expanded="true"
-                  aria-controls="dropdown-menu-five"
-                >
-                  <span>cart</span>
-              
-                </a>
-          
-              </li>
-         
+              <a
+                href="contact.html"
+                class="collapsed mb-menu-link current"
+                data-bs-toggle="collapse"
+                aria-expanded="true"
+                aria-controls="dropdown-menu-five"
+              >
+                <span>Contact Us</span>
+              </a>
+            </li>
+            <li class="nav-mb-item">
+              <a
+                href="cart.html"
+                class="collapsed mb-menu-link current"
+                data-bs-toggle="collapse"
+                aria-expanded="true"
+                aria-controls="dropdown-menu-five"
+              >
+                <span>cart</span>
+              </a>
+            </li>
           </ul>
           <div class="mb-other-content">
-    
             <div class="mb-notice">
               <a href="contact-1.html" class="text-need">Need help ?</a>
             </div>
@@ -798,7 +836,6 @@
                 New York, NY 10001
               </li>
               <li>Email: <b>info@fashionshop.com</b></li>
-            
             </ul>
           </div>
         </div>
@@ -806,7 +843,6 @@
           <a href="login.html" class="site-nav-icon"
             ><i class="icon icon-account"></i>Login</a
           >
-         
         </div>
       </div>
     </div>
@@ -1012,6 +1048,161 @@
     <!-- /modal login -->
 
     <!-- Javascript -->
+    // Address Selection + Add-New Toggle
+    <script>
+      // Highlight selected card
+      document.querySelectorAll(".address-card").forEach((card) => {
+        card.addEventListener("click", () => {
+          document
+            .querySelectorAll(".address-card")
+            .forEach((c) => c.classList.remove("selected"));
+
+          card.classList.add("selected");
+
+          // store selected address id
+          const selectedId = card.dataset.id;
+          document.getElementById("checkout-form").dataset.selectedAddress =
+            selectedId;
+        });
+      });
+
+      // Show new address form
+      document.getElementById("add-new-btn").addEventListener("click", () => {
+        document
+          .getElementById("new-address-fields")
+          .classList.remove("hidden");
+
+        // Remove selection from existing addresses
+        document
+          .querySelectorAll(".address-card")
+          .forEach((c) => c.classList.remove("selected"));
+      });
+    </script>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.getElementById("new-address-fields");
+      const addBtn = document.getElementById("add-new-btn");
+      const saveBtn = document.getElementById("save-address");
+
+      const fields = {
+        id: document.getElementById("address-id"),
+        name: document.getElementById("name"),
+        phone: document.getElementById("phone"),
+        pincode: document.getElementById("pincode"),
+        state: document.getElementById("state"),
+        city: document.getElementById("city"),
+        district: document.getElementById("district"),
+        addressLine1: document.getElementById("addressLine1"),
+        addressLine2: document.getElementById("addressLine2"),
+        landmark: document.getElementById("landmark"),
+        addressType: document.getElementById("addressType"),
+        isDefault: document.getElementById("isDefault")
+      };
+
+      // OPEN FORM FOR ADD
+      addBtn.addEventListener("click", () => {
+        document.getElementById("form-title").textContent = "Add New Address";
+        fields.id.value = ""; // reset id
+        form.classList.remove("hidden");
+        form.scrollIntoView({ behavior: "smooth" });
+      });
+
+      // SAVE (ADD / EDIT)
+      saveBtn.addEventListener("click", async () => {
+        const payload = {
+          name: fields.name.value,
+          phone: fields.phone.value,
+          pincode: fields.pincode.value,
+          state: fields.state.value,
+          city: fields.city.value,
+          district: fields.district.value,
+          addressLine1: fields.addressLine1.value,
+          addressLine2: fields.addressLine2.value,
+          landmark: fields.landmark.value,
+          addressType: fields.addressType.value,
+          isDefault: fields.isDefault.checked
+        };
+
+        const id = fields.id.value;
+        const url = id
+          ? `/edit-address/${id}`
+          : `/create-address`;
+
+        const method = id ? "PUT" : "POST";
+
+        const res = await fetch(url, {
+          method,
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+
+        const data = await res.json();
+
+        if (!data.success && res.status >= 400) {
+          alert(data.message || "Error saving address");
+          return;
+        }
+
+        location.reload(); // reload address list
+      });
+
+      // DELETE
+      document.addEventListener("click", async e => {
+        if (e.target.classList.contains("delete-btn")) {
+          const id = e.target.dataset.id;
+          if (!confirm("Delete this address?")) return;
+
+          await fetch(`/delete-address/${id}`, { method: "DELETE" });
+          location.reload();
+        }
+      });
+
+      // EDIT – PREFILL FORM
+      document.addEventListener("click", async e => {
+        if (e.target.classList.contains("edit-btn")) {
+          const id = e.target.dataset.id;
+
+          const res = await fetch(`/address/${id}`);
+          const addr = await res.json();
+
+          fields.id.value = addr._id;
+          fields.name.value = addr.name;
+          fields.phone.value = addr.phone;
+          fields.pincode.value = addr.pincode;
+          fields.state.value = addr.state;
+          fields.city.value = addr.city;
+          fields.district.value = addr.district;
+          fields.addressLine1.value = addr.addressLine1;
+          fields.addressLine2.value = addr.addressLine2;
+          fields.landmark.value = addr.landmark;
+          fields.addressType.value = addr.addressType;
+          fields.isDefault.checked = addr.isDefault;
+
+          document.getElementById("form-title").textContent = "Edit Address";
+          form.classList.remove("hidden");
+          form.scrollIntoView({ behavior: "smooth" });
+        }
+      });
+
+      // SELECT/HIGHLIGHT ADDRESS
+      document.querySelectorAll(".address-card").forEach(card => {
+        card.addEventListener("click", async () => {
+          const id = card.dataset.id;
+
+          await fetch(`/edit-address/${id}`, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ isDefault: true })
+          });
+
+          location.reload();
+        });
+      });
+    });
+    </script>
+
+
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/swiper-bundle.min.js"></script>

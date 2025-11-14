@@ -163,65 +163,70 @@
         </div>
         <!-- /page-title -->
 
-        <!-- blog-detail -->
-        <div class="blog-detail">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="blog-detail-main">
-                            <div class="blog-detail-main-heading">
-                                <div class="title"><%= blog.title %></div>
-                                <div class="meta">
-                                    by <span><%= blog.author %></span> on 
-                                    <span><%= new Date(blog.createdAt).toDateString() %></span>
-                                </div>
-                                <% if (blog.imageUrl) { %>
-                                <div class="image">
-                                    <img class="lazyload blog-details-img" 
-                                        data-src="<%= blog.imageUrl %>" 
-                                        src="<%= blog.imageUrl %>" 
+        <!-- blog-grid-main -->
+<div class="blog-grid-main">
+    <div class="container">
+        <div class="row">
+
+            <% if (blogs && blogs.length > 0) { %>
+                <% blogs.forEach(blog => { %>
+                    <div class="col-xl-4 col-md-6 col-12">
+                        <div class="blog-article-item">
+                            <div class="article-thumb">
+                                <a href="/blogs/<%= blog._id %>">
+                                    <img class="lazyload blog-img"
+                                        src="<%= blog.imageUrl || 'images/placeholder.jpg' %>"
                                         alt="<%= blog.title %>">
-                                </div>
-                                <% } %>
+                                </a>
                             </div>
-
-                            <div class="desc"><%= blog.content %></div>
-
-                            <div class="tf-article-navigation d-flex justify-content-between">
-                                <% if (relatedBlogs[0]) { %>
-                                <div class="item position-relative d-flex prev">
-                                    <a href="/blogs/<%= relatedBlogs[0]._id %>" class="icon">
-                                        <i class="icon-arrow-left"></i>
-                                    </a>
-                                    <div class="inner">
-                                        <a href="/blogs/<%= relatedBlogs[0]._id %>">PREVIOUS</a>
-                                        <h6>
-                                            <a href="/blogs/<%= relatedBlogs[0]._id %>"><%= relatedBlogs[0].title %></a>
-                                        </h6>
-                                    </div>
-                                </div>
-                                <% } %>
-
-                                <% if (relatedBlogs[1]) { %>
-                                <div class="item position-relative d-flex justify-content-end next">
-                                    <div class="inner text-end">
-                                        <a href="/blogs/<%= relatedBlogs[1]._id %>">NEXT</a>
-                                        <h6>
-                                            <a href="/blogs/<%= relatedBlogs[1]._id %>"><%= relatedBlogs[1].title %></a>
-                                        </h6>
-                                    </div>
-                                    <a href="/blogs/<%= relatedBlogs[1]._id %>" class="icon">
-                                        <i class="icon-arrow-right"></i>
+                            <div class="article-content">
+                                <div class="article-title">
+                                    <a href="/blogs/<%= blog._id %>">
+                                        <%= blog.title %>
                                     </a>
                                 </div>
-                                <% } %>
+                                <div class="article-btn">
+                                    <a href="/blogs/<%= blog._id %>" class="tf-btn btn-line fw-6">
+                                        Read more
+                                        <i class="icon icon-arrow1-top-left"></i>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
+                <% }) %>
+            <% } else { %>
+                <div class="col-12 text-center">
+                    <p>No blogs available at the moment.</p>
                 </div>
-            </div>
+            <% } %>
+
         </div>
-        <!-- /blog-detail -->
+
+        <!-- Pagination -->
+        <div class="pagination-wrap text-center mt-4">
+            <ul class="pagination justify-content-center">
+                <% if (currentPage > 1) { %>
+                    <li><a href="?page=<%= currentPage - 1 %>" class="prev">Prev</a></li>
+                <% } %>
+
+                <% for (let i = 1; i <= totalPages; i++) { %>
+                    <li class="<%= currentPage === i ? 'active' : '' %>">
+                        <a href="?page=<%= i %>"><%= i %></a>
+                    </li>
+                <% } %>
+
+                <% if (currentPage < totalPages) { %>
+                    <li><a href="?page=<%= currentPage + 1 %>" class="next">Next</a></li>
+                <% } %>
+            </ul>
+        </div>
+        <!-- /Pagination -->
+
+    </div>
+</div>
+<!-- /blog-grid-main -->
+
 
 
         <!-- footer -->

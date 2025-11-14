@@ -72,7 +72,9 @@
                   class="box-nav-ul d-flex align-items-center justify-content-center gap-30"
                 >
                   <li class="menu-item">
-                    <a href="/" class="item-link">Home<i class="icon"></i></a>
+                    <a href="/" class="item-link"
+                      >Home<i class="icon"></i
+                    ></a>
                   </li>
                   <li class="menu-item">
                     <a href="/store" class="item-link"
@@ -80,11 +82,13 @@
                     ></a>
                     <div class="sub-menu">
                       <ul class="menu-list">
-                        <% if (categories) { %> <% categories.forEach(c => { %>
-                        <li><a href=""><%= c.name %></a></li>
-                        <% }) %> <% } else { %>
-                        <li>No categories</li>
-                        <% } %>
+                         <% if (categories) { %>
+                            <% categories.forEach(c => { %>
+                              <li> <a href=""><%= c.name %></a></li>
+                            <% }) %>
+                          <% } else { %>
+                            <li>No categories</li>
+                          <% } %>
                       </ul>
                     </div>
                   </li>
@@ -98,9 +102,7 @@
                     <a href="/orders" class="item-link">Orders</a>
                   </li>
                   <li class="menu-item position-relative">
-                    <a href="/blogs" class="item-link"
-                      >Blogs<i class="icon"></i
-                    ></a>
+                    <a href="/blogs" class="item-link">Blogs<i class="icon"></i></a>
                   </li>
                   <li class="menu-item">
                     <a href="/contact" class="item-link">Contact Us</a>
@@ -117,13 +119,14 @@
                     ><i class="icon icon-account"></i
                   ></a>
                 </li>
-                <li class="nav-wishlist">
-                  <a href="wishlist.html" class="nav-icon-item"
+       <li class="nav-wishlist">
+                  <a href="/wishlist" class="nav-icon-item"
                     ><i class="icon icon-heart"></i
-                  ></a>
+                    ></a
+                  >
                 </li>
                 <li class="nav-cart">
-                  <a href="cart.html" class="nav-icon-item"
+                  <a href="/cart" class="nav-icon-item"
                     ><i class="icon icon-bag"></i
                     ><span class="count-box">0</span></a
                   >
@@ -527,11 +530,11 @@
                         </p>
                       </div>
                       <div class="tf-payment">
-                        <img src="images/payments/visa.png" alt="" />
-                        <img src="images/payments/img-1.png" alt="" />
-                        <img src="images/payments/img-2.png" alt="" />
-                        <img src="images/payments/img-3.png" alt="" />
-                        <img src="images/payments/img-4.png" alt="" />
+                        <img src="/images/payments/visa.png" alt="" />
+                        <img src="/images/payments/img-1.png" alt="" />
+                        <img src="/images/payments/img-2.png" alt="" />
+                        <img src="/images/payments/img-3.png" alt="" />
+                        <img src="/images/payments/img-4.png" alt="" />
                       </div>
                     </div>
                   </div>
@@ -905,7 +908,7 @@
                   <div class="footer-infor">
                     <div class="footer-logo">
                       <a href="index-2.html">
-                        <img src="images/kasavika/logo.png" alt="" />
+                        <img src="/images/kasavika/logo.png" alt="" />
                       </a>
                     </div>
                     <p class="mb-1">
@@ -1728,7 +1731,7 @@
                       <div class="tf-mini-cart-image">
                         <a href="productDetails.html">
                           <img
-                            src="images/collections/furniture_cate1.jpg"
+                            src="/images/collections/furniture_cate1.jpg"
                             alt=""
                           />
                         </a>
@@ -1753,7 +1756,7 @@
                       <div class="tf-mini-cart-image">
                         <a href="productDetails.html">
                           <img
-                            src="images/collections/furniture_cate1.jpg"
+                            src="/images/collections/furniture_cate1.jpg"
                             alt=""
                           />
                         </a>
@@ -1778,7 +1781,7 @@
                       <div class="tf-mini-cart-image">
                         <a href="productDetails.html">
                           <img
-                            src="images/collections/furniture_cate1.jpg"
+                            src="/images/collections/furniture_cate1.jpg"
                             alt=""
                           />
                         </a>

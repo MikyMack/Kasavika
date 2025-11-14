@@ -106,7 +106,7 @@
         </div>
       </div>
       <!-- /top-bar -->
-      <!-- header -->
+     <!-- Header -->
       <header id="header" class="header-default">
         <div class="px_15 lg-px_40">
           <div class="row wrapper-header align-items-center">
@@ -131,7 +131,7 @@
               </a>
             </div>
             <div class="col-xl-3 col-md-4 col-6">
-              <a href="index.html" class="logo-header">
+              <a href="/" class="logo-header">
                 <img src="images/kasavika/logo.png" alt="logo" class="logo" />
               </a>
             </div>
@@ -141,72 +141,40 @@
                   class="box-nav-ul d-flex align-items-center justify-content-center gap-30"
                 >
                   <li class="menu-item">
-                    <a href="index.html" class="item-link"
+                    <a href="/" class="item-link"
                       >Home<i class="icon"></i
                     ></a>
                   </li>
                   <li class="menu-item">
-                    <a href="shop.html" class="item-link"
+                    <a href="/store" class="item-link"
                       >Shop<i class="icon icon-arrow-down"></i
                     ></a>
                     <div class="sub-menu">
                       <ul class="menu-list">
-                        <li>
-                          <a
-                            href="shop.html"
-                            class="menu-link-text link text_black-2"
-                            >Living</a
-                          >
-                        </li>
-                        <li>
-                          <a
-                            href="shop.html"
-                            class="menu-link-text link text_black-2"
-                            >Lighting</a
-                          >
-                        </li>
-                        <li>
-                          <a
-                            href="shop.html"
-                            class="menu-link-text link text_black-2"
-                            >Bedroom</a
-                          >
-                        </li>
-                        <li>
-                          <a
-                            href="shop.html"
-                            class="menu-link-text link text_black-2"
-                            >Sofa</a
-                          >
-                        </li>
-                        <li>
-                          <a
-                            href="shop.html"
-                            class="menu-link-text link text_black-2"
-                            >Dining</a
-                          >
-                        </li>
+                         <% if (categories) { %>
+                            <% categories.forEach(c => { %>
+                              <li> <a href=""><%= c.name %></a></li>
+                            <% }) %>
+                          <% } else { %>
+                            <li>No categories</li>
+                          <% } %>
                       </ul>
                     </div>
                   </li>
 
                   <li class="menu-item position-relative">
-                    <a href="about-us.html" class="item-link"
+                    <a href="/about" class="item-link"
                       >About Us<i class="icon"></i
                     ></a>
                   </li>
                   <li class="menu-item">
-                    <a href="my-account-orders.html" class="item-link"
-                      >Orders</a
-                    >
+                    <a href="/orders" class="item-link">Orders</a>
                   </li>
                   <li class="menu-item position-relative">
-                    <a href="blogs.html" class="item-link"
-                      >Blogs<i class="icon"></i
-                    ></a>
+                    <a href="/blogs" class="item-link">Blogs<i class="icon"></i></a>
                   </li>
                   <li class="menu-item">
-                    <a href="contact.html" class="item-link">Contact Us</a>
+                    <a href="/contact" class="item-link">Contact Us</a>
                   </li>
                 </ul>
               </nav>
@@ -216,17 +184,18 @@
                 class="nav-icon d-flex justify-content-end align-items-center gap-20"
               >
                 <li class="nav-account">
-                  <a href="#login" data-bs-toggle="modal" class="nav-icon-item"
+                  <a href="/login" data-bs-toggle="modal" class="nav-icon-item"
                     ><i class="icon icon-account"></i
                   ></a>
                 </li>
-                <li class="nav-wishlist">
-                  <a href="wishlist.html" class="nav-icon-item"
+       <li class="nav-wishlist">
+                  <a href="/wishlist" class="nav-icon-item"
                     ><i class="icon icon-heart"></i
-                  ></a>
+                    ></a
+                  >
                 </li>
                 <li class="nav-cart">
-                  <a href="cart.html" class="nav-icon-item"
+                  <a href="/cart" class="nav-icon-item"
                     ><i class="icon icon-bag"></i
                     ><span class="count-box">0</span></a
                   >
@@ -236,7 +205,7 @@
           </div>
         </div>
       </header>
-      <!-- /header -->
+      <!-- /Header -->
 
       <!-- page-title -->
       <div class="tf-page-title">
