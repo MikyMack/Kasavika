@@ -21271,6 +21271,83 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
 .abt-img{
   height: 60vh!important;
 }
+.address-list {
+  display: grid;
+  gap: 16px;
+}
+
+.address-card {
+  padding: 16px;
+  border: 2px solid #e4e4e4;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.2s ease;
+  background: #fff;
+  position: relative;
+}
+
+.address-card:hover {
+  border-color: #007bff;
+}
+
+.address-card.selected {
+  border-color: #007bff;
+  background: #f0f7ff;
+}
+
+.address-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.address-phone {
+  font-size: 13px;
+  color: #555;
+}
+
+.address-body {
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.address-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.address-actions button {
+  background: #eee;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.address-actions button:hover {
+  background: #ddd;
+}
+
+.add-new-address-btn {
+  width: 100%;
+  margin-top: 12px;
+  background: #f8f8f8;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px dashed #999;
+  cursor: pointer;
+}
+
+.add-new-address-btn:hover {
+  background: #efefef;
+}
+
+.hidden {
+  display: none;
+}
+
+
 /* .article-thumb {
   width: 100% !important;
   height: auto !important;

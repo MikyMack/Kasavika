@@ -1,174 +1,142 @@
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <title>Ecommerce</title>
 
-<head>
-    <meta charset="utf-8">
-    <title> Ecommerce</title>
-
-    <meta name="author" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
 
     <!-- font -->
-    <link rel="stylesheet" href="fonts/fonts.css">
+    <link rel="stylesheet" href="fonts/fonts.css" />
     <!-- Icons -->
-    <link rel="stylesheet" href="fonts/font-icons.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/swiper-bundle.min.css">
-    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="fonts/font-icons.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/animate.css" />
     <link rel="stylesheet" type="text/css" href="css/styles.css" />
 
     <!-- Favicon and Touch Icons  -->
-    <link rel="shortcut icon" href="images/logo/fur-logo.png">
-    <link rel="apple-touch-icon-precomposed" href="images/logo/fur-logo.png">
+    <link rel="shortcut icon" href="images/logo/fur-logo.png" />
+    <link rel="apple-touch-icon-precomposed" href="images/logo/fur-logo.png" />
+  </head>
 
-</head>
-
-<body class="preload-wrapper">
-
+  <body class="preload-wrapper">
     <div id="wrapper">
-        <!-- header -->
-        <header id="header" class="header-default">
-          <div class="px_15 lg-px_40">
-            <div class="row wrapper-header align-items-center">
-              <div class="col-md-4 col-3 tf-lg-hidden">
-                <a
-                  href="#mobileMenu"
-                  data-bs-toggle="offcanvas"
-                  aria-controls="offcanvasLeft"
+     <!-- Header -->
+      <header id="header" class="header-default">
+        <div class="px_15 lg-px_40">
+          <div class="row wrapper-header align-items-center">
+            <div class="col-md-4 col-3 tf-lg-hidden">
+              <a
+                href="#mobileMenu"
+                data-bs-toggle="offcanvas"
+                aria-controls="offcanvasLeft"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="16"
+                  viewBox="0 0 24 16"
+                  fill="none"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="16"
-                    viewBox="0 0 24 16"
-                    fill="none"
-                  >
-                    <path
-                      d="M2.00056 2.28571H16.8577C17.1608 2.28571 17.4515 2.16531 17.6658 1.95098C17.8802 1.73665 18.0006 1.44596 18.0006 1.14286C18.0006 0.839753 17.8802 0.549063 17.6658 0.334735C17.4515 0.120408 17.1608 0 16.8577 0H2.00056C1.69745 0 1.40676 0.120408 1.19244 0.334735C0.978109 0.549063 0.857702 0.839753 0.857702 1.14286C0.857702 1.44596 0.978109 1.73665 1.19244 1.95098C1.40676 2.16531 1.69745 2.28571 2.00056 2.28571ZM0.857702 8C0.857702 7.6969 0.978109 7.40621 1.19244 7.19188C1.40676 6.97755 1.69745 6.85714 2.00056 6.85714H22.572C22.8751 6.85714 23.1658 6.97755 23.3801 7.19188C23.5944 7.40621 23.7148 7.6969 23.7148 8C23.7148 8.30311 23.5944 8.59379 23.3801 8.80812C23.1658 9.02245 22.8751 9.14286 22.572 9.14286H2.00056C1.69745 9.14286 1.40676 9.02245 1.19244 8.80812C0.978109 8.59379 0.857702 8.30311 0.857702 8ZM0.857702 14.8571C0.857702 14.554 0.978109 14.2633 1.19244 14.049C1.40676 13.8347 1.69745 13.7143 2.00056 13.7143H12.2863C12.5894 13.7143 12.8801 13.8347 13.0944 14.049C13.3087 14.2633 13.4291 14.554 13.4291 14.8571C13.4291 15.1602 13.3087 15.4509 13.0944 15.6653C12.8801 15.8796 12.5894 16 12.2863 16H2.00056C1.69745 16 1.40676 15.8796 1.19244 15.6653C0.978109 15.4509 0.857702 15.1602 0.857702 14.8571Z"
-                      fill="currentColor"
-                    ></path>
-                  </svg>
-                </a>
-              </div>
-              <div class="col-xl-3 col-md-4 col-6">
-                <a href="index.html" class="logo-header">
-                  <img src="images/logo/fur-logo.png" alt="logo" class="logo" />
-                </a>
-              </div>
-              <div class="col-xl-6 tf-md-hidden">
-                <nav class="box-navigation text-center">
-                  <ul
-                    class="box-nav-ul d-flex align-items-center justify-content-center gap-30"
-                  >
-                    <li class="menu-item">
-                      <a href="index.html" class="item-link"
-                        >Home<i class="icon"></i
-                      ></a>
-                    </li>
-                    <li class="menu-item">
-                      <a href="shop.html" class="item-link"
-                        >Shop<i class="icon icon-arrow-down"></i
-                      ></a>
-                      <div class="sub-menu">
-                        <ul class="menu-list">
-                          <li>
-                            <a
-                              href="shop.html"
-                              class="menu-link-text link text_black-2"
-                              >Living</a
-                            >
-                          </li>
-                          <li>
-                            <a
-                              href="shop.html"
-                              class="menu-link-text link text_black-2"
-                              >Lighting</a
-                            >
-                          </li>
-                          <li>
-                            <a
-                              href="shop.html"
-                              class="menu-link-text link text_black-2"
-                              >Bedroom</a
-                            >
-                          </li>
-                          <li>
-                            <a
-                              href="shop.html"
-                              class="menu-link-text link text_black-2"
-                              >Sofa</a
-                            >
-                          </li>
-                          <li>
-                            <a
-                              href="shop.html"
-                              class="menu-link-text link text_black-2"
-                              >Dining</a
-                            >
-                          </li>
-                        </ul>
-                      </div>
-                    </li>
-  
-                    <li class="menu-item position-relative">
-                      <a href="about-us.html" class="item-link"
-                        >About Us<i class="icon"></i
-                      ></a>
-                    </li>
-                    <li class="menu-item">
-                      <a href="my-account-orders.html" class="item-link">Orders</a>
-                    </li>
-                    <li class="menu-item position-relative">
-                      <a href="blogs.html" class="item-link">Blogs<i class="icon"></i></a>
-                    </li>
-                    <li class="menu-item">
-                      <a href="contact.html" class="item-link">Contact Us</a>
-                    </li>
-                  </ul>
-                </nav>
-              </div>
-              <div class="col-xl-3 col-md-4 col-3">
+                  <path
+                    d="M2.00056 2.28571H16.8577C17.1608 2.28571 17.4515 2.16531 17.6658 1.95098C17.8802 1.73665 18.0006 1.44596 18.0006 1.14286C18.0006 0.839753 17.8802 0.549063 17.6658 0.334735C17.4515 0.120408 17.1608 0 16.8577 0H2.00056C1.69745 0 1.40676 0.120408 1.19244 0.334735C0.978109 0.549063 0.857702 0.839753 0.857702 1.14286C0.857702 1.44596 0.978109 1.73665 1.19244 1.95098C1.40676 2.16531 1.69745 2.28571 2.00056 2.28571ZM0.857702 8C0.857702 7.6969 0.978109 7.40621 1.19244 7.19188C1.40676 6.97755 1.69745 6.85714 2.00056 6.85714H22.572C22.8751 6.85714 23.1658 6.97755 23.3801 7.19188C23.5944 7.40621 23.7148 7.6969 23.7148 8C23.7148 8.30311 23.5944 8.59379 23.3801 8.80812C23.1658 9.02245 22.8751 9.14286 22.572 9.14286H2.00056C1.69745 9.14286 1.40676 9.02245 1.19244 8.80812C0.978109 8.59379 0.857702 8.30311 0.857702 8ZM0.857702 14.8571C0.857702 14.554 0.978109 14.2633 1.19244 14.049C1.40676 13.8347 1.69745 13.7143 2.00056 13.7143H12.2863C12.5894 13.7143 12.8801 13.8347 13.0944 14.049C13.3087 14.2633 13.4291 14.554 13.4291 14.8571C13.4291 15.1602 13.3087 15.4509 13.0944 15.6653C12.8801 15.8796 12.5894 16 12.2863 16H2.00056C1.69745 16 1.40676 15.8796 1.19244 15.6653C0.978109 15.4509 0.857702 15.1602 0.857702 14.8571Z"
+                    fill="currentColor"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+            <div class="col-xl-3 col-md-4 col-6">
+              <a href="/" class="logo-header">
+                <img src="images/kasavika/logo.png" alt="logo" class="logo" />
+              </a>
+            </div>
+            <div class="col-xl-6 tf-md-hidden">
+              <nav class="box-navigation text-center">
                 <ul
-                  class="nav-icon d-flex justify-content-end align-items-center gap-20"
+                  class="box-nav-ul d-flex align-items-center justify-content-center gap-30"
                 >
-              
-                  <li class="nav-account">
-                    <a href="/login" data-bs-toggle="modal" class="nav-icon-item"
-                      ><i class="icon icon-account"></i
+                  <li class="menu-item">
+                    <a href="/" class="item-link"
+                      >Home<i class="icon"></i
                     ></a>
                   </li>
-             <li class="nav-wishlist">
-                  <a href="wishlist.html" class="nav-icon-item"
+                  <li class="menu-item">
+                    <a href="/store" class="item-link"
+                      >Shop<i class="icon icon-arrow-down"></i
+                    ></a>
+                    <div class="sub-menu">
+                      <ul class="menu-list">
+                         <% if (categories) { %>
+                            <% categories.forEach(c => { %>
+                              <li> <a href=""><%= c.name %></a></li>
+                            <% }) %>
+                          <% } else { %>
+                            <li>No categories</li>
+                          <% } %>
+                      </ul>
+                    </div>
+                  </li>
+
+                  <li class="menu-item position-relative">
+                    <a href="/about" class="item-link"
+                      >About Us<i class="icon"></i
+                    ></a>
+                  </li>
+                  <li class="menu-item">
+                    <a href="/orders" class="item-link">Orders</a>
+                  </li>
+                  <li class="menu-item position-relative">
+                    <a href="/blogs" class="item-link">Blogs<i class="icon"></i></a>
+                  </li>
+                  <li class="menu-item">
+                    <a href="/contact" class="item-link">Contact Us</a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+            <div class="col-xl-3 col-md-4 col-3">
+              <ul
+                class="nav-icon d-flex justify-content-end align-items-center gap-20"
+              >
+                <li class="nav-account">
+                  <a href="/login" data-bs-toggle="modal" class="nav-icon-item"
+                    ><i class="icon icon-account"></i
+                  ></a>
+                </li>
+       <li class="nav-wishlist">
+                  <a href="/wishlist" class="nav-icon-item"
                     ><i class="icon icon-heart"></i
                     ></a
                   >
                 </li>
-                  <li class="nav-cart">
-                    <a
-                      href="cart.html"
-                
-                      class="nav-icon-item"
-                      ><i class="icon icon-bag"></i
-                      ><span class="count-box">0</span></a
-                    >
-                  </li>
-                </ul>
-              </div>
+                <li class="nav-cart">
+                  <a href="/cart" class="nav-icon-item"
+                    ><i class="icon icon-bag"></i
+                    ><span class="count-box">0</span></a
+                  >
+                </li>
+              </ul>
             </div>
           </div>
-        </header>
-        <!-- /header -->
-
-        <!-- page-title -->
-        <div class="tf-page-title">
-            <div class="container-full">
-                <div class="heading text-center">My Orders</div>
-            </div>
         </div>
-        <!-- /page-title -->
+      </header>
+      <!-- /Header -->
 
-        <!-- page-content -->
+      <!-- page-title -->
+      <div class="tf-page-title">
+        <div class="container-full">
+          <div class="heading text-center">My Orders</div>
+        </div>
+      </div>
+      <!-- /page-title -->
+
+      <!-- page-content -->
       <section class="flat-spacing-11">
         <div class="container">
           <div class="row">
@@ -176,10 +144,32 @@
             <div class="col-lg-3">
               <div class="wrap-sidebar-account">
                 <ul class="my-account-nav">
-                  <li><span class="my-account-nav-item active" data-target="orders-section">Orders</span></li>
-                  <li><span class="my-account-nav-item" data-target="address-section">Address</span></li>
-                  <li><span class="my-account-nav-item" data-target="details-section">Account Details</span></li>
-                  <li><a href="/auth/logout" class="my-account-nav-item">Logout</a></li>
+                  <li>
+                    <span
+                      class="my-account-nav-item active"
+                      data-target="orders-section"
+                      >Orders</span
+                    >
+                  </li>
+                  <li>
+                    <span
+                      class="my-account-nav-item"
+                      data-target="address-section"
+                      >Address</span
+                    >
+                  </li>
+                  <li>
+                    <span
+                      class="my-account-nav-item"
+                      data-target="details-section"
+                      >Account Details</span
+                    >
+                  </li>
+                  <li>
+                    <a href="/auth/logout" class="my-account-nav-item"
+                      >Logout</a
+                    >
+                  </li>
                 </ul>
               </div>
             </div>
@@ -187,355 +177,678 @@
             <!-- Content Area -->
             <div class="col-lg-9">
               <div class="my-account-content">
-
                 <!-- Orders Section -->
                 <div id="orders-section" class="account-section active">
                   <div class="wrap-account-order">
-                    <table>
-                      <thead>
-                        <tr>
-                          <th class="fw-6">Order</th>
-                          <th class="fw-6">Date</th>
-                          <th class="fw-6">Status</th>
-                          <th class="fw-6">Total</th>
-                          <th class="fw-6">Actions</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <% if (orders && orders.length > 0) { %>
-                          <% orders.forEach(order => { %>
-                            <tr class="tf-order-item">
-                              <td>#<%= order._id %></td>
-                              <td><%= order.date.toDateString() %></td>
-                              <td><%= order.status %></td>
-                              <td>₹<%= order.total %> for <%= order.items.length %> items</td>
-                              <td>
-                                <a href="/my-account/order/<%= order._id %>"
-                                  class="tf-btn btn-fill animate-hover-btn rounded-0 justify-content-center">
-                                  <span>View</span>
-                                </a>
-                              </td>
-                            </tr>
-                          <% }) %>
-                        <% } else { %>
-                          <tr><td colspan="5" class="text-center">No orders found</td></tr>
-                        <% } %>
-                      </tbody>
-                    </table>
+                    <div class="wrap-account-order">
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th class="fw-6">Order</th>
+                            <th class="fw-6">Date</th>
+                            <th class="fw-6">Status</th>
+                            <th class="fw-6">Total</th>
+                            <th class="fw-6">Actions</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <% if (orders && orders.length > 0) { %> <%
+                          orders.forEach(order => { %>
+                          <tr class="tf-order-item">
+                            <td>#<%= order._id %></td>
+                            <td><%= order.orderDate %></td>
+                            <td>
+                              <% if (order.orderStatus === 'Delivered') { %>
+                              <span class="badge bg-success"
+                                ><%= order.orderStatus %></span
+                              >
+                              <% } else if (['Cancelled',
+                              'Returned'].includes(order.orderStatus)) { %>
+                              <span class="badge bg-danger"
+                                ><%= order.orderStatus %></span
+                              >
+                              <% } else { %>
+                              <span class="badge bg-warning text-dark"
+                                ><%= order.orderStatus %></span
+                              >
+                              <% } %>
+                            </td>
+                            <td>
+                              ₹<%= order.totalAmount ?
+                              order.totalAmount.toFixed(2) : '0.00' %> for <%=
+                              order.items.length %> items
+                            </td>
+                            <td class="d-flex gap-2">
+                              <a
+                                href="/orders/details/<%= order._id %>"
+                                class="tf-btn btn-fill btn-sm animate-hover-btn rounded-0 justify-content-center"
+                              >
+                                <span>View</span>
+                              </a>
+
+                              <% if (order.canCancel) { %>
+                              <a
+                                href="/orders/cancel/<%= order._id %>"
+                                class="tf-btn btn-outline-danger btn-sm"
+                                >Cancel</a
+                              >
+                              <% } %> <% if (order.canReturn) { %>
+                              <a
+                                href="/orders/return/<%= order._id %>"
+                                class="tf-btn btn-outline-secondary btn-sm"
+                                >Return</a
+                              >
+                              <% } %>
+                            </td>
+                          </tr>
+                          <% }) %> <% } else { %>
+                          <tr>
+                            <td colspan="5" class="text-center">
+                              No orders found
+                            </td>
+                          </tr>
+                          <% } %>
+                        </tbody>
+                      </table>
+                    </div>
                   </div>
                 </div>
 
                 <!-- Address Section -->
-                <div id="address-section" class="account-section" style="display: none;">
+                <div
+                  id="address-section"
+                  class="account-section"
+                  style="display: none"
+                >
                   <h5 class="fw-6 mb_20">Saved Addresses</h5>
-                  <% if (user && user.addresses && user.addresses.length > 0) { %>
-                    <% user.addresses.forEach(address => { %>
-                      <div class="address-box mb_20 p-3 border rounded-3">
-                        <p><strong><%= address.name %></strong></p>
-                        <p><%= address.street %>, <%= address.city %>, <%= address.state %> - <%= address.zip %></p>
-                        <p>Phone: <%= address.phone %></p>
-                      </div>
-                    <% }) %>
-                  <% } else { %>
-                    <p>No address found.</p>
-                  <% } %>
-                  <a href="/my-account/add-address" class="tf-btn btn-fill">Add New Address</a>
+                  <div id="address-list"></div>
+                  <button
+                    class="tf-btn btn-fill"
+                    data-bs-toggle="modal"
+                    data-bs-target="#addAddressModal"
+                  >
+                    Add New Address
+                  </button>
                 </div>
 
+                <!-- Add/Edit Address Modal -->
+                <div
+                  class="modal fade"
+                  id="addAddressModal"
+                  tabindex="-1"
+                  aria-hidden="true"
+                >
+                  <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content p-3">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="addressModalTitle">
+                          Add New Address
+                        </h5>
+                        <button
+                          type="button"
+                          class="btn-close"
+                          data-bs-dismiss="modal"
+                        ></button>
+                      </div>
+                      <div class="modal-body">
+                        <form id="addressForm">
+                          <input type="hidden" id="addressId" />
+
+                          <div class="mb-3">
+                            <label>Name</label>
+                            <input
+                              type="text"
+                              id="name"
+                              class="form-control"
+                              required
+                            />
+                          </div>
+
+                          <div class="mb-3">
+                            <label>Phone</label>
+                            <input
+                              type="text"
+                              id="phone"
+                              class="form-control"
+                              required
+                            />
+                          </div>
+
+                          <div class="mb-3">
+                            <label>Email (optional)</label>
+                            <input
+                              type="email"
+                              id="email"
+                              class="form-control"
+                            />
+                          </div>
+
+                          <div class="mb-3">
+                            <label>Address Line 1</label>
+                            <input
+                              type="text"
+                              id="addressLine1"
+                              class="form-control"
+                              required
+                            />
+                          </div>
+
+                          <div class="mb-3">
+                            <label>Address Line 2</label>
+                            <input
+                              type="text"
+                              id="addressLine2"
+                              class="form-control"
+                            />
+                          </div>
+
+                          <div class="row">
+                            <div class="col-md-6 mb-3">
+                              <label>City</label>
+                              <input
+                                type="text"
+                                id="city"
+                                class="form-control"
+                                required
+                              />
+                            </div>
+                            <div class="col-md-6 mb-3">
+                              <label>State</label>
+                              <input
+                                type="text"
+                                id="state"
+                                class="form-control"
+                                required
+                              />
+                            </div>
+                          </div>
+
+                          <div class="row">
+                            <div class="col-md-6 mb-3">
+                              <label>Pincode</label>
+                              <input
+                                type="text"
+                                id="pincode"
+                                class="form-control"
+                                required
+                              />
+                            </div>
+                            <div class="col-md-6 mb-3">
+                              <label>Type</label>
+                              <select id="addressType" class="form-control">
+                                <option value="Home">Home</option>
+                                <option value="Work">Work</option>
+                                <option value="Other">Other</option>
+                              </select>
+                            </div>
+                          </div>
+
+                          <div class="form-check mb-3">
+                            <input
+                              type="checkbox"
+                              id="isDefault"
+                              class="form-check-input"
+                            />
+                            <label class="form-check-label" for="isDefault"
+                              >Set as default</label
+                            >
+                          </div>
+
+                          <button type="submit" class="tf-btn btn-fill w-100">
+                            Save Address
+                          </button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Toast Container -->
+                <div
+                  class="toast-container position-fixed top-0 end-0 p-3"
+                  style="z-index: 1100"
+                ></div>
+
                 <!-- Account Details Section -->
-                <div id="details-section" class="account-section" style="display: none;">
+                <div
+                  id="details-section"
+                  class="account-section"
+                  style="display: none"
+                >
                   <h5 class="fw-6 mb_20">Account Details</h5>
                   <form action="/my-account/update" method="POST">
                     <div class="mb_20">
                       <label class="fw-6">Name</label>
-                      <input type="text" name="name" value="<%= user.name %>" class="form-control" required />
+                      <input
+                        type="text"
+                        name="name"
+                        value="<%= user.name %>"
+                        class="form-control"
+                        required
+                      />
                     </div>
                     <div class="mb_20">
                       <label class="fw-6">Email</label>
-                      <input type="email" name="email" value="<%= user.email %>" class="form-control" required />
+                      <input
+                        type="email"
+                        name="email"
+                        value="<%= user.email %>"
+                        class="form-control"
+                        required
+                      />
                     </div>
                     <div class="mb_20">
                       <label class="fw-6">Phone</label>
-                      <input type="text" name="mobile" value="<%= user.mobile %>" class="form-control" />
+                      <input
+                        type="text"
+                        name="mobile"
+                        value="<%= user.mobile %>"
+                        class="form-control"
+                      />
                     </div>
-                    <button type="submit" class="tf-btn btn-fill">Update</button>
+                    <button type="submit" class="tf-btn btn-fill">
+                      Update
+                    </button>
                   </form>
                 </div>
-
               </div>
             </div>
           </div>
         </div>
       </section>
-        <!-- page-content -->
+      <!-- page-content -->
 
-
- 
-
-        <!-- footer -->
-        <footer id="footer" class="footer md-pb-70 has-border-full">
-          <div class="footer-wrap">
-            <div class="footer-body">
-              <div class="container">
-                <div class="row">
-                  <div class="col-xl-3 col-md-6 col-12">
-                    <div class="footer-infor">
-                      <div class="footer-logo">
-                        <a href="index-2.html">
-                          <img src="images/logo/fur-logo.png" alt="" />
-                        </a>
-                      </div>
-                      <ul>
-                        <li>
-                          <p>
-                            Address: 1234  sample Street, sample 567, <br />
-                            New York, NY 10001
-                          </p>
-                        </li>
-                        <li>
-                          <p>Email: <a href="#">info@sampleemail.com</a></p>
-                        </li>
-                        <li>
-                          <p>Phone: <a href="#">(123) 456-7890</a></p>
-                        </li>
-                      </ul>
-                      <a href="contact-1.html" class="tf-btn btn-line"
-                        >Get direction<i class="icon icon-arrow1-top-left"></i
-                      ></a>
-                      <ul class="tf-social-icon d-flex gap-10">
-                        <li>
-                          <a
-                            href="#"
-                            class="box-icon w_34 round social-facebook social-line"
-                            ><i class="icon fs-14 icon-fb"></i
-                          ></a>
-                        </li>
-                        <li>
-                          <a
-                            href="#"
-                            class="box-icon w_34 round social-twiter social-line"
-                            ><i class="icon fs-12 icon-Icon-x"></i
-                          ></a>
-                        </li>
-                        <li>
-                          <a
-                            href="#"
-                            class="box-icon w_34 round social-instagram social-line"
-                            ><i class="icon fs-14 icon-instagram"></i
-                          ></a>
-                        </li>
-                      
-                   
-                      </ul>
+      <!-- footer -->
+      <footer id="footer" class="footer md-pb-70 has-border-full">
+        <div class="footer-wrap">
+          <div class="footer-body">
+            <div class="container">
+              <div class="row">
+                <div class="col-xl-3 col-md-6 col-12">
+                  <div class="footer-infor">
+                    <div class="footer-logo">
+                      <a href="index-2.html">
+                        <img src="images/logo/fur-logo.png" alt="" />
+                      </a>
                     </div>
-                  </div>
-                  <div class="col-xl-3 col-md-6 col-12 footer-col-block">
-                    <div class="footer-heading footer-heading-desktop">
-                      <h6>Customer Services</h6>
-                    </div>
-                    <div class="footer-heading footer-heading-moblie">
-                      <h6>Customer Services</h6>
-                    </div>
-                    <ul class="footer-menu-list tf-collapse-content">
+                    <ul>
                       <li>
-                        <a href="privacy-policy.html" class="footer-menu_item"
-                          >Privacy Policy</a
-                        >
+                        <p>
+                          Address: 1234 sample Street, sample 567, <br />
+                          New York, NY 10001
+                        </p>
                       </li>
                       <li>
-                        <a href="delivery-return.html" class="footer-menu_item">
-                          Returns + Exchanges
-                        </a>
+                        <p>Email: <a href="#">info@sampleemail.com</a></p>
                       </li>
                       <li>
-                        <a href="shipping-delivery.html" class="footer-menu_item"
-                          >Shipping</a
-                        >
-                      </li>
-                      <li>
-                        <a href="terms-conditions.html" class="footer-menu_item"
-                          >Terms &amp; Conditions</a
-                        >
-                      </li>
-                      <li>
-                        <a href="faq.html" class="footer-menu_item">FAQ’s</a>
-                      </li>
-                      <li>
-                        <a href="login.html" class="footer-menu_item"
-                          >Account</a
-                        >
-                      </li>
-                      <li>
-                        <a href="cart.html" class="footer-menu_item"
-                          > Cart</a
-                        >
+                        <p>Phone: <a href="#">(123) 456-7890</a></p>
                       </li>
                     </ul>
-                  </div>
-                  <div class="col-xl-3 col-md-6 col-12 footer-col-block">
-                    <div class="footer-heading footer-heading-desktop">
-                      <h6>Infomations</h6>
-                    </div>
-                    <div class="footer-heading footer-heading-moblie">
-                      <h6>Infomations</h6>
-                    </div>
-                    <ul class="footer-menu-list tf-collapse-content">
+                    <a href="contact-1.html" class="tf-btn btn-line"
+                      >Get direction<i class="icon icon-arrow1-top-left"></i
+                    ></a>
+                    <ul class="tf-social-icon d-flex gap-10">
                       <li>
-                          <a href="index.html" class="footer-menu_item"
-                            >Home</a
-                          >
-                        </li>
-                      <li>
-                        <a href="about-us.html" class="footer-menu_item"
-                          >About Us</a
-                        >
+                        <a
+                          href="#"
+                          class="box-icon w_34 round social-facebook social-line"
+                          ><i class="icon fs-14 icon-fb"></i
+                        ></a>
                       </li>
                       <li>
-                        <a href="shop.html" class="footer-menu_item"
-                          >Shop</a
-                        >
+                        <a
+                          href="#"
+                          class="box-icon w_34 round social-twiter social-line"
+                          ><i class="icon fs-12 icon-Icon-x"></i
+                        ></a>
                       </li>
                       <li>
-                          <a href="blogs.html" class="footer-menu_item"
-                            >Blogs</a
-                          >
-                        </li>
-                      <li>
-                        <a href="contact.html" class="footer-menu_item"
-                          >Contact Us</a
-                        >
+                        <a
+                          href="#"
+                          class="box-icon w_34 round social-instagram social-line"
+                          ><i class="icon fs-14 icon-instagram"></i
+                        ></a>
                       </li>
-                   
                     </ul>
-                  </div>
-                  <div class="col-xl-3 col-md-6 col-12">
-                    <div class="footer-newsletter footer-col-block">
-                      <div class="footer-heading footer-heading-desktop">
-                        <h6>Sign Up for Email</h6>
-                      </div>
-                      <div class="footer-heading footer-heading-moblie">
-                        <h6>Sign Up for Email</h6>
-                      </div>
-                      <div class="tf-collapse-content">
-                        <div class="footer-menu_item">
-                          Sign up to get first dibs on new arrivals, sales,
-                          exclusive content, events and more!
-                        </div>
-                        <form
-                          class="form-newsletter"
-                          id="subscribe-form"
-                          action="#"
-                          method="post"
-                          accept-charset="utf-8"
-                          data-mailchimp="true"
-                        >
-                          <div id="subscribe-content">
-                            <fieldset class="email">
-                              <input
-                                type="email"
-                                name="email-form"
-                                id="subscribe-email"
-                                placeholder="Enter your email...."
-                                tabindex="0"
-                                aria-required="true"
-                              />
-                            </fieldset>
-                            <div class="button-submit">
-                              <button
-                                id="subscribe-button"
-                                class="tf-btn btn-sm radius-3 btn-fill btn-icon animate-hover-btn"
-                                type="button"
-                              >
-                                Subscribe<i class="icon icon-arrow1-top-left"></i>
-                              </button>
-                            </div>
-                          </div>
-                          <div id="subscribe-msg"></div>
-                        </form>
-                    
-                      </div>
-                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
-            <div class="footer-bottom">
-              <div class="container">
-                <div class="row">
-                  <div class="col-12">
-                    <div
-                      class="footer-bottom-wrap d-flex gap-20 flex-wrap justify-content-center align-items-center"
-                    >
-                      <div class="footer-menu_item">
-                        © 2025 Trivlogic Private Limited . All Rights Reserved
-                      </div>
-                     
+                <div class="col-xl-3 col-md-6 col-12 footer-col-block">
+                  <div class="footer-heading footer-heading-desktop">
+                    <h6>Customer Services</h6>
+                  </div>
+                  <div class="footer-heading footer-heading-moblie">
+                    <h6>Customer Services</h6>
+                  </div>
+                  <ul class="footer-menu-list tf-collapse-content">
+                    <li>
+                      <a href="privacy-policy.html" class="footer-menu_item"
+                        >Privacy Policy</a
+                      >
+                    </li>
+                    <li>
+                      <a href="delivery-return.html" class="footer-menu_item">
+                        Returns + Exchanges
+                      </a>
+                    </li>
+                    <li>
+                      <a href="shipping-delivery.html" class="footer-menu_item"
+                        >Shipping</a
+                      >
+                    </li>
+                    <li>
+                      <a href="terms-conditions.html" class="footer-menu_item"
+                        >Terms &amp; Conditions</a
+                      >
+                    </li>
+                    <li>
+                      <a href="faq.html" class="footer-menu_item">FAQ’s</a>
+                    </li>
+                    <li>
+                      <a href="login.html" class="footer-menu_item">Account</a>
+                    </li>
+                    <li>
+                      <a href="cart.html" class="footer-menu_item"> Cart</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-xl-3 col-md-6 col-12 footer-col-block">
+                  <div class="footer-heading footer-heading-desktop">
+                    <h6>Infomations</h6>
+                  </div>
+                  <div class="footer-heading footer-heading-moblie">
+                    <h6>Infomations</h6>
+                  </div>
+                  <ul class="footer-menu-list tf-collapse-content">
+                    <li>
+                      <a href="index.html" class="footer-menu_item">Home</a>
+                    </li>
+                    <li>
+                      <a href="about-us.html" class="footer-menu_item"
+                        >About Us</a
+                      >
+                    </li>
+                    <li>
+                      <a href="shop.html" class="footer-menu_item">Shop</a>
+                    </li>
+                    <li>
+                      <a href="blogs.html" class="footer-menu_item">Blogs</a>
+                    </li>
+                    <li>
+                      <a href="contact.html" class="footer-menu_item"
+                        >Contact Us</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-xl-3 col-md-6 col-12">
+                  <div class="footer-newsletter footer-col-block">
+                    <div class="footer-heading footer-heading-desktop">
+                      <h6>Sign Up for Email</h6>
                     </div>
-                  </div>  
+                    <div class="footer-heading footer-heading-moblie">
+                      <h6>Sign Up for Email</h6>
+                    </div>
+                    <div class="tf-collapse-content">
+                      <div class="footer-menu_item">
+                        Sign up to get first dibs on new arrivals, sales,
+                        exclusive content, events and more!
+                      </div>
+                      <form
+                        class="form-newsletter"
+                        id="subscribe-form"
+                        action="#"
+                        method="post"
+                        accept-charset="utf-8"
+                        data-mailchimp="true"
+                      >
+                        <div id="subscribe-content">
+                          <fieldset class="email">
+                            <input
+                              type="email"
+                              name="email-form"
+                              id="subscribe-email"
+                              placeholder="Enter your email...."
+                              tabindex="0"
+                              aria-required="true"
+                            />
+                          </fieldset>
+                          <div class="button-submit">
+                            <button
+                              id="subscribe-button"
+                              class="tf-btn btn-sm radius-3 btn-fill btn-icon animate-hover-btn"
+                              type="button"
+                            >
+                              Subscribe<i class="icon icon-arrow1-top-left"></i>
+                            </button>
+                          </div>
+                        </div>
+                        <div id="subscribe-msg"></div>
+                      </form>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </footer>
-        <!-- /footer -->
-
+          <div class="footer-bottom">
+            <div class="container">
+              <div class="row">
+                <div class="col-12">
+                  <div
+                    class="footer-bottom-wrap d-flex gap-20 flex-wrap justify-content-center align-items-center"
+                  >
+                    <div class="footer-menu_item">
+                      © 2025 Trivlogic Private Limited . All Rights Reserved
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <!-- /footer -->
     </div>
 
     <!-- gotop -->
     <div class="progress-wrap">
-        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
-            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"
-                style="transition: stroke-dashoffset 10ms linear 0s; stroke-dasharray: 307.919, 307.919; stroke-dashoffset: 286.138;">
-            </path>
-        </svg>
+      <svg
+        class="progress-circle svg-content"
+        width="100%"
+        height="100%"
+        viewBox="-1 -1 102 102"
+      >
+        <path
+          d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"
+          style="
+            transition: stroke-dashoffset 10ms linear 0s;
+            stroke-dasharray: 307.919, 307.919;
+            stroke-dashoffset: 286.138;
+          "
+        ></path>
+      </svg>
     </div>
     <!-- /gotop -->
+    <!-- Add Address Modal -->
+    <div
+      class="modal fade"
+      id="addAddressModal"
+      tabindex="-1"
+      aria-labelledby="addAddressModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <form id="addAddressForm">
+            <div class="modal-header">
+              <h5 class="modal-title" id="addAddressModalLabel">
+                Add New Address
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
 
+            <div class="modal-body">
+              <div class="mb-3">
+                <label>Name</label>
+                <input type="text" name="name" class="form-control" required />
+              </div>
 
+              <div class="mb-3">
+                <label>Email (optional)</label>
+                <input type="email" name="email" class="form-control" />
+              </div>
 
+              <div class="mb-3">
+                <label>Phone</label>
+                <input type="text" name="phone" class="form-control" required />
+              </div>
+
+              <div class="mb-3">
+                <label>Address Line 1</label>
+                <input
+                  type="text"
+                  name="addressLine1"
+                  class="form-control"
+                  required
+                />
+              </div>
+
+              <div class="mb-3">
+                <label>Address Line 2</label>
+                <input type="text" name="addressLine2" class="form-control" />
+              </div>
+
+              <div class="mb-3">
+                <label>Landmark</label>
+                <input type="text" name="landmark" class="form-control" />
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label>City</label>
+                  <input
+                    type="text"
+                    name="city"
+                    class="form-control"
+                    required
+                  />
+                </div>
+
+                <div class="col-md-6 mb-3">
+                  <label>District</label>
+                  <input type="text" name="district" class="form-control" />
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label>State</label>
+                  <input
+                    type="text"
+                    name="state"
+                    class="form-control"
+                    required
+                  />
+                </div>
+
+                <div class="col-md-6 mb-3">
+                  <label>Pincode</label>
+                  <input
+                    type="text"
+                    name="pincode"
+                    class="form-control"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label>Address Type</label>
+                <select name="addressType" class="form-select">
+                  <option value="Home">Home</option>
+                  <option value="Work">Work</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+
+              <div class="form-check">
+                <input
+                  type="checkbox"
+                  name="isDefault"
+                  value="true"
+                  class="form-check-input"
+                  id="defaultAddress"
+                />
+                <label class="form-check-label" for="defaultAddress">
+                  Set as default address
+                </label>
+              </div>
+            </div>
+
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-primary">
+                Save Address
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- /Add Address Modal -->
 
     <!-- toolbar-bottom -->
     <div class="tf-toolbar-bottom type-1150">
       <div class="toolbar-item">
-          <a href="index.html" data-bs-toggle="offcanvas" aria-controls="offcanvasLeft">
-              <div class="toolbar-icon">
-                  <i class="icon-home"></i>
-              </div>
-              <div class="toolbar-label">Home</div>
-          </a>
+        <a
+          href="index.html"
+          data-bs-toggle="offcanvas"
+          aria-controls="offcanvasLeft"
+        >
+          <div class="toolbar-icon">
+            <i class="icon-home"></i>
+          </div>
+          <div class="toolbar-label">Home</div>
+        </a>
       </div>
       <div class="toolbar-item">
-          <a href="shop.html" data-bs-toggle="offcanvas" aria-controls="offcanvasLeft">
-              <div class="toolbar-icon">
-                  <i class="icon-shop"></i>
-              </div>
-              <div class="toolbar-label">Shop</div>
-          </a>
+        <a
+          href="shop.html"
+          data-bs-toggle="offcanvas"
+          aria-controls="offcanvasLeft"
+        >
+          <div class="toolbar-icon">
+            <i class="icon-shop"></i>
+          </div>
+          <div class="toolbar-label">Shop</div>
+        </a>
       </div>
 
- 
       <div class="toolbar-item">
-          <a href="#login" data-bs-toggle="modal">
-              <div class="toolbar-icon">
-                  <i class="icon-account"></i>
-              </div>
-              <div class="toolbar-label">Account</div>
-          </a>
+        <a href="#login" data-bs-toggle="modal">
+          <div class="toolbar-icon">
+            <i class="icon-account"></i>
+          </div>
+          <div class="toolbar-label">Account</div>
+        </a>
       </div>
-  
+
       <div class="toolbar-item">
-          <a href="cart.html" data-bs-toggle="modal">
-              <div class="toolbar-icon">
-                  <i class="icon-bag"></i>
-                  <div class="toolbar-count">1</div>
-              </div>
-              <div class="toolbar-label">Cart</div>
-          </a>
+        <a href="cart.html" data-bs-toggle="modal">
+          <div class="toolbar-icon">
+            <i class="icon-bag"></i>
+            <div class="toolbar-count">1</div>
+          </div>
+          <div class="toolbar-label">Cart</div>
+        </a>
       </div>
-  </div>
+    </div>
     <!-- /toolbar-bottom -->
-
-
 
     <!-- mobile menu -->
     <div class="offcanvas offcanvas-start canvas-mb" id="mobileMenu">
@@ -638,9 +951,7 @@
                 aria-controls="dropdown-menu-five"
               >
                 <span>Orders</span>
-            
               </a>
-        
             </li>
             <li class="nav-mb-item">
               <a
@@ -651,9 +962,7 @@
                 aria-controls="dropdown-menu-four"
               >
                 <span>About Us</span>
-                
               </a>
-      
             </li>
             <li class="nav-mb-item">
               <a
@@ -664,40 +973,32 @@
                 aria-controls="dropdown-menu-five"
               >
                 <span>Blogs</span>
-            
               </a>
-        
             </li>
             <li class="nav-mb-item">
-                <a
-                  href="contact.html"
-                  class="collapsed mb-menu-link current"
-                  data-bs-toggle="collapse"
-                  aria-expanded="true"
-                  aria-controls="dropdown-menu-five"
-                >
-                  <span>Contact Us</span>
-              
-                </a>
-          
-              </li>
-              <li class="nav-mb-item">
-                <a
-                  href="cart.html"
-                  class="collapsed mb-menu-link current"
-                  data-bs-toggle="collapse"
-                  aria-expanded="true"
-                  aria-controls="dropdown-menu-five"
-                >
-                  <span>cart</span>
-              
-                </a>
-          
-              </li>
-         
+              <a
+                href="contact.html"
+                class="collapsed mb-menu-link current"
+                data-bs-toggle="collapse"
+                aria-expanded="true"
+                aria-controls="dropdown-menu-five"
+              >
+                <span>Contact Us</span>
+              </a>
+            </li>
+            <li class="nav-mb-item">
+              <a
+                href="cart.html"
+                class="collapsed mb-menu-link current"
+                data-bs-toggle="collapse"
+                aria-expanded="true"
+                aria-controls="dropdown-menu-five"
+              >
+                <span>cart</span>
+              </a>
+            </li>
           </ul>
           <div class="mb-other-content">
-    
             <div class="mb-notice">
               <a href="contact-1.html" class="text-need">Need help ?</a>
             </div>
@@ -707,7 +1008,6 @@
                 New York, NY 10001
               </li>
               <li>Email: <b>info@fashionshop.com</b></li>
-            
             </ul>
           </div>
         </div>
@@ -715,137 +1015,386 @@
           <a href="login.html" class="site-nav-icon"
             ><i class="icon icon-account"></i>Login</a
           >
-         
         </div>
       </div>
     </div>
     <!-- /mobile menu -->
 
-
-
-
     <!-- modal login -->
-    <div class="modal modalCentered fade form-sign-in modal-part-content" id="login">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="header">
-                    <div class="demo-title">Log in</div>
-                    <span class="icon-close icon-close-popup" data-bs-dismiss="modal"></span>
+    <div
+      class="modal modalCentered fade form-sign-in modal-part-content"
+      id="login"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="header">
+            <div class="demo-title">Log in</div>
+            <span
+              class="icon-close icon-close-popup"
+              data-bs-dismiss="modal"
+            ></span>
+          </div>
+          <div class="tf-login-form">
+            <form
+              class=""
+              action="https://themesflat.co/html/ecomus/my-account.html"
+              accept-charset="utf-8"
+            >
+              <div class="tf-field style-1">
+                <input
+                  class="tf-field-input tf-input"
+                  placeholder=" "
+                  type="email"
+                  name=""
+                />
+                <label class="tf-field-label" for="">Email *</label>
+              </div>
+              <div class="tf-field style-1">
+                <input
+                  class="tf-field-input tf-input"
+                  placeholder=" "
+                  type="password"
+                  name=""
+                />
+                <label class="tf-field-label" for="">Password *</label>
+              </div>
+              <div>
+                <a
+                  href="#forgotPassword"
+                  data-bs-toggle="modal"
+                  class="btn-link link"
+                  >Forgot your password?</a
+                >
+              </div>
+              <div class="bottom">
+                <div class="w-100">
+                  <button
+                    type="submit"
+                    class="tf-btn btn-fill animate-hover-btn radius-3 w-100 justify-content-center"
+                  >
+                    <span>Log in</span>
+                  </button>
                 </div>
-                <div class="tf-login-form">
-                    <form class="" action="https://themesflat.co/html/ecomus/my-account.html" accept-charset="utf-8">
-                        <div class="tf-field style-1">
-                            <input class="tf-field-input tf-input" placeholder=" " type="email" name="">
-                            <label class="tf-field-label" for="">Email *</label>
-                        </div>
-                        <div class="tf-field style-1">
-                            <input class="tf-field-input tf-input" placeholder=" " type="password" name="">
-                            <label class="tf-field-label" for="">Password *</label>
-                        </div>
-                        <div>
-                            <a href="#forgotPassword" data-bs-toggle="modal" class="btn-link link">Forgot your
-                                password?</a>
-                        </div>
-                        <div class="bottom">
-                            <div class="w-100">
-                                <button type="submit"
-                                    class="tf-btn btn-fill animate-hover-btn radius-3 w-100 justify-content-center"><span>Log
-                                        in</span></button>
-                            </div>
-                            <div class="w-100">
-                                <a href="#register" data-bs-toggle="modal" class="btn-link fw-6 w-100 link">
-                                    New customer? Create your account
-                                    <i class="icon icon-arrow1-top-left"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </form>
+                <div class="w-100">
+                  <a
+                    href="#register"
+                    data-bs-toggle="modal"
+                    class="btn-link fw-6 w-100 link"
+                  >
+                    New customer? Create your account
+                    <i class="icon icon-arrow1-top-left"></i>
+                  </a>
                 </div>
-            </div>
+              </div>
+            </form>
+          </div>
         </div>
+      </div>
     </div>
-    <div class="modal modalCentered fade form-sign-in modal-part-content" id="forgotPassword">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="header">
-                    <div class="demo-title">Reset your password</div>
-                    <span class="icon-close icon-close-popup" data-bs-dismiss="modal"></span>
+    <div
+      class="modal modalCentered fade form-sign-in modal-part-content"
+      id="forgotPassword"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="header">
+            <div class="demo-title">Reset your password</div>
+            <span
+              class="icon-close icon-close-popup"
+              data-bs-dismiss="modal"
+            ></span>
+          </div>
+          <div class="tf-login-form">
+            <form class="">
+              <div>
+                <p>
+                  Sign up for early Sale access plus tailored new arrivals,
+                  trends and promotions. To opt out, click unsubscribe in our
+                  emails
+                </p>
+              </div>
+              <div class="tf-field style-1">
+                <input
+                  class="tf-field-input tf-input"
+                  placeholder=" "
+                  type="email"
+                  name=""
+                />
+                <label class="tf-field-label" for="">Email *</label>
+              </div>
+              <div>
+                <a href="#login" data-bs-toggle="modal" class="btn-link link"
+                  >Cancel</a
+                >
+              </div>
+              <div class="bottom">
+                <div class="w-100">
+                  <button
+                    type="submit"
+                    class="tf-btn btn-fill animate-hover-btn radius-3 w-100 justify-content-center"
+                  >
+                    <span>Reset password</span>
+                  </button>
                 </div>
-                <div class="tf-login-form">
-                    <form class="">
-                        <div>
-                            <p>Sign up for early Sale access plus tailored new arrivals, trends and promotions. To opt
-                                out, click unsubscribe in our emails</p>
-                        </div>
-                        <div class="tf-field style-1">
-                            <input class="tf-field-input tf-input" placeholder=" " type="email" name="">
-                            <label class="tf-field-label" for="">Email *</label>
-                        </div>
-                        <div>
-                            <a href="#login" data-bs-toggle="modal" class="btn-link link">Cancel</a>
-                        </div>
-                        <div class="bottom">
-                            <div class="w-100">
-                                <button type="submit"
-                                    class="tf-btn btn-fill animate-hover-btn radius-3 w-100 justify-content-center"><span>Reset
-                                        password</span></button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+              </div>
+            </form>
+          </div>
         </div>
+      </div>
     </div>
-    <div class="modal modalCentered fade form-sign-in modal-part-content" id="register">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="header">
-                    <div class="demo-title">Register</div>
-                    <span class="icon-close icon-close-popup" data-bs-dismiss="modal"></span>
+    <div
+      class="modal modalCentered fade form-sign-in modal-part-content"
+      id="register"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="header">
+            <div class="demo-title">Register</div>
+            <span
+              class="icon-close icon-close-popup"
+              data-bs-dismiss="modal"
+            ></span>
+          </div>
+          <div class="tf-login-form">
+            <form class="">
+              <div class="tf-field style-1">
+                <input
+                  class="tf-field-input tf-input"
+                  placeholder=" "
+                  type="text"
+                  name=""
+                />
+                <label class="tf-field-label" for="">First name</label>
+              </div>
+              <div class="tf-field style-1">
+                <input
+                  class="tf-field-input tf-input"
+                  placeholder=" "
+                  type="text"
+                  name=""
+                />
+                <label class="tf-field-label" for="">Last name</label>
+              </div>
+              <div class="tf-field style-1">
+                <input
+                  class="tf-field-input tf-input"
+                  placeholder=" "
+                  type="email"
+                  name=""
+                />
+                <label class="tf-field-label" for="">Email *</label>
+              </div>
+              <div class="tf-field style-1">
+                <input
+                  class="tf-field-input tf-input"
+                  placeholder=" "
+                  type="password"
+                  name=""
+                />
+                <label class="tf-field-label" for="">Password *</label>
+              </div>
+              <div class="bottom">
+                <div class="w-100">
+                  <a
+                    href="register.html"
+                    class="tf-btn btn-fill animate-hover-btn radius-3 w-100 justify-content-center"
+                    ><span>Register</span></a
+                  >
                 </div>
-                <div class="tf-login-form">
-                    <form class="">
-                        <div class="tf-field style-1">
-                            <input class="tf-field-input tf-input" placeholder=" " type="text" name="">
-                            <label class="tf-field-label" for="">First name</label>
-                        </div>
-                        <div class="tf-field style-1">
-                            <input class="tf-field-input tf-input" placeholder=" " type="text" name="">
-                            <label class="tf-field-label" for="">Last name</label>
-                        </div>
-                        <div class="tf-field style-1">
-                            <input class="tf-field-input tf-input" placeholder=" " type="email" name="">
-                            <label class="tf-field-label" for="">Email *</label>
-                        </div>
-                        <div class="tf-field style-1">
-                            <input class="tf-field-input tf-input" placeholder=" " type="password" name="">
-                            <label class="tf-field-label" for="">Password *</label>
-                        </div>
-                        <div class="bottom">
-                            <div class="w-100">
-                                <a href="register.html"
-                                    class="tf-btn btn-fill animate-hover-btn radius-3 w-100 justify-content-center"><span>Register</span></a>
-                            </div>
-                            <div class="w-100">
-                                <a href="#login" data-bs-toggle="modal" class="btn-link fw-6 w-100 link">
-                                    Already have an account? Log in here
-                                    <i class="icon icon-arrow1-top-left"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </form>
+                <div class="w-100">
+                  <a
+                    href="#login"
+                    data-bs-toggle="modal"
+                    class="btn-link fw-6 w-100 link"
+                  >
+                    Already have an account? Log in here
+                    <i class="icon icon-arrow1-top-left"></i>
+                  </a>
                 </div>
-            </div>
+              </div>
+            </form>
+          </div>
         </div>
+      </div>
     </div>
     <!-- /modal login -->
 
-
-
-
-
-
     <!-- Javascript -->
+
+    // Add Address Form Submission Script
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const addressList = document.getElementById("address-list");
+        const addressForm = document.getElementById("addressForm");
+        const addressModal = new bootstrap.Modal(
+          document.getElementById("addAddressModal")
+        );
+        const modalTitle = document.getElementById("addressModalTitle");
+        const section = document.getElementById("address-section");
+        const toastContainer = document.querySelector(".toast-container");
+
+        let editingAddressId = null;
+
+        // ✅ Toast Function
+        function showToast(message, type = "success") {
+          const toast = document.createElement("div");
+          toast.className = `toast align-items-center text-white border-0 show bg-${
+            type === "error" ? "danger" : "success"
+          }`;
+          toast.setAttribute("role", "alert");
+          toast.innerHTML = `
+          <div class="d-flex">
+            <div class="toast-body">${message}</div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+          </div>`;
+          toastContainer.appendChild(toast);
+
+          const bsToast = new bootstrap.Toast(toast, { delay: 2500 });
+          bsToast.show();
+
+          toast.addEventListener("hidden.bs.toast", () => toast.remove());
+        }
+
+        // ✅ Load all addresses
+        async function loadAddresses() {
+          try {
+            const res = await fetch("/address");
+            const addresses = await res.json();
+            section.style.display = "block";
+
+            if (!addresses.length) {
+              addressList.innerHTML = "<p>No addresses found.</p>";
+              return;
+            }
+
+            addressList.innerHTML = addresses
+              .map(
+                (addr) => `
+            <div class="address-box mb_20 p-3 border rounded-3">
+              <p><strong>${addr.name}</strong></p>
+              <p>${addr.addressLine1}, ${addr.city}, ${addr.state} - ${
+                  addr.pincode
+                }</p>
+              <p>Phone: ${addr.phone}</p>
+              ${
+                addr.isDefault
+                  ? '<span class="badge bg-success">Default</span>'
+                  : ""
+              }
+              <div class="mt-2">
+                <button class="btn btn-sm btn-outline-primary me-2" onclick="editAddress('${
+                  addr._id
+                }')">Edit</button>
+                <button class="btn btn-sm btn-outline-danger" onclick="deleteAddress('${
+                  addr._id
+                }')">Delete</button>
+              </div>
+            </div>
+          `
+              )
+              .join("");
+          } catch (err) {
+            console.error("Error loading addresses:", err);
+            showToast("Failed to load addresses", "error");
+          }
+        }
+
+        // ✅ Handle form submission
+        addressForm.addEventListener("submit", async (e) => {
+          e.preventDefault();
+
+          const formData = {
+            name: addressForm.name.value.trim(),
+            phone: addressForm.phone.value.trim(),
+            email: addressForm.email.value.trim(),
+            pincode: addressForm.pincode.value.trim(),
+            state: addressForm.state.value.trim(),
+            city: addressForm.city.value.trim(),
+            addressLine1: addressForm.addressLine1.value.trim(),
+            addressLine2: addressForm.addressLine2.value.trim(),
+            addressType: addressForm.addressType.value,
+            isDefault: addressForm.isDefault.checked,
+          };
+
+          // Validation
+          if (!/^[6-9]\d{9}$/.test(formData.phone)) {
+            return showToast("Enter a valid 10-digit phone number.", "error");
+          }
+          if (!/^\d{6}$/.test(formData.pincode)) {
+            return showToast("Enter a valid 6-digit pincode.", "error");
+          }
+
+          try {
+            const method = editingAddressId ? "PUT" : "POST";
+            const url = editingAddressId
+              ? `/edit-address/${editingAddressId}`
+              : "/create-address";
+
+            const res = await fetch(url, {
+              method,
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(formData),
+            });
+
+            const data = await res.json();
+            if (!res.ok)
+              throw new Error(data.message || "Failed to save address");
+
+            showToast("Address saved successfully");
+            addressModal.hide();
+            addressForm.reset();
+            editingAddressId = null;
+            modalTitle.textContent = "Add New Address";
+            loadAddresses();
+          } catch (err) {
+            console.error(err);
+            showToast(err.message || "Something went wrong.", "error");
+          }
+        });
+
+        // ✅ Edit address
+        window.editAddress = async (id) => {
+          try {
+            const res = await fetch("/address");
+            const addresses = await res.json();
+            const addr = addresses.find((a) => a._id === id);
+            if (!addr) return showToast("Address not found", "error");
+
+            editingAddressId = id;
+            modalTitle.textContent = "Edit Address";
+            for (const key in addr) {
+              if (addressForm[key]) addressForm[key].value = addr[key];
+            }
+            addressForm.isDefault.checked = addr.isDefault;
+            addressModal.show();
+          } catch (err) {
+            console.error(err);
+            showToast("Failed to load address.", "error");
+          }
+        };
+
+        // ✅ Delete address
+        window.deleteAddress = async (id) => {
+          if (!confirm("Delete this address?")) return;
+          try {
+            const res = await fetch(`/delete-address/${id}`, {
+              method: "DELETE",
+            });
+            if (!res.ok) throw new Error("Failed to delete address");
+            showToast("Address deleted successfully");
+            loadAddresses();
+          } catch (err) {
+            console.error(err);
+            showToast("Error deleting address.", "error");
+          }
+        };
+
+        // Initial load
+        loadAddresses();
+      });
+    </script>
+
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/swiper-bundle.min.js"></script>
@@ -858,6 +1407,5 @@
     <script type="text/javascript" src="js/wow.min.js"></script>
     <script type="text/javascript" src="js/multiple-modal.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
-</body>
-
+  </body>
 </html>
