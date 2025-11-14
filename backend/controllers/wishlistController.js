@@ -18,18 +18,18 @@ exports.addToWishlist = async (req, res) => {
         return res.status(400).json({ error: 'Color selection is required for this product' });
       }
     }
-    if (product.hasSizeVariants && !product.hasColorVariants) {
+    /*if (product.hasSizeVariants && !product.hasColorVariants) {
       if (!selectedSize) {
         return res.status(400).json({ error: 'Size selection is required for this product' });
       }
-    }
+    }*/
     if (product.hasColorVariants && product.hasSizeVariants) {
       if (!selectedColor) {
         return res.status(400).json({ error: 'Color selection is required for this product' });
       }
-      if (!selectedSize) {
+     /* if (!selectedSize) {
         return res.status(400).json({ error: 'Size selection is required for this product' });
-      }
+      }*/
     }
 
     if (product.hasColorVariants && !product.hasSizeVariants) {

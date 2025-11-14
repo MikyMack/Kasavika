@@ -1397,7 +1397,7 @@
                       <div class="tf-mini-cart-image">
                         <a href="productDetails.html">
                           <img
-                            src="/images/collections/furniture_cate1.jpg"
+                            src="/images/products/albert-black.jpg"
                             alt=""
                           />
                         </a>
@@ -1422,7 +1422,7 @@
                       <div class="tf-mini-cart-image">
                         <a href="productDetails.html">
                           <img
-                            src="/images/collections/furniture_cate1.jpg"
+                            src="/images/products/albert-black.jpg"
                             alt=""
                           />
                         </a>
@@ -1447,7 +1447,7 @@
                       <div class="tf-mini-cart-image">
                         <a href="productDetails.html">
                           <img
-                            src="/images/collections/furniture_cate1.jpg"
+                            src="/images/products/albert-black.jpg"
                             alt=""
                           />
                         </a>
@@ -1826,7 +1826,7 @@
         <div class="wrap">
           <div class="tf-product-info-item">
             <div class="image">
-              <img src="images/collections/furniture_cate1.jpg" alt="" />
+              <img src="/images/products/albert-black.jpg" alt="" />
             </div>
             <div class="content">
               <a href="productDetails.html">Ribbed Tank Top</a>
@@ -1925,12 +1925,12 @@
               <div class="swiper-wrapper">
                 <div class="swiper-slide">
                   <div class="item modal-prdct">
-                    <img src="images/collections/furniture_cate1.jpg" alt="" />
+                    <img src="/images/products/albert-black.jpg" alt="" />
                   </div>
                 </div>
                 <div class="swiper-slide">
                   <div class="item">
-                    <img src="images/collections/furniture_cate1.jpg" alt="" />
+                    <img src="/images/products/albert-black.jpg" alt="" />
                   </div>
                 </div>
               </div>
@@ -2170,45 +2170,19 @@
     });
   </script>
 
-  <script>
-    // On login success page or after authentication
-    document.addEventListener('DOMContentLoaded', () => {
-      const pendingWishlist = localStorage.getItem('pendingWishlistItem');
-
-      if (pendingWishlist) {
-        const item = JSON.parse(pendingWishlist);
-
-        fetch('/create-wishlist', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(item)
-        })
-          .then(res => res.json())
-          .then(data => {
-            if (data.success) {
-              showToast('Product added to wishlist!', 'success');
-            }
-            localStorage.removeItem('pendingWishlistItem');
-          });
-      }
-    });
-  </script>
-
-
-
+ 
 
   // add to wishlist
-  <script>
+ <script>
+// ⭐ Clear any pending wishlist items immediately
+localStorage.removeItem('pendingWishlistItem');
 
 document.addEventListener('DOMContentLoaded', () => {
   console.log('✅ Product page scripts loaded');
 
-  // ==========================================
-  // TOAST NOTIFICATION FUNCTION (Toastify)
-  // ==========================================
+  // TOAST NOTIFICATION FUNCTION
   function showToast(message, type = 'success') {
     if (typeof Toastify === 'undefined') {
-      console.error('❌ Toastify not loaded, using alert instead');
       alert(message);
       return;
     }
@@ -2218,7 +2192,6 @@ document.addEventListener('DOMContentLoaded', () => {
       duration: 3000,
       gravity: "top",
       position: "right",
-      stopOnFocus: true,
       className: type === 'error' ? 'toast-error' : 'toast-success',
       style: {
         borderRadius: "8px",
@@ -2229,233 +2202,118 @@ document.addEventListener('DOMContentLoaded', () => {
     }).showToast();
   }
 
-  // ==========================================
   // COLOR SELECTION
-  // ==========================================
   const colorButtons = document.querySelectorAll('.color-btn');
   const currentColorLabel = document.querySelector('.value-currentColor');
 
   colorButtons.forEach((btn, index) => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
-      console.log('🔵 Color selected:', btn.dataset.value);
-
-      // Remove selected from all
       colorButtons.forEach(b => b.classList.remove('selected'));
-      
-      // Add selected to clicked
       btn.classList.add('selected');
-
-      // Update label
+      
       const color = btn.dataset.value;
-      if (currentColorLabel) {
-        currentColorLabel.textContent = color;
-      }
+      if (currentColorLabel) currentColorLabel.textContent = color;
 
-      // Update main image if available
       const mainImage = document.querySelector('.tf-product-media-main img');
       const images = JSON.parse(btn.dataset.images || '[]');
-      if (images.length > 0 && mainImage) {
-        mainImage.src = images[0];
-      }
+      if (images.length > 0 && mainImage) mainImage.src = images[0];
     });
 
-    // Select first color by default
-    if (index === 0) {
-      btn.classList.add('selected');
-    }
+    if (index === 0) btn.classList.add('selected');
   });
 
-  // ==========================================
   // SIZE SELECTION
-  // ==========================================
   const sizeButtons = document.querySelectorAll('.size-btn');
   const currentSizeLabel = document.querySelector('.value-currentSize');
 
-  sizeButtons.forEach((btn, index) => {
+  sizeButtons.forEach((btn) => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
-      console.log('🔵 Size selected:', btn.dataset.value);
-
-      // Remove selected from all
       sizeButtons.forEach(b => b.classList.remove('selected'));
-      
-      // Add selected to clicked
       btn.classList.add('selected');
-
-      // Update label
+      
       const size = btn.dataset.value;
-      if (currentSizeLabel) {
-        currentSizeLabel.textContent = size;
-      }
+      if (currentSizeLabel) currentSizeLabel.textContent = size;
     });
   });
 
-  // ==========================================
   // ADD TO WISHLIST
-  // ==========================================
   const addToWishlistBtn = document.querySelector('.btn-add-to-wishlist');
 
   if (addToWishlistBtn) {
-    console.log('✅ Wishlist button found');
-    
     addToWishlistBtn.addEventListener('click', async (e) => {
       e.preventDefault();
-      console.log('🔵 Add to wishlist clicked');
 
       const productId = addToWishlistBtn.dataset.productId;
-      console.log('🔵 Product ID:', productId);
-
-      // Get selected color
       const selectedColorBtn = document.querySelector('.color-btn.selected');
       const selectedColor = selectedColorBtn ? selectedColorBtn.dataset.value : null;
-      console.log('🔵 Selected Color:', selectedColor);
-
-      // Get selected size
       const selectedSizeBtn = document.querySelector('.size-btn.selected');
       const selectedSize = selectedSizeBtn ? selectedSizeBtn.dataset.value : null;
-      console.log('🔵 Selected Size:', selectedSize);
 
       // Validation
       if (document.querySelector('.color-btn') && !selectedColor) {
-        console.log('⚠️ No color selected');
         showToast('Please select a color!', 'error');
         return;
       }
 
       if (document.querySelector('.size-btn') && !selectedSize) {
-        console.log('⚠️ No size selected');
         showToast('Please select a size!', 'error');
         return;
       }
 
-      // Disable button while processing
+      // Disable button
       const originalText = addToWishlistBtn.innerHTML;
       addToWishlistBtn.innerHTML = '<span>Adding...</span>';
-      addToWishlistBtn.style.pointerEvents = 'none';
+      addToWishlistBtn.disabled = true;
       addToWishlistBtn.style.opacity = '0.6';
 
       try {
-        console.log('🔵 Sending request to /create-wishlist...');
-        
         const response = await fetch('/create-wishlist', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            productId,
-            selectedColor,
-            selectedSize
-          })
+          body: JSON.stringify({ productId, selectedColor, selectedSize })
         });
 
-        console.log('🔵 Response Status:', response.status);
-
-        // Handle not authenticated
+        // Not authenticated
         if (response.status === 401) {
-          console.log('❌ User not authenticated (401)');
-          showToast('Please login to add products to wishlist', 'error');
-          
-          // Store for after login
+          showToast('Please login first', 'error');
           setTimeout(() => {
-            localStorage.setItem('pendingWishlistItem', JSON.stringify({
-              productId,
-              selectedColor,
-              selectedSize
-            }));
-            console.log('🔵 Redirecting to login...');
             window.location.href = '/auth/login';
-          }, 2000);
-          
-          // Reset button
-          addToWishlistBtn.innerHTML = originalText;
-          addToWishlistBtn.style.pointerEvents = 'auto';
-          addToWishlistBtn.style.opacity = '1';
+          }, 1500);
           return;
         }
 
         const data = await response.json();
-        console.log('🔵 Response Data:', data);
 
         if (response.ok) {
-          console.log('✅ Successfully added to wishlist');
-          showToast('Added to wishlist successfully!', 'success');
-          
-          // Update button text
-          addToWishlistBtn.innerHTML = '<span>✓ Added to Wishlist</span>';
-          
-          // Reset after 2 seconds
-          setTimeout(() => {
-            addToWishlistBtn.innerHTML = originalText;
-            addToWishlistBtn.style.pointerEvents = 'auto';
-            addToWishlistBtn.style.opacity = '1';
-          }, 2000);
+          showToast('Added to wishlist!', 'success');
+          addToWishlistBtn.innerHTML = '<span>✓ In Wishlist</span>';
         } else {
-          console.log('❌ Failed to add to wishlist:', data.error);
-          showToast(data.error || 'Failed to add to wishlist', 'error');
-          addToWishlistBtn.innerHTML = originalText;
-          addToWishlistBtn.style.pointerEvents = 'auto';
-          addToWishlistBtn.style.opacity = '1';
+          // Handle "already in wishlist" gracefully
+          if (data.error && data.error.toLowerCase().includes('already')) {
+            showToast('Already in your wishlist', 'info');
+            addToWishlistBtn.innerHTML = '<span>✓ In Wishlist</span>';
+          } else {
+            showToast(data.error || 'Failed to add', 'error');
+            addToWishlistBtn.innerHTML = originalText;
+            addToWishlistBtn.disabled = false;
+            addToWishlistBtn.style.opacity = '1';
+          }
         }
 
       } catch (err) {
-        console.error('❌ Error:', err);
+        console.error('Wishlist error:', err);
         showToast('Something went wrong!', 'error');
         addToWishlistBtn.innerHTML = originalText;
-        addToWishlistBtn.style.pointerEvents = 'auto';
+        addToWishlistBtn.disabled = false;
         addToWishlistBtn.style.opacity = '1';
       }
     });
-  } else {
-    console.error('❌ Wishlist button not found!');
-  }
-
-  console.log('✅ All event listeners attached');
-});
-
-// ==========================================
-// HANDLE PENDING WISHLIST AFTER LOGIN
-// ==========================================
-window.addEventListener('load', async () => {
-  const pendingWishlist = localStorage.getItem('pendingWishlistItem');
-  
-  if (pendingWishlist) {
-    console.log('🔵 Found pending wishlist item, attempting to add...');
-    const item = JSON.parse(pendingWishlist);
-
-    try {
-      const response = await fetch('/create-wishlist', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(item)
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        console.log('✅ Pending wishlist item added successfully');
-        if (typeof Toastify !== 'undefined') {
-          Toastify({
-            text: 'Product added to wishlist!',
-            duration: 3000,
-            gravity: "top",
-            position: "right",
-            className: 'toast-success',
-            style: {
-              borderRadius: "8px",
-              padding: "16px",
-              fontSize: "15px",
-              fontWeight: "500"
-            }
-          }).showToast();
-        }
-      }
-      localStorage.removeItem('pendingWishlistItem');
-    } catch (err) {
-      console.error('❌ Error adding pending wishlist item:', err);
-      localStorage.removeItem('pendingWishlistItem');
-    }
   }
 });
 </script>
+
     
 
 
@@ -2481,6 +2339,7 @@ window.addEventListener('load', async () => {
 
   <script type="module" src="/js/model-viewer.min.js"></script>
   <script type="module" src="/js/zoom.js"></script>
+ 
 
   
 </body>
