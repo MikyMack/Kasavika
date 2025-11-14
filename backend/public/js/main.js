@@ -986,7 +986,7 @@ var totalVariant = function () {
     scrollProgress();
     headerSticky();
     scrollBottomSticky();
-    totalPriceVariant();
+    /*totalPriceVariant();*/
     scrollGridProduct();
     checkClick();
     filterTab();
